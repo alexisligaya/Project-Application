@@ -1,0 +1,16 @@
+[{
+     "id": "45bcfa5d-de47-48ef-ab3a-7038377a4583",
+    "firstName":"Jane",
+    "lastName":"Doe",
+    "userName":"jdoe1",
+    "email":"jdoe123@gmail.com",
+    "password":"93nfjnx2",
+    "dateofBirth": "02/02/2002",
+    "tasks":[{
+        "task1": "feb85c80-f59f-4de4-ab1a-91a7fb22bd9e",
+        "task2": "daf05016-560d-44f1-98e0-33d6033406cd",
+        "task3": "2ae850e1-d050-45af-b177-d3623647f1ba"
+        }]        
+}]
+
+
