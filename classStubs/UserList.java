@@ -6,5 +6,9 @@ public class UserList {
     public UserList(ArrayList<User> users) {
         this.users = users;
     }
+
+    public ArrayList<User> users(){
+        return users;
+    }
 }
 

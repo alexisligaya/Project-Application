@@ -15,3 +15,24 @@ public class Tasks {
         this.hours = hours;
         this.comments = comments;
     }
+
+    public Date getDeadline(){
+        return deadline;
+    }
+
+    public String getTaskDescription(){
+        return taskDescription;
+    }
+
+    public int getPriority(){
+        return priority;
+    }
+
+    public double getHours(){
+        return hours;
+    }
+
+    public ArrayList<Comment> getComments(){
+        return comments;
+    }
+}
