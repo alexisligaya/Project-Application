@@ -6,7 +6,7 @@ import org.json.simple.parser.JSONParser;;
 
 public class DataLoader extends DataConstants{
 	
-    public static ArrayList<User> loadPeople() {
+    public static ArrayList<User> loadUsers() {
 		ArrayList<User> user = new ArrayList<User>();
 		
 		try {
@@ -29,7 +29,7 @@ public class DataLoader extends DataConstants{
 				user.add(new User(userID, firstName, lastName, username, email, password, dob, userTasks));
 			}
 			
-			return people;
+			return user;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
