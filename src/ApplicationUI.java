@@ -5,7 +5,7 @@ public class ApplicationUI {
     private Application application;
     private Scanner scanner;
     
-    ApplicationUI(){
+    public ApplicationUI(){
         application = new Application(); 
     }
     public void run(){

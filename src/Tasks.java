@@ -35,4 +35,13 @@ public class Tasks {
     public ArrayList<Comment> getComments(){
         return comments;
     }
+
+    public String toString(){
+        String result = "Deadline: " + this.deadline;
+        result += "\nTask Description: "+this.taskDescription;
+        result += "\nPriority: " + this.priority;
+        result += "\nHours: " + this.hours;
+        result += "\nComments" + this.comments;
+        return result;
+    }
 }

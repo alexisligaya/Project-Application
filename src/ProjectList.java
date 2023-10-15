@@ -10,4 +10,10 @@ public class ProjectList {
     public ArrayList<Project> getProjects(){
         return projects;
     }
+
+    public String toString(){
+        String result = "Projects: " + this.projects;
+        return result;
+    }
 }
+

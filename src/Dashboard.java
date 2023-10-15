@@ -10,5 +10,10 @@ public class Dashboard {
     public ArrayList<Project> getListOfProjects(){
         return listOfProjects;
     }
+
+    public String toString(){
+        String result = "List of Projects: " + this.listOfProjects;
+        return result;
+    }
 }
 

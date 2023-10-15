@@ -63,4 +63,16 @@ public class Project {
         return instance;
     }
 
+    public String toString(){
+        String result = "Project ID: " + this.projectID;
+        result += "\nName: "+this.name;
+        result += "\nDescription: " + this.description;
+        result += "\nRating: " + this.rating;
+        result += "\nIs Finished: " + this.isFinished;
+        result += "\nIs Public: " + this.isPublic;
+        result += "\nColumn List: " + this.columnList;
+        result += "\nMembers: " + this.members;
+        return result;
+    }
+
 }

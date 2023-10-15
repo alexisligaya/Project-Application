@@ -28,4 +28,12 @@ public class Change {
     public Project getProject(){
         return project;
     }
+
+    public String toString(){
+        String result = "Decription: " + this.description;
+        result += "\nDate: "+this.date;
+        result += "\nUser: " + this.user;
+        result += "\nProject: " + this.project;
+        return result;
+    }
 }

@@ -46,4 +46,14 @@ public class Team {
         }
         return instance;
     }
-}   
+
+    public String toString(){
+        String result = "Members: " + this.members;
+        result += "\nProduct Owner: "+this.productOwner;
+        result += "\nScrum Master: " + this.scrumMaster;
+        result += "\nScrum Team Members: " + this.scrumTeamMembers;
+        result += "\nProjects: " + this.projects;
+        return result;
+    }
+}
+

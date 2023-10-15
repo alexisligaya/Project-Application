@@ -61,4 +61,16 @@ public class User {
         instance = new User();
     return instance;
    }
+
+   public String toString(){
+    String result = "User ID: " + this.userID;
+    result += "\nFirst name: "+this.firstName;
+    result += "\nLast name: " + this.lastName;
+    result += "\nUsername: " + this.userName;
+    result += "\nEmail: " + this.email;
+    result += "\nPassword: " + this.password;
+    result += "\nDate of Birth: " + this.dateOfBirth;
+    result += "\nTasks: " + this.tasks;
+    return result;
+}
 }

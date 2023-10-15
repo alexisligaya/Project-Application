@@ -10,5 +10,10 @@ public class UserList {
     public ArrayList<User> users(){
         return users;
     }
+
+    public String toString(){
+        String result= "Users: " + this.users;
+        return result;
+    }
 }
 

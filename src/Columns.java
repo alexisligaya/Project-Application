@@ -17,4 +17,10 @@ public class Columns {
         return tasks;
     }
 
+    public String toString(){
+        String result = "Title: " + this.title;
+        result += "\nTasks: "+this.tasks;
+        return result;
+    }
+
 }

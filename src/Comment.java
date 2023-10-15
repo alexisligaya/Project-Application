@@ -29,4 +29,11 @@ public class Comment {
         return commentList;
     }
 
+    public String toString(){
+        String result = "Date: " + this.date;
+        result += "\nText: "+this.text;
+        result += "\nComment By: " + this.commentBy;
+        return result;
+    }
+
 }

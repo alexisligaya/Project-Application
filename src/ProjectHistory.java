@@ -18,4 +18,9 @@ public class ProjectHistory {
         return lastUpdate;
     }
 
+    public String toString(){
+        String result = "Changes: " + this.changes;
+        result += "\nLast Update: "+this.lastUpdate;
+        return result;
+    }
 }
