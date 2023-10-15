@@ -6,6 +6,7 @@ public class Team {
     private User scrumMaster;
     private ArrayList<User> scrumTeamMembers;
     private ArrayList<Project> projects;
+    private static Team instance;
 
     public Team(ArrayList<User> members, User productOwner, User scrumMaster, ArrayList<User> scrumTeamMembers, ArrayList<Project> projects){
         this.members=members;
@@ -13,6 +14,10 @@ public class Team {
         this.scrumMaster=scrumMaster;
         this.scrumTeamMembers=scrumTeamMembers;
         this.projects=projects;
+    }
+
+    private Team(){
+
     }
 
     public ArrayList<User> getMembers(){
@@ -35,4 +40,10 @@ public class Team {
         return projects;
     }
 
+    public static Team getInstance(){
+        if(instance == null){
+            instance = new Team();
+        }
+        return instance;
+    }
 }   

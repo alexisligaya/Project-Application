@@ -7,6 +7,7 @@ public class User {
     private String firstName, lastName, userName, email, password;
     private Date dateOfBirth;
     private ArrayList<Tasks> tasks;
+    private static User instance;
 
     public User(UUID userID, String firstName, String lastName, String userName, String email, String password, Date dateOfBirth, ArrayList<Tasks> tasks) {
         this.userID = userID;
@@ -17,6 +18,10 @@ public class User {
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.tasks = tasks;
+    }
+
+    private User(){
+        
     }
 
     public UUID getUserID(){
@@ -49,5 +54,11 @@ public class User {
 
    public ArrayList<Tasks> getTasks(){
         return tasks;
+   }
+
+   public static User getInstance(){
+    if(instance == null)
+        instance = new User();
+    return instance;
    }
 }

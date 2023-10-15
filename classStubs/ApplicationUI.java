@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class ApplicationUI {
     private static final String WELCOME_MESSAGE = "Welcome to out Application";
     private Application application;
-
+    private Scanner scanner;
+    
     ApplicationUI(){
         application = new Application(); 
     }
@@ -15,6 +16,5 @@ public class ApplicationUI {
         ApplicationUI applicationInterface = new ApplicationUI();
         applicationInterface.run();
     }
-
 
 }

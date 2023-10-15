@@ -1,32 +1,25 @@
-import java.util.ArrayList;
 
 public class Application {
-    private ArrayList<Project> currentProject;
-    private ArrayList<User> currentUsers;
-    private ArrayList<Team> team;
-    private ArrayList<Project> archivedProjects;
+    private User users;
+    private Project project;
+    private Team team;
 
-    public Application(ArrayList<Project> currentProject, ArrayList<Team> team, ArrayList<User> currentUsers, ArrayList<Project> archivedProjects){
-        this.currentProject=currentProject;
-        this.currentUsers=currentUsers;
-        this.team=team;
-        this.archivedProjects=archivedProjects;
+    public Application(){
+        users=User.getInstance();
+        project=Project.getInstance();
+        team=Team.getInstance();
     }
 
-    public ArrayList<Project> getCurrentProject(){
-        return currentProject;
+    public User getUsers(){
+        return users;
     }
 
-    public ArrayList<User> getCurrentUsers(){
-        return currentUsers;
+    public Project getProject(){
+        return project;
     }
 
-    public ArrayList<Team> getTeam(){
+    public Team getTeam(){
         return team;
-    }
-
-    public ArrayList<Project> getArchivedProjects(){
-        return archivedProjects;
     }
 
     public boolean login(String userName, String password){ //user logs in
