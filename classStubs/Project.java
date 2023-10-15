@@ -8,6 +8,7 @@ public class Project {
     private boolean isFinished, isPublic;
     private ArrayList<Columns> columnList;
     private ArrayList<User> members;
+    private static Project instance;
 
     public Project(UUID projectID, String name, String description, float rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members){
         this.projectID= projectID;
@@ -18,6 +19,10 @@ public class Project {
         this.isPublic = isPublic;
         this.columnList= columnList;
         this.members= members;
+    }
+
+    private Project(){
+
     }
 
     public UUID getProjectID(){
@@ -50,6 +55,12 @@ public class Project {
 
     public ArrayList<User> getMembers(){
         return members;
+    }
+
+    public static Project getInstance(){
+        if(instance == null)
+            instance = new Project();
+        return instance;
     }
 
 }
