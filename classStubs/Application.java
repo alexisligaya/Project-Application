@@ -28,4 +28,8 @@ public class Application {
     public ArrayList<Project> getArchivedProjects(){
         return archivedProjects;
     }
+
+    public boolean login(String userName, String password){ //user logs in
+        return true;
+    }
 }
