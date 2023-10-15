@@ -9,8 +9,4 @@ public abstract class DataConstants {
     protected static final String USER_DOB = "dateOfBirth";
     protected static final String USER_TASKS = "tasks";
 
-
-
-
-
 }
