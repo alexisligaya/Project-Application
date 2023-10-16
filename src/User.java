@@ -9,7 +9,7 @@ public class User {
     private ArrayList<Tasks> tasks;
     private static User instance;
 
-    public User(UUID userID, String firstName, String lastName, String userName, String email, String password, Date dateOfBirth, ArrayList<Tasks> tasks) {
+    public User(UUID userID, String firstName, String lastName, String userName, String email, String password, Date dateOfBirth) {
         this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -17,7 +17,6 @@ public class User {
         this.email = email;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
-        this.tasks = tasks;
     }
 
     private User(){
@@ -52,10 +51,6 @@ public class User {
         return dateOfBirth;
     }
 
-   public ArrayList<Tasks> getTasks(){
-        return tasks;
-   }
-
    public static User getInstance(){
     if(instance == null)
         instance = new User();
@@ -70,7 +65,6 @@ public class User {
     result += "\nEmail: " + this.email;
     result += "\nPassword: " + this.password;
     result += "\nDate of Birth: " + this.dateOfBirth;
-    result += "\nTasks: " + this.tasks;
     return result;
 }
 }
