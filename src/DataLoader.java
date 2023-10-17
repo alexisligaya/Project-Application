@@ -37,4 +37,31 @@ public class DataLoader extends DataConstants{
 		
 		return null;
 	}
+
+	public static ArrayList<Project> loadProjects(){
+		ArrayList<Project> projects = new ArrayList<Project>();
+
+		try{
+			FileReader reader = new FileReader("json/project.json");
+			JSONParser parser = new JSONParser();
+			JSONArray projectJSON = new JSONParsers();
+
+			for(int i = 0; i < projectJSON.size(); i++){
+				JSONObject projectDataa = (JSONObject) project.JSON.get(i);
+				String projectID = (String)projectJSON.get(PROJECT_ID);
+				String name = (String)projectJSON.get(PROJECT_NAME);
+				String description= (String)projectJSON.get(PROJECT_DESCRIPTION);
+				float rating = (float)projectJSON.get(PROJECT_RATING);
+				boolean isFinished = (boolean)projectJSON.get(PROJECT_IS_FINISHED);
+				boolean isPublic = (boolean)projectJSON.get(PROJECT_IS_PUBLIC);
+				JSONArray columnList = (JSONArray)projectJSON.get(PROJECT_COLUMN_LIST);
+				
+				projects.add(new Project(projectID, name, description, rating, isFinished, isPublic, columnList));
+			}
+			return projects;
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
