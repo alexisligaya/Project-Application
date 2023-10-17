@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class UserList {
     private static UserList instance;
@@ -18,18 +19,27 @@ public class UserList {
         return users;
     }
 
-    public void addUser(User user){
-        this.users.add(user);
-    }
+    public User addUser(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
+        //validate credentials
+        if(firstName == null || lastName == null || userName == null || email == null || password == null || dateOfBirth == null)
+            return null;
 
-    public void addUser(String firstName, String lastName, String username, String email, String password, String dateOfBirth){
-       
+        //make a user
+        for(User user : users){
+            if(user.getUserName().equals(userName) || user.getEmail().equals(email))
+                return null;
+        }
+
+        //add to list
+        User newUser = new User(firstName, lastName, userName, email, password, dateOfBirth);
+        users.add(newUser);
+
+        //return null if not successful
     }
 
     public void saveUser(User user){
 
     }
-
 
     public String toString(){
         String result= "Users: " + this.users;

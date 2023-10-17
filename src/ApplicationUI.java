@@ -17,4 +17,9 @@ public class ApplicationUI {
         applicationInterface.run();
     }
 
+    //sign up
+   
+
+    //log in
+
 }
