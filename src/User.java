@@ -72,5 +72,5 @@ public class User {
     result += "\nPassword: " + this.password;
     result += "\nDate of Birth: " + this.dateOfBirth;
     return result;
-}
+    }
 }
