@@ -9,7 +9,7 @@ import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants {
     
     public static void saveUsers() {
-        // User user = User.getInstance();                      (don't delete, will need later)
+        // User user = User.getInstance();                      (don't delete, will need later)!!!!!!!
         // ArrayList<User> users = user.getUsers();
         
         //hardcoding some users for testing purposes
