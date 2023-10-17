@@ -21,7 +21,7 @@ public class User {
     }
 
     private User(){
-        
+        this.userID = UUID.randomUUID();
     }
 
     public UUID getUserID(){
