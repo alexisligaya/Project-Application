@@ -1,14 +1,25 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
     
     public static void saveUsers() {
-        User user = User.getInstance();
-        ArrayList<User> users = user.getUsers();
+        // User user = User.getInstance();
+        // ArrayList<User> users = user.getUsers();
+        ArrayList<User> users = new ArrayList<>();
+        User user1 = new User( "John", "Doe", "JohnnyD", "JD101@gmail.com", "JD10101", new Date());
+        User user2 = new User( "Jane", "Doe", "JaneDoe123", "Doe123@gmail.com", "JaneLovesCats", new Date());
+        User user3 = new User( "Casey", "Vu", "CaseyVuDoo", "Vu001@gmail.com", "Casey123@", new Date());
+
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+
         JSONArray jsonUsers = new JSONArray();
         
         // Creating JSON objects for each user
@@ -35,11 +46,11 @@ public class DataWriter extends DataConstants {
         userObject.put(USER_PASSWORD, user.getPassword());
         userObject.put(USER_DOB, user.getDateOfBirth().toString());
         
-        JSONArray tasksArray = new JSONArray();
-        for (Tasks task : user.getTasks()) {
-            tasksArray.add(task.toString());
-        }
-        userObject.put(USER_TASKS, tasksArray);
+        // JSONArray tasksArray = new JSONArray();
+        // for (Tasks task : user.getTasks()) {
+        //     tasksArray.add(task.toString());
+        // }
+        // userObject.put(USER_TASKS, tasksArray);
         
         return userObject;
     }

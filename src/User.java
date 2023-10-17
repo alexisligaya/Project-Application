@@ -19,8 +19,14 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    private User(){
-        
+    public User(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
+        this.userID = UUID.randomUUID();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public UUID getUserID(){
