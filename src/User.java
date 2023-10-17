@@ -61,7 +61,7 @@ public class User {
 
     public static User getInstance() {
         if (instance == null)
-            instance = new User();
+            instance = new User(UUID.randomUUID(), "John", "Doe", "JohnDoe","", "", new Date());
         return instance;
     }
 
