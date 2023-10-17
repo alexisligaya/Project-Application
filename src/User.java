@@ -19,7 +19,6 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-<<<<<<< HEAD
     public User(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
         this.userID = UUID.randomUUID();
         this.firstName = firstName;
@@ -28,10 +27,6 @@ public class User {
         this.email = email;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
-=======
-    private User(){
-        this.userID = UUID.randomUUID();
->>>>>>> ebf297904ea32d285e299d9cc36dcd13050fa0e2
     }
 
     public UUID getUserID(){
@@ -77,5 +72,5 @@ public class User {
     result += "\nPassword: " + this.password;
     result += "\nDate of Birth: " + this.dateOfBirth;
     return result;
-}
+    }
 }
