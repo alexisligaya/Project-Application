@@ -1,7 +1,6 @@
 import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 import java.text.ParseException;
@@ -55,8 +54,6 @@ public class DataLoader extends DataConstants{
 	}
 	
     
-
-
 	public static ArrayList<Project> loadProjects(){
 		ArrayList<Project> projects = new ArrayList<Project>();
 
