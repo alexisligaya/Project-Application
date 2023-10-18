@@ -39,8 +39,13 @@ public class UserList {
         users.add(newUser);
 
         //return null if not successful
+<<<<<<< HEAD
         //create newUser if successful
         return true;
+=======
+        //newUser if successful
+        return newUser;
+>>>>>>> d85f4ee5dadf49322188c280443bb0f9d3195f73
     }
 
     
