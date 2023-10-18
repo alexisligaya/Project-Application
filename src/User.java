@@ -8,8 +8,8 @@ public class User {
     private Date dateOfBirth;
     private static User instance;
 
-    public User(UUID userID, String firstName, String lastName, String userName, String email, String password, Date dateOfBirth) {
-        this.userID = userID;
+    public User(String userID2, String firstName, String lastName, String userName, String email, String password, Date dateOfBirth) {
+        this.userID = userID2;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
