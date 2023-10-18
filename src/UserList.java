@@ -39,7 +39,7 @@ public class UserList {
         users.add(newUser);
 
         //return null if not successful
-        //newUser if successful
+        //create newUser if successful
         return newUser;
     }
 
