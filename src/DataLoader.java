@@ -1,8 +1,14 @@
 import java.io.FileReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.ParseException;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;;
+import org.json.simple.parser.JSONParser;
+
 
 public class DataLoader extends DataConstants{
 	
@@ -10,23 +16,21 @@ public class DataLoader extends DataConstants{
 		ArrayList<User> user = new ArrayList<User>();
 		
 		try {
-			FileReader reader = new FileReader(USER_FILE);
+			FileReader reader = new FileReader(USER_FILE_NAME);
 			JSONParser parser = new JSONParser();
-			JSONArray userJSON = (JSONArray)new JSONParser().parse(reader);
+			JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
 			
-			for(int i=0; i < userJSON.size(); i++) {
-				JSONObject personJSON = (JSONObject)userJSON.get(i);
-				String userID = (String)userJSON.get(USER_ID);
-				String firstName = (String)userJSON.get(USER_FIRST_NAME);
-                String lastName = (String)userJSON.get(USER_LAST_NAME);
-                String username = (String)userJSON.get(USER_USERNAME);
-                String email = (String)userJSON.get(USER_EMAIL);
-                String password = (String)userJSON.get(USER_PASSWORD);
-                Date dob = (Date)userJSON.get(USER_DOB);
-                ArrayList<Tasks> userTasks = (ArrayList<Tasks>)userJSON.get(USER_TASKS);
-
+			for(int i=0; i < usersJSON.size(); i++) {
+				JSONObject personJSON = (JSONObject)usersJSON.get(i);
+				String userID = (String)personJSON.get(USER_ID);
+				String firstName = (String)personJSON.get(USER_FIRST_NAME);
+                String lastName = (String)personJSON.get(USER_LAST_NAME);
+                String username = (String)personJSON.get(USER_USERNAME);
+                String email = (String)personJSON.get(USER_EMAIL);
+                String password = (String)personJSON.get(USER_PASSWORD);
+                Date dob = stringToDate((String)personJSON.get(USER_DOB));
 				
-				user.add(new User(userID, firstName, lastName, username, email, password, dob, userTasks));
+				user.add(new User(userID, firstName, lastName, username, email, password, dob));
 			}
 			
 			return user;
@@ -35,8 +39,22 @@ public class DataLoader extends DataConstants{
 			e.printStackTrace();
 		}
 		
-		return null;
+			return null;
 	}
+
+	public static Date stringToDate(String dateText) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy"); // Corrected the date format pattern
+		try {
+			Date date = dateFormat.parse(dateText);
+			return date;
+		} catch (ParseException e) {
+			e.printStackTrace(); // Handle parsing errors by printing or logging the exception
+			return null;
+		}
+	}
+	
+    
+
 
 	public static ArrayList<Project> loadProjects(){
 		ArrayList<Project> projects = new ArrayList<Project>();
@@ -44,17 +62,17 @@ public class DataLoader extends DataConstants{
 		try{
 			FileReader reader = new FileReader("json/project.json");
 			JSONParser parser = new JSONParser();
-			JSONArray projectJSON = new JSONParsers();
+			JSONArray projectJSON = (JSONArray)new JSONParser().parse(reader);
 
 			for(int i = 0; i < projectJSON.size(); i++){
-				JSONObject projectDataa = (JSONObject) project.JSON.get(i);
-				String projectID = (String)projectJSON.get(PROJECT_ID);
-				String name = (String)projectJSON.get(PROJECT_NAME);
-				String description= (String)projectJSON.get(PROJECT_DESCRIPTION);
-				float rating = (float)projectJSON.get(PROJECT_RATING);
-				boolean isFinished = (boolean)projectJSON.get(PROJECT_IS_FINISHED);
-				boolean isPublic = (boolean)projectJSON.get(PROJECT_IS_PUBLIC);
-				JSONArray columnList = (JSONArray)projectJSON.get(PROJECT_COLUMN_LIST);
+				JSONObject projectDataa = (JSONObject) projectJSON.get(i) ;
+				String projectID = (String)projectDataa.get(PROJECT_ID);
+				String name = (String)projectDataa.get(PROJECT_NAME);
+				String description= (String)projectDataa.get(PROJECT_DESCRIPTION);
+				float rating = (float)projectDataa.get(PROJECT_RATING);
+				boolean isFinished = (boolean)projectDataa.get(PROJECT_IS_FINISHED);
+				boolean isPublic = (boolean)projectDataa.get(PROJECT_IS_PUBLIC);
+				JSONArray columnList = (JSONArray)projectDataa.get(PROJECT_COLUMN_LIST);
 				
 				projects.add(new Project(projectID, name, description, rating, isFinished, isPublic, columnList));
 			}

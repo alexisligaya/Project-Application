@@ -1,4 +1,7 @@
 import java.util.UUID;
+
+import org.json.simple.JSONArray;
+
 import java.util.ArrayList;
 
 public class Project {
@@ -21,7 +24,7 @@ public class Project {
         this.members= members;
     }
 
-    private Project(){
+    Project(String projectID2, String name2, String description2, float rating2, boolean isFinished2, boolean isPublic2, JSONArray columnList2){
 
     }
 
