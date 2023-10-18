@@ -1,9 +1,11 @@
+import java.util.Date;
 import java.util.Scanner;
 
 public class ApplicationUI {
     private static final String WELCOME_MESSAGE = "Welcome to out Application";
     private Application application;
     private Scanner scanner;
+    private UserList userList;
     
     public ApplicationUI(){
         application = new Application(); 
@@ -18,8 +20,17 @@ public class ApplicationUI {
     }
 
     //sign up
-   
+   public void signUp(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
+        userList.saveUser(userList.addUser(firstName, lastName, userName, email, password, dateOfBirth));
+   }
 
     //log in
-
+    public User login(String userName, String password){
+        for(User user :  userList.getUsers()){
+            if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
+                return user;
+            }
+        }
+        return null;
+    }
 }

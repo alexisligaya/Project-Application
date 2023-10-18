@@ -40,9 +40,9 @@ public class UserList {
     }
 
     public void saveUser(User user){
-
+        users.add(user);
     }
-
+    
     public String toString(){
         String result= "Users: " + this.users;
         return result;
