@@ -33,9 +33,8 @@ public class Application {
         return UserList.getInstance().addUser(firstName, lastName, userName, email, password, dateOfBirth);
     }
 
-
     //user logs in
-    public User login(User user){ 
+    public User login(String userName, String email, String password){ 
        //calls userList
        getUserList();
 
