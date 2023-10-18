@@ -19,6 +19,10 @@ public class UserList {
         return users;
     }
 
+    public User getUser(String userName, String password){
+        return null;
+    }
+
     public User addUser(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
         //validate credentials
         if(firstName == null || lastName == null || userName == null || email == null || password == null || dateOfBirth == null)
@@ -39,9 +43,6 @@ public class UserList {
         return newUser;
     }
 
-    public void saveUser(User user){
-        users.add(user);
-    }
     
     public String toString(){
         String result= "Users: " + this.users;

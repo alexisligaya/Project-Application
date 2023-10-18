@@ -21,12 +21,17 @@ public class ApplicationUI {
 
     //sign up
    public void signUp(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
-        userList.saveUser(userList.addUser(firstName, lastName, userName, email, password, dateOfBirth));
+        userList.saveUser(userList.addUser("John", "Doe", "jdoe", "jdoe123@gmail.com", "Applepotato123!08", "02/02/02"));
+        
    }
 
     //log in
     public User login(String userName, String password){
-       
+        for(User user :  userList.getUsers()){
+            if(user.getUserName().equals("jdoe") && user.getPassword().equals("Applepotato123!08")){
+                return user;
+            }
+        }
         return null;
     }
 }

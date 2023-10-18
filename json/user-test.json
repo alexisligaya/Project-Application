@@ -1,0 +1,29 @@
+[
+    {
+        "firstName": "John",
+        "lastName": "Doe",
+        "password": "JD10101",
+        "dateofBirth": "Wed Oct 18 09:26:53 EDT 2023",
+        "id": "1455c003-16db-4d66-8321-150a870379b8",
+        "userName": "JohnnyD",
+        "email": "JD101@gmail.com"
+    },
+    {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "password": "JaneLovesCats",
+        "dateofBirth": "Wed Oct 18 09:26:53 EDT 2023",
+        "id": "b49e039a-74df-4258-b57e-458397c3a3a7",
+        "userName": "JaneDoe123",
+        "email": "Doe123@gmail.com"
+    },
+    {
+        "firstName": "Casey",
+        "lastName": "Vu",
+        "password": "Casey123@",
+        "dateofBirth": "Wed Oct 18 09:26:53 EDT 2023",
+        "id": "3eb51546-cd96-4644-95ef-5e5a9a2b781d",
+        "userName": "CaseyVuDoo",
+        "email": "Vu001@gmail.com"
+    }
+]

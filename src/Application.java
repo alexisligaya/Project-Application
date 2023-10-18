@@ -39,8 +39,7 @@ public class Application {
        //calls userList
        getUserList();
 
-       //getUser
-       getUsers();
+       return getUsers();
 
     }
 
