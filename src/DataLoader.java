@@ -3,6 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 import java.text.ParseException;
 
 import org.json.simple.JSONArray;
@@ -22,7 +23,7 @@ public class DataLoader extends DataConstants{
 			
 			for(int i=0; i < usersJSON.size(); i++) {
 				JSONObject personJSON = (JSONObject)usersJSON.get(i);
-				String userID = (String)personJSON.get(USER_ID);
+				UUID userID = UUID.fromString((String)personJSON.get(USER_ID));
 				String firstName = (String)personJSON.get(USER_FIRST_NAME);
                 String lastName = (String)personJSON.get(USER_LAST_NAME);
                 String username = (String)personJSON.get(USER_USERNAME);
@@ -43,7 +44,7 @@ public class DataLoader extends DataConstants{
 	}
 
 	public static Date stringToDate(String dateText) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy"); // Corrected the date format pattern
+		SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy"); // Corrected the date format pattern
 		try {
 			Date date = dateFormat.parse(dateText);
 			return date;
@@ -60,7 +61,7 @@ public class DataLoader extends DataConstants{
 		ArrayList<Project> projects = new ArrayList<Project>();
 
 		try{
-			FileReader reader = new FileReader("json/project.json");
+			FileReader reader = new FileReader("../json/project.json");
 			JSONParser parser = new JSONParser();
 			JSONArray projectJSON = (JSONArray)new JSONParser().parse(reader);
 
@@ -81,5 +82,13 @@ public class DataLoader extends DataConstants{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static void main(String[] args){
+		ArrayList<User> users = loadUsers();
+
+		for(User user : users){
+			System.out.println(user);
+		}
 	}
 }
