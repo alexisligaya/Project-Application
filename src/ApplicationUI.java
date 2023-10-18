@@ -26,11 +26,7 @@ public class ApplicationUI {
 
     //log in
     public User login(String userName, String password){
-        for(User user :  userList.getUsers()){
-            if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
-                return user;
-            }
-        }
+       
         return null;
     }
 }
