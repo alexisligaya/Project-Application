@@ -1,10 +1,9 @@
 import java.util.Date;
-import java.util.Scanner;
 
 public class ApplicationUI {
     private static final String WELCOME_MESSAGE = "Welcome to out Application";
     private Application application;
-    private Scanner scanner;
+    
     
     public ApplicationUI(){
         application = new Application(); 
