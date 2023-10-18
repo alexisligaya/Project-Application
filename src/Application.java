@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Date;
 
 public class Application {
@@ -12,7 +13,7 @@ public class Application {
         team=Team.getInstance();
     }
 
-    public User getUsers(){
+    public static User getUsers(){
         return users;
     }
 
@@ -34,16 +35,17 @@ public class Application {
     }
 
     //user logs in
-    public User login(String userName, String email, String password){ 
+    public User login(String userName, String password){ 
        //calls userList
        getUserList();
 
        //getUser
        getUsers();
+
     }
 
     //save user 
     public boolean saveUser(User user){
-
+        return(Arrays.asList(userList).contains(user));
     }
 }
