@@ -52,7 +52,6 @@ public class DataLoader extends DataConstants{
 			return null;
 		}
 	}
-	
     
 	public static ArrayList<Project> loadProjects(){
 		ArrayList<Project> projects = new ArrayList<Project>();

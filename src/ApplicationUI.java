@@ -23,7 +23,6 @@ public class ApplicationUI {
         } else {
             System.out.println("Sorry, you couldn't login");
         }
-
     }
 
     public static void main(String[] args){
