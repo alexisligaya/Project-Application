@@ -2,7 +2,8 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class Application {
-    private User users;
+    private static User users;
+    private User currentUser;
     private Project project;
     private Team team;
     private UserList userList;
@@ -30,21 +31,25 @@ public class Application {
     }
 
     //sign up
-    public User signUp(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
+    public boolean signUp(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
         return UserList.getInstance().addUser(firstName, lastName, userName, email, password, dateOfBirth);
     }
 
     //user logs in
-    public User login(String userName, String password){ 
+    public boolean login(String userName, String password){ 
        //calls userList
-       getUserList();
-
-       return getUsers();
+       currentUser = UserList.getInstance().getUser(userName, password);
+    
+       return currentUser != null;
 
     }
 
     //save user 
     public boolean saveUser(User user){
         return(Arrays.asList(userList).contains(user));
+    }
+
+    public void logout(){
+        UserList.getInstance().saveUsers();
     }
 }

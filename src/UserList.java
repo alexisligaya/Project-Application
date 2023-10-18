@@ -23,15 +23,15 @@ public class UserList {
         return null;
     }
 
-    public User addUser(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
+    public boolean addUser(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
         //validate credentials
         if(firstName == null || lastName == null || userName == null || email == null || password == null || dateOfBirth == null)
-            return null;
+            return false;
 
         //make a user
         for(User user : users){
             if(user.getUserName().equals(userName) || user.getEmail().equals(email))
-                return null;
+                return false;
         }
 
         //add to list
@@ -40,13 +40,17 @@ public class UserList {
 
         //return null if not successful
         //create newUser if successful
-        return newUser;
+        return true;
     }
 
     
     public String toString(){
         String result= "Users: " + this.users;
         return result;
+    }
+
+    public void saveUsers(){
+        DataWriter.saveUsers();
     }
 }
 
