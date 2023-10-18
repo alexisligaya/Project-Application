@@ -24,6 +24,17 @@ public class Project {
         this.members= members;
     }
 
+    public Project(){
+        this.projectID= UUID.randomUUID();
+        this.name = "New Project";
+        this.description = "Enter description here";
+        this.rating= 1f;
+        this.isFinished= false;
+        this.isPublic = false;
+        this.columnList= new ArrayList<>();
+        this.members= new ArrayList<>();
+    }
+
     Project(String projectID2, String name2, String description2, float rating2, boolean isFinished2, boolean isPublic2, JSONArray columnList2){
 
     }

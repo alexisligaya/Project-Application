@@ -29,7 +29,7 @@ public class DataWriter extends DataConstants {
         }
         
         // Write JSON file
-        try (FileWriter file = new FileWriter("json/user-test.json")) {
+        try (FileWriter file = new FileWriter("Project-Application/json/user-test.json")) {
             file.write(jsonUsers.toJSONString());
             file.flush();
         } catch (IOException e) {

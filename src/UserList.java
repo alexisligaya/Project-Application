@@ -20,6 +20,16 @@ public class UserList {
     }
 
     public User getUser(String userName, String password){
+        for(User user : users){
+            if(user.getUserName().equals(userName)){
+                if(user.getPassword().equals(password))
+                    return user;
+                else
+                    return null; //null means incorrect password
+            }
+                
+        }
+        //null means user doesn't exist
         return null;
     }
 
