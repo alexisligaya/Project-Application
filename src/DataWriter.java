@@ -25,11 +25,11 @@ public class DataWriter extends DataConstants {
         
         // Creating JSON objects for each user
         for (int i = 0; i < users.size(); i++) {
-            jsonUsers.add(getUserJSON(users.get(i));
+            jsonUsers.add(getUserJSON(users.get(i)));
         }
         
         // Write JSON file
-        try (FileWriter file = new FileWriter(USER_FILE)) {
+        try (FileWriter file = new FileWriter("json/user-test.json")) {
             file.write(jsonUsers.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -47,12 +47,16 @@ public class DataWriter extends DataConstants {
         userObject.put(USER_PASSWORD, user.getPassword());
         userObject.put(USER_DOB, user.getDateOfBirth().toString());
         
-        // JSONArray tasksArray = new JSONArray();
+        // JSONArray tasksArray = new JSONArray();                 (don't delete, will need later)!!!!!!
         // for (Tasks task : user.getTasks()) {
         //     tasksArray.add(task.toString());
         // }
         // userObject.put(USER_TASKS, tasksArray);
         
         return userObject;
+    }
+
+    public static void main(){
+        saveUsers();
     }
 }
