@@ -47,9 +47,15 @@ public class Team {
         return instance;
     }
 
-    public boolean removeScrumTeamMember(User user){
-        return members.remove(user);
+    public boolean removeScrumTeamMember(User user) {
+        if (members.contains(user)) {
+            return members.remove(user);
+        } else {
+            return false; 
+        }
     }
+
+    public void add 
 
     public String toString(){
         String result = "Members: " + this.members;
