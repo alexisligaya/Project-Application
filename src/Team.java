@@ -55,7 +55,9 @@ public class Team {
         }
     }
 
-    public void add 
+    public void addScrumTeamMember(User user){
+        members.add(user);
+    }
 
     public String toString(){
         String result = "Members: " + this.members;
