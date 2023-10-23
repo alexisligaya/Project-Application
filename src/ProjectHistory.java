@@ -17,6 +17,15 @@ public class ProjectHistory {
     public Date lastUpdate(){
         return lastUpdate;
     }
+    public void addChange(User user, String description){
+        Change change = new Change(description, new Date(), user, null);
+        changes.add(change);
+        lastUpdate = new Date();
+    }
+
+    public boolean removeChange(Change change) {
+        return changes.remove(change);
+    }
 
     public String toString(){
         String result = "Changes: " + this.changes;
