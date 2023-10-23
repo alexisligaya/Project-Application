@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Dashboard {
     private ArrayList<Project> listOfProjects;
@@ -18,6 +19,15 @@ public class Dashboard {
 
     public ArrayList<Project> viewProjects(){
         return listOfProjects;
+    }
+
+    public Project searchProject(UUID projectID){
+        for(Project project : listOfProjects){
+            if(project.getProjectID().equals(projectID)){
+                return project;
+            }
+        }
+        return null;
     }
 }
 
