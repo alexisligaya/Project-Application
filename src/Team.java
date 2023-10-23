@@ -47,6 +47,10 @@ public class Team {
         return instance;
     }
 
+    public boolean removeScrumTeamMember(User user){
+        return members.remove(user);
+    }
+
     public String toString(){
         String result = "Members: " + this.members;
         result += "\nProduct Owner: "+this.productOwner;
