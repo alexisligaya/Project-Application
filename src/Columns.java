@@ -20,9 +20,9 @@ public class Columns {
     public void addTask (Tasks task){
         tasks.add(task);
     }
-    public void removeTask (Tasks task){
-        tasks.remove(task);
-    }
+   public void removeTask(Tasks task){
+    tasks.remove(task);
+   }
 
     public String toString(){
         String result = "Title: " + this.title;
