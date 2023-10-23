@@ -15,5 +15,9 @@ public class Dashboard {
         String result = "List of Projects: " + this.listOfProjects;
         return result;
     }
+
+    public ArrayList<Project> viewProjects(){
+        return listOfProjects;
+    }
 }
 
