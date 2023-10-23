@@ -27,6 +27,10 @@ public class ProjectHistory {
         return changes.remove(change);
     }
 
+    public ArrayList<Change> getAllChanges(){
+        return changes;
+    }
+
     public String toString(){
         String result = "Changes: " + this.changes;
         result += "\nLast Update: "+this.lastUpdate;
