@@ -38,7 +38,7 @@ public class Tasks {
     }
 
     public void assignToUser(User user){
-        user=assignedUser;
+        
     }
     public String toString(){
         String result = "Deadline: " + this.deadline;
