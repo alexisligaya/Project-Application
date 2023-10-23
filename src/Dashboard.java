@@ -29,5 +29,9 @@ public class Dashboard {
         }
         return null;
     }
+     public ArrayList<Project> sortProjectsByDate() {
+        // Implement logic to sort the list of projects by date and return the sorted list
+        return new ArrayList<Project>();
+    }
 }
 
