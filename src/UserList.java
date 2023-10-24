@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 public class UserList {
    
@@ -33,6 +34,15 @@ public class UserList {
         //null means user doesn't exist
         return null;
     }
+
+    public User getUser(UUID userID) {
+    for (User user : users) {
+        if (user.getUserID().equals(userID)) {
+            return user;
+        }
+    }
+    return null; // User with the given userID not found.
+}
 
     public boolean addUser(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
         
