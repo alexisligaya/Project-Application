@@ -61,7 +61,13 @@ public class User {
             instance = new User(UUID.randomUUID(), "John", "Doe", "JohnDoe","", "", new Date());
         return instance;
     }
+    public void joinTeam(Team team){
+        team.addScrumTeamMember(this);
+    }
 
+    public void leaveTeam(Team team){
+        team.removeScrumTeamMember(this);
+    }
     public String toString() {
         String result = "User ID: " + this.userID;
         result += "\nFirst name: " + this.firstName;
