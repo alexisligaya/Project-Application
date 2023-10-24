@@ -77,14 +77,7 @@ public class DataWriter extends DataConstants {
         
         //hardcode for testing
         ArrayList<User> projects = new ArrayList<>();
-        // this.projectID= projectID;
-        // this.name = name;
-        // this.description = description;
-        // this.rating= rating;
-        // this.isFinished= isFinished;
-        // this.isPublic = isPublic;
-        // this.columnList= columnList;
-        // this.members= members;
+        
         ArrayList<Columns> columns = new ArrayList<Columns>();
         ArrayList<User> users = new ArrayList<User>();
         Project proj1 = new Project(UUID.randomUUID(),"Flappy Bird", "Developing an app made for entertainment purposes", 6.5, false, false, columns, users);
@@ -110,5 +103,6 @@ public class DataWriter extends DataConstants {
 
     public static void main(String[] args){
         saveUsers();
+        saveProjects();
     }
 }
