@@ -2,8 +2,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-
 import java.util.UUID;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -58,7 +58,6 @@ public class DataWriter extends DataConstants {
         return userObject;
     }
 
-
     public static JSONObject getProjectJSON(Project project) {
         JSONObject projectObject = new JSONObject();
 
@@ -77,7 +76,7 @@ public class DataWriter extends DataConstants {
     public static void saveProjects() {
         
         //hardcode for testing
-        ArrayList<User> projects = new ArrayList<>();
+        ArrayList<Project> projects = new ArrayList<>();
         
         ArrayList<Columns> columns = new ArrayList<Columns>();
         ArrayList<User> users = new ArrayList<User>();
@@ -90,7 +89,7 @@ public class DataWriter extends DataConstants {
         
         // Creating JSON objects for each user
         for (int i = 0; i < projects.size(); i++) {
-            jsonProjects.add(getUserJSON(projects.get(i)));
+            jsonProjects.add(getProjectJSON(projects.get(i)));
         }
         
         // Write JSON file
