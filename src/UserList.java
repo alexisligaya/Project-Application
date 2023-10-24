@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class UserList {
+   
     private static UserList instance;
     private ArrayList<User> users;
 
@@ -34,6 +35,7 @@ public class UserList {
     }
 
     public boolean addUser(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
+        
         //validate credentials
         if(firstName == null || lastName == null || userName == null || email == null || password == null || dateOfBirth == null)
             return false;

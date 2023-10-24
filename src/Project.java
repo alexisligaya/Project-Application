@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Project {
     private UUID projectID;
     private String name, description;
-    private float rating;
+    private double rating;
     private boolean isFinished, isPublic;
     private ArrayList<Columns> columnList;
     private ArrayList<User> members;
     private static Project instance;
 
-    public Project(UUID projectID, String name, String description, float rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members){
+    public Project(UUID projectID, String name, String description, double rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members){
         this.projectID= projectID;
         this.name = name;
         this.description = description;
@@ -22,15 +22,29 @@ public class Project {
         this.members= members;
     }
 
+<<<<<<< HEAD
     public Project(String name, String description){
         this.projectID= UUID.randomUUID();
         this.name = name;
         this.description = description;
+=======
+    public Project(){
+        this.projectID = UUID.randomUUID();
+        this.name = "New Project";
+        this.description = "Enter description here";
+        this.rating= 1f;
+        this.isFinished= false;
+        this.isPublic = false;
+        this.columnList= new ArrayList<>();
+        this.members= new ArrayList<>();
+>>>>>>> 64bac0a2b88a948889d222f6cab54f425a5f925a
     }
 
     Project(String projectID2, String name2, String description2, float rating2, boolean isFinished2, boolean isPublic2, JSONArray columnList2){
 
     }
+
+    //set name
 
     public UUID getProjectID(){
         return projectID;
@@ -44,7 +58,7 @@ public class Project {
         return description;
     }
 
-    public float getRating(){
+    public double getRating(){
         return rating;
     }
 
