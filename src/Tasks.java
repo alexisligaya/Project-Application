@@ -7,8 +7,9 @@ public class Tasks {
     private int priority;
     private double hours;
     private ArrayList<Comment> comments;
+    private User assignedUser;
 
-    public Tasks(Date deadline, String taskDescription, int priority, double hours, ArrayList<Comment> comments) {
+    public Tasks(Date deadline, String taskDescription, int priority, double hours, ArrayList<Comment> comments, User assignedUser) {
         this.deadline = deadline;
         this.taskDescription = taskDescription;
         this.priority = priority;
@@ -36,6 +37,9 @@ public class Tasks {
         return comments;
     }
 
+    public void assignToUser(User user){
+        
+    }
     public String toString(){
         String result = "Deadline: " + this.deadline;
         result += "\nTask Description: "+this.taskDescription;
