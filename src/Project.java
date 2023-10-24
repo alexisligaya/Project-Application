@@ -25,7 +25,7 @@ public class Project {
     }
 
     public Project(){
-        this.projectID= UUID.randomUUID();
+        this.projectID = UUID.randomUUID();
         this.name = "New Project";
         this.description = "Enter description here";
         this.rating= 1f;
