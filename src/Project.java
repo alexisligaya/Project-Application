@@ -7,13 +7,13 @@ import java.util.ArrayList;
 public class Project {
     private UUID projectID;
     private String name, description;
-    private float rating;
+    private double rating;
     private boolean isFinished, isPublic;
     private ArrayList<Columns> columnList;
     private ArrayList<User> members;
     private static Project instance;
 
-    public Project(UUID projectID, String name, String description, float rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members){
+    public Project(UUID projectID, String name, String description, double rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members){
         this.projectID= projectID;
         this.name = name;
         this.description = description;
@@ -39,6 +39,8 @@ public class Project {
 
     }
 
+    //set name
+
     public UUID getProjectID(){
         return projectID;
     }
@@ -51,7 +53,7 @@ public class Project {
         return description;
     }
 
-    public float getRating(){
+    public double getRating(){
         return rating;
     }
 
