@@ -55,8 +55,8 @@ public class Application {
     }
 
     //save project
-    public void saveProject(){
-        ProjectList.getInstance().saveProject();
+    public void saveProjects(){
+        ProjectList.getInstance().saveProjects();
     }
 
 
