@@ -39,6 +39,7 @@ public class DataWriter extends DataConstants {
     
     public static JSONObject getUserJSON(User user) {
         JSONObject userObject = new JSONObject();
+
         userObject.put(USER_ID, user.getUserID().toString());
         userObject.put(USER_FIRST_NAME, user.getfirstName());
         userObject.put(USER_LAST_NAME, user.getLastName());
@@ -56,9 +57,22 @@ public class DataWriter extends DataConstants {
         return userObject;
     }
 
+    public static JSONObject getProjectJSON(Project project) {
+        JSONObject projectObject = new JSONObject();
+
+        projectObject.put(PROJECT_ID, project.getProjectID().toString());
+        projectObject.put(PROJECT_NAME, project.getName());
+        projectObject.put(PROJECT_DESCRIPTION, project.getDescription());
+        projectObject.put(PROJECT_RATING, project.getRating());
+        projectObject.put(PROJECT_IS_FINISHED, project.getIsFinished());
+        projectObject.put(PROJECT_IS_PUBLIC, project.getIsPublic());
+        projectObject.put(PROJECT_COLUMN_LIST, project.getColumnList());
+        projectObject.put(PROJECT_MEMBERS, project.getMembers());
+
+        return projectObject;
+    }
+
     public static void main(String[] args){
         saveUsers();
     }
-
-    
 }
