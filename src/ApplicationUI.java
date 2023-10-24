@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public class ApplicationUI {
-    private static final String WELCOME_MESSAGE = "Welcome to out Application";
+    private static final String WELCOME_MESSAGE = "Welcome to our Application";
     private Application application;
     
     
