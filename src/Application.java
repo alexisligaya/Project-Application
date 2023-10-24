@@ -41,15 +41,23 @@ public class Application {
        currentUser = UserList.getInstance().getUser(userName, password);
     
        return currentUser != null;
-
     }
 
     //save user 
-    public boolean saveUser(User user){
-        return(Arrays.asList(userList).contains(user));
-    }
-
     public void logout(){
         UserList.getInstance().saveUsers();
     }
+
+    //create project
+    public boolean createProject(){
+        //add columns
+        //add comments
+    }
+
+    //save project
+    public void saveProject(){
+        ProjectList.getInstance().saveProject();
+    }
+
+
 }
