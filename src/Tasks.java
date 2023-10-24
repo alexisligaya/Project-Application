@@ -7,7 +7,6 @@ public class Tasks {
     private int priority;
     private double hours;
     private ArrayList<Comment> comments;
-    private User assignedUser;
 
     public Tasks(Date deadline, String taskDescription, int priority, double hours, ArrayList<Comment> comments, User assignedUser) {
         this.deadline = deadline;
