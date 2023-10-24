@@ -17,6 +17,7 @@ public class ProjectHistory {
    public Date getLastUpdate(){
     return lastUpdate;
    }
+   
     public void addChange(User user, String description){
         Change change = new Change(description, new Date(), user, null);
         changes.add(change);
