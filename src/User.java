@@ -1,4 +1,5 @@
 import java.util.UUID;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class User {
@@ -61,6 +62,34 @@ public class User {
             instance = new User(UUID.randomUUID(), "John", "Doe", "JohnDoe","", "", new Date());
         return instance;
     }
+    public void joinTeam(Team team){
+        team.addScrumTeamMember(this);
+    }
+
+    public void leaveTeam(Team team){
+        team.removeScrumTeamMember(this);
+    }
+
+    public ArrayList<Project> viewProjects(){
+        ArrayList<Project> userProjects= new ArrayList<>();
+        for(Project project : Team.getInstance().getProjects()){
+            if(project.getMembers().contains(this)){
+                userProjects.add(project);
+            }
+        }
+        return userProjects;
+    }
+    
+    public boolean isOnline(UUID userID) {
+        // Use the UserList to check if the user with the given userID is online.
+        User user = UserList.getInstance().getUser(userID);
+    
+        // Check if the user is not null (exists) and is online.
+        return user != null && user.isOnline(userID);
+    }
+    
+
+    
 
     public String toString() {
         String result = "User ID: " + this.userID;
