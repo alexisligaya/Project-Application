@@ -5,8 +5,10 @@ public class Application {
     private static User users;
     private User currentUser;
     private Project project;
+    private Project currentProject;
     private Team team;
     private UserList userList;
+    private ProjectList projectList;
 
     public Application(){
         users=User.getInstance();
@@ -25,6 +27,10 @@ public class Application {
     public Project getProject(){
         return project;
     }
+    public Project getProjectList(){
+        return projectList;
+    }
+    
 
     public Team getTeam(){
         return team;
@@ -49,7 +55,10 @@ public class Application {
     }
 
     //create project
-    public boolean createProject(){
+    public boolean createProject(String name, String description){
+        //call projectList
+        currentProject = ProjectList.getInstance().getProject(name, description);
+        return currentProject != null;
         //add columns
         //add comments
     }
