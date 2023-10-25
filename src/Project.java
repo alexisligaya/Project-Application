@@ -11,31 +11,47 @@ public class Project {
     private ArrayList<User> members;
     private static Project instance;
 
-    public Project(UUID projectID, String name, String description, double rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members){
-        this.projectID= projectID;
+    //contains all variables in parameters
+    public Project(UUID projectID, String name, String description, double rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members) {
+        this.projectID = projectID;
         this.name = name;
         this.description = description;
-        this.rating= rating;
-        this.isFinished= isFinished;
+        this.rating = rating;
+        this.isFinished = isFinished;
         this.isPublic = isPublic;
-        this.columnList= columnList;
-        this.members= members;
+        this.columnList = columnList;
+        this.members = members;
+    }
+    
+    //does not contain the array lists in parameters (empty array lists)
+    public Project(UUID projectID, String name, String description, double rating, boolean isFinished, boolean isPublic) {
+        this.projectID = projectID;
+        this.name = name;
+        this.description = description;
+        this.rating = rating;
+        this.isFinished = isFinished;
+        this.isPublic = isPublic;
+        this.columnList = new ArrayList<>();
+        this.members = new ArrayList<>();
+    }
+    
+    //does not contain UUID in parameters (randomized UUID)
+    public Project(String name, String description, double rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members) {
+        this.projectID = UUID.randomUUID();
+        this.name = name;
+        this.description = description;
+        this.rating = rating;
+        this.isFinished = isFinished;
+        this.isPublic = isPublic;
+        this.columnList = columnList;
+        this.members = members;
     }
 
-
+    //only contains name & desc in parameters
     public Project(String name, String description){
         this.projectID= UUID.randomUUID();
         this.name = name;
         this.description = description;
-    }
-
-    public Project(){
-        this.projectID = UUID.randomUUID();
-        this.rating= 1f;
-        this.isFinished= false;
-        this.isPublic = false;
-        this.columnList= new ArrayList<>();
-        this.members= new ArrayList<>();
     }
 
     //set name
