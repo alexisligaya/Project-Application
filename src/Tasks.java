@@ -6,14 +6,12 @@ public class Tasks {
     private String taskDescription;
     private int priority;
     private double hours;
-    private ArrayList<Comment> comments;
 
-    public Tasks(Date deadline, String taskDescription, int priority, double hours, ArrayList<Comment> comments, User assignedUser) {
+    public Tasks(Date deadline, String taskDescription, int priority, double hours, User assignedUser) {
         this.deadline = deadline;
         this.taskDescription = taskDescription;
         this.priority = priority;
         this.hours = hours;
-        this.comments = comments;
     }
 
     public Date getDeadline(){
@@ -32,10 +30,6 @@ public class Tasks {
         return hours;
     }
 
-    public ArrayList<Comment> getComments(){
-        return comments;
-    }
-
     public void assignToUser(User user){
         
     }
@@ -44,7 +38,6 @@ public class Tasks {
         result += "\nTask Description: "+this.taskDescription;
         result += "\nPriority: " + this.priority;
         result += "\nHours: " + this.hours;
-        result += "\nComments" + this.comments;
         return result;
     }
 }

@@ -49,24 +49,20 @@ public class Application {
        return currentUser != null;
     }
 
-    //save user 
+    //save user and projects
     public void logout(){
-        UserList.getInstance().saveUsers();
+        UserList.getInstance().saveUsers(); 
+        ProjectList.getInstance().saveProjects();
+
     }
 
     //create project
-    public boolean createProject(String name, String description){
+    public boolean addProject(String name, String description){
         //call projectList
         currentProject = ProjectList.getInstance().getProject(name, description);
         return currentProject != null;
         //add columns
         //add comments
     }
-
-    //save project
-    public void saveProjects(){
-        ProjectList.getInstance().saveProjects();
-    }
-
 
 }
