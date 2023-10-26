@@ -78,9 +78,9 @@ public class DataWriter extends DataConstants {
         
         //hardcode for testing
         ArrayList<Project> projects = new ArrayList<>();
-        
         ArrayList<Columns> columns = new ArrayList<Columns>();
         ArrayList<User> users = new ArrayList<User>();
+        
         Project proj1 = new Project(UUID.randomUUID(),"Flappy Bird", "Developing an app made for entertainment purposes", 6.5, false, false, columns, users);
         Project proj2 = new Project(UUID.randomUUID(),"Crossy Road", "Developing an app made for entertainment purposes", 9.9, false, false, columns, users);
         projects.add(proj1);

@@ -67,7 +67,7 @@ public class DataLoader extends DataConstants{
 				String projectID = (String)projectDataa.get(PROJECT_ID);
 				String name = (String)projectDataa.get(PROJECT_NAME);
 				String description= (String)projectDataa.get(PROJECT_DESCRIPTION);
-				float rating = (float)projectDataa.get(PROJECT_RATING);
+				double rating = (float)projectDataa.get(PROJECT_RATING);
 				boolean isFinished = (boolean)projectDataa.get(PROJECT_IS_FINISHED);
 				boolean isPublic = (boolean)projectDataa.get(PROJECT_IS_PUBLIC);
 				JSONArray columnList = (JSONArray)projectDataa.get(PROJECT_COLUMN_LIST);

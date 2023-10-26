@@ -36,13 +36,13 @@ public class UserList {
     }
 
     public User getUser(UUID userID) {
-    for (User user : users) {
-        if (user.getUserID().equals(userID)) {
-            return user;
+        for (User user : users) {
+            if (user.getUserID().equals(userID)) {
+                return user;
+            }
         }
+        return null; // User with the given userID not found.
     }
-    return null; // User with the given userID not found.
-}
 
     public boolean addUser(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
         
