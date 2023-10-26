@@ -62,6 +62,11 @@ public class DataWriter extends DataConstants {
         projectObject.put(PROJECT_COLUMNS, project.getColumns());
         projectObject.put(PROJECT_MEMBERS, project.getMembers());
 
+         //here
+
+
+
+
         return projectObject;
     }
 
@@ -85,7 +90,7 @@ public class DataWriter extends DataConstants {
         }
 
         JSONArray columnsArray = new JSONArray();
-        for (Columns column : projects.getColumns()) {
+        for (Columns column : project.getColumns()) {
             JSONObject columnObject = new JSONObject();
             columnObject.put("title", column.getTitle());
 
@@ -118,13 +123,7 @@ public class DataWriter extends DataConstants {
 
                 }
             }
-
-            columnObject.put("tasks", tasksArray);
-            columnsArray.add(columnObject);
         }
-
-        projectObject.put("columnList", columnsArray);
-        jsonProjects.add(projectObject);
     }
 
         // Write JSON file
@@ -140,5 +139,5 @@ public class DataWriter extends DataConstants {
         saveUsers();
         saveProjects();
     }
-}
-}
+
+
