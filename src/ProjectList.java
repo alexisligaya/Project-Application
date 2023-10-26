@@ -14,8 +14,15 @@ public class ProjectList {
         return instance;
     }
 
-    public ArrayList<Project> getProject(){
+    public ArrayList<Project> getProjects(){
         return projects;
+    }
+
+    public Project getProjects(String name, String description){
+        for(Project projects : projects){
+                return projects;
+        }
+        return null; //project with given projectID not found
     }
 
     public boolean addProject(String name, String description){

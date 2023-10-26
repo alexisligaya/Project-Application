@@ -22,7 +22,6 @@ public class Project {
         this.members= members;
     }
 
-
     public Project(String name, String description){
         this.projectID= UUID.randomUUID();
         this.name = name;
@@ -37,9 +36,7 @@ public class Project {
         this.columnList= new ArrayList<>();
         this.members= new ArrayList<>();
     }
-
-    //set name
-
+    
     public UUID getProjectID(){
         return projectID;
     }
@@ -74,7 +71,7 @@ public class Project {
 
     public static Project getInstance(){
         if(instance == null)
-            instance = new Project(UUID.randomUUID(), "myProject", "this is my project", ("a", "b", "c") );
+            instance = new Project("My Project", "this is my project");
         return instance;
     }
 

@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Date;
 
 public class Application {
@@ -27,7 +26,7 @@ public class Application {
     public Project getProject(){
         return project;
     }
-    public Project getProjectList(){
+    public ProjectList getProjectList(){
         return projectList;
     }
     
@@ -56,10 +55,10 @@ public class Application {
 
     }
 
-    //create project
+    //add project
     public boolean addProject(String name, String description){
         //call projectList
-        currentProject = ProjectList.getInstance().getProject(name, description);
+        currentProject = ProjectList.getInstance().getProjects(name, description);
         return currentProject != null;
         //add columns
         //add comments
