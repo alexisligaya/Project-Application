@@ -60,4 +60,13 @@ public class Application {
         return currentProject != null;
     }
 
+    public boolean removeProject(String name, String description) {
+        if (projectList.removeProject(name, description)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 }
