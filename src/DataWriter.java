@@ -106,23 +106,19 @@ public class DataWriter extends DataConstants {
                     commentObject.put("text", comment.getText());
                     commentObject.put("commentBy", comment.getCommentBy());
 
-                    // Create an array for commentList
-                    JSONArray commentListArray = new JSONArray();
-                    for (Comments commentInList : comment.getCommentList()) {
-                        JSONObject commentInListObject = new JSONObject();
-                        commentInListObject.put("date", commentInList.getDate().toString());
-                        commentInListObject.put("text", commentInList.getText());
-                        commentInListObject.put("commentBy", commentInList.getCommentBy());
-                        commentListArray.add(commentInListObject);
-                    }
-
-                    commentObject.put("commentList", commentListArray);
-                    commentsArray.add(commentObject);
+                }
+                JSONArray changesArray = new JSONArray();
+                for(Change change : task.getChanges()){
+                    JSONObject changeObject = new JSONObject();
+                    changeObject.put("description", change.getDescription().toString());
+                    changeObject.put("date", change.getDate());
+                    changeObject.put("user", change.getUserID());
+                    changeObject.put("project", change.getProjectID());
                 }
 
-                taskObject.put("comments", commentsArray);
-                tasksArray.add(taskObject);
+                }
             }
+<<<<<<< HEAD
 
             columnObject.put("tasks", tasksArray);
             columnsArray.add(columnObject);
@@ -131,6 +127,9 @@ public class DataWriter extends DataConstants {
         projectObject.put("columnList", columnsArray);
         jsonProjects.add(projectObject);
     }
+=======
+        }
+>>>>>>> 2a82ae3cefad483095e5ceb4dbf5bbb27767913b
         
         // Write JSON file
         try (FileWriter file = new FileWriter("json/project.json")) {
@@ -140,8 +139,10 @@ public class DataWriter extends DataConstants {
             e.printStackTrace();
         }
 
+
     public static void main(String[] args){
         saveUsers();
         saveProjects();
     }
+}
 }
