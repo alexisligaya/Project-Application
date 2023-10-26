@@ -30,7 +30,6 @@ public class Application {
         return projectList;
     }
     
-
     public Team getTeam(){
         return team;
     }
@@ -52,7 +51,6 @@ public class Application {
     public void logout(){
         UserList.getInstance().saveUsers(); 
         ProjectList.getInstance().saveProjects();
-
     }
 
     //add project
