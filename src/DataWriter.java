@@ -59,7 +59,7 @@ public class DataWriter extends DataConstants {
         projectObject.put(PROJECT_RATING, project.getRating());
         projectObject.put(PROJECT_IS_FINISHED, project.getIsFinished());
         projectObject.put(PROJECT_IS_PUBLIC, project.getIsPublic());
-        projectObject.put(PROJECT_COLUMN_LIST, project.getColumnList());
+        projectObject.put(PROJECT_COLUMNS, project.getColumns());
         projectObject.put(PROJECT_MEMBERS, project.getMembers());
 
         return projectObject;
@@ -69,9 +69,9 @@ public class DataWriter extends DataConstants {
         
         //hardcode for testing
         ArrayList<Project> projects = new ArrayList<>();
-        
         ArrayList<Columns> columns = new ArrayList<Columns>();
         ArrayList<User> users = new ArrayList<User>();
+
         Project proj1 = new Project(UUID.randomUUID(),"Flappy Bird", "Developing an app made for entertainment purposes", 6.5, false, false, columns, users);
         Project proj2 = new Project(UUID.randomUUID(),"Crossy Road", "Developing an app made for entertainment purposes", 9.9, false, false, columns, users);
         projects.add(proj1);
@@ -84,8 +84,8 @@ public class DataWriter extends DataConstants {
             jsonProjects.add(getProjectJSON(projects.get(i)));
         }
 
-        JSONArray columnListArray = new JSONArray();
-        for (Columns column : projects.getColumnList()) {
+        JSONArray columnsArray = new JSONArray();
+        for (Columns column : projects.getColumns()) {
             JSONObject columnObject = new JSONObject();
             columnObject.put("title", column.getTitle());
 
@@ -118,8 +118,15 @@ public class DataWriter extends DataConstants {
 
                 }
             }
+
+            columnObject.put("tasks", tasksArray);
+            columnsArray.add(columnObject);
         }
-        
+
+        projectObject.put("columnList", columnsArray);
+        jsonProjects.add(projectObject);
+    }
+
         // Write JSON file
         try (FileWriter file = new FileWriter("json/project.json")) {
             file.write(jsonProjects.toJSONString());

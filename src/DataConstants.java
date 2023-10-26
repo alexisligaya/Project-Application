@@ -16,6 +16,6 @@ public abstract class DataConstants {
     protected static final String PROJECT_RATING = "rating";
     protected static final String PROJECT_IS_FINISHED = "isFinished";
     protected static final String PROJECT_IS_PUBLIC = "public";
-    protected static final String PROJECT_COLUMN_LIST = "columnList";
+    protected static final String PROJECT_COLUMNS = "columnList";
     protected static final String PROJECT_MEMBERS = "members";
 }

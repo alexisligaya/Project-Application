@@ -43,6 +43,29 @@ public class ProjectList {
         return true;
     }
 
+    public boolean removeProject(String name, String description) {
+        Project projectToRemove = null;
+
+
+       
+        for (Project project : projects) {
+            if (project.getName().equals(name) && project.getDescription().equals(description)) {
+                projectToRemove = project;
+                break;
+            }
+        }
+
+
+        if (projectToRemove != null) {
+           
+            projects.remove(projectToRemove);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public String toString(){
         String result = "Projects: " + this.projects;
         return result;
