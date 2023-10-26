@@ -7,13 +7,15 @@ public class Tasks {
     private int priority;
     private double hours;
     private ArrayList<Change> changes;
+    private ArrayList<Comments> comments;
 
-    public Tasks(Date deadline, String taskDescription, int priority, double hours, User assignedUser, ArrayList<Change> changes) {
+    public Tasks(Date deadline, String taskDescription, int priority, double hours, User assignedUser, ArrayList<Change> changes, ArrayList<Comments> comments) {
         this.deadline = deadline;
         this.taskDescription = taskDescription;
         this.priority = priority;
         this.hours = hours;
         this.changes = changes;
+        this.comments = comments;
     }
 
     public Date getDeadline(){
@@ -38,6 +40,10 @@ public class Tasks {
 
     public ArrayList<Change> getChanges(){
         return changes;
+    }
+
+    public ArrayList<Comments> getComments(){
+        return comments;
     }
 
     //add changes

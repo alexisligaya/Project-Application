@@ -74,8 +74,8 @@ public class Project {
     }
 
     //add tasks
-    public void addTasks(Date deadline, String taskDescription, int priority, double hours, User assignedUser, ArrayList<Change> changes){
-        Tasks task = new Tasks(deadline, taskDescription, priority, hours, assignedUser, changes);
+    public void addTasks(Date deadline, String taskDescription, int priority, double hours, User assignedUser, ArrayList<Change> changes, ArrayList<Comments> comments){
+        Tasks task = new Tasks(deadline, taskDescription, priority, hours, assignedUser, changes, comments);
         tasks.add(task);
     }
 
