@@ -8,9 +8,10 @@ public class Project {
     private double rating;
     private boolean isFinished, isPublic;
     private ArrayList<User> members;
-    private ArrayList<Tasks> tasks;
     private ArrayList<Columns> columns; //make these empty for now
-    private ArrayList<Comment> comments; 
+    private ArrayList<Tasks> tasks;
+    
+    private ArrayList<Comments> comments; 
     private static Project instance;
 
     //contains all variables in parameters
@@ -94,19 +95,20 @@ public class Project {
     }
 
     //add tasks
-    public void addTask(Date deadline, String taskDescription, int priority, double hours, User assignedUser){
+    public void addTasks(Date deadline, String taskDescription, int priority, double hours, User assignedUser){
         Tasks task = new Tasks(deadline, taskDescription, priority, hours, assignedUser);
         tasks.add(task);
     }
 
     //add columns
-    public void addColumn(String columnName){
-        Columns column = new Columns(columnName);
+    public void addColumns(String title, ArrayList<Tasks> tasks){
+        Columns column = new Columns(title, tasks);
+        columns.add(column);
     }
 
     //add comments
-    public void addComment(Date date, String text, User commentBy, ArrayList<Comment> commentList){
-        Comment comment = new Comment(date, text, commentBy, commentList);
+    public void addComments(Date date, String text, User commentBy, ArrayList<Comments> commentList){
+        Comments comment = new Comments(date, text, commentBy, commentList);
         comments.add(comment);
     }
 

@@ -60,8 +60,6 @@ public class Application {
         //call projectList
         currentProject = ProjectList.getInstance().getProjects(name, description);
         return currentProject != null;
-        //add columns
-        //add comments
     }
 
 }
