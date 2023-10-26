@@ -94,13 +94,13 @@ public class DataWriter extends DataConstants {
         }
 
         JSONArray columnListArray = new JSONArray();
-        for (Column column : project.getColumnList()) {
+        for (Columns column : projects.getColumnList()) {
             JSONObject columnObject = new JSONObject();
             columnObject.put("title", column.getTitle());
 
             // Create an array for tasks
             JSONArray tasksArray = new JSONArray();
-            for (Task task : column.getTasks()) {
+            for (Tasks task : column.getTasks()) {
                 JSONObject taskObject = new JSONObject();
                 taskObject.put("deadline", task.getDeadline().toString());
                 taskObject.put("taskDescription", task.getTaskDescription());
@@ -109,7 +109,7 @@ public class DataWriter extends DataConstants {
 
                 // Create an array for comments
                 JSONArray commentsArray = new JSONArray();
-                for (Comment comment : task.getComments()) {
+                for (Comments comment : task.getComments()) {
                     JSONObject commentObject = new JSONObject();
                     commentObject.put("date", comment.getDate().toString());
                     commentObject.put("text", comment.getText());
@@ -117,7 +117,7 @@ public class DataWriter extends DataConstants {
 
                     // Create an array for commentList
                     JSONArray commentListArray = new JSONArray();
-                    for (Comment commentInList : comment.getCommentList()) {
+                    for (Comments commentInList : comment.getCommentList()) {
                         JSONObject commentInListObject = new JSONObject();
                         commentInListObject.put("date", commentInList.getDate().toString());
                         commentInListObject.put("text", commentInList.getText());
@@ -149,7 +149,6 @@ public class DataWriter extends DataConstants {
             e.printStackTrace();
         }
 
-        
     }
 
     public static void main(String[] args){
