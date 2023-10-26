@@ -14,14 +14,14 @@ public class Project {
     private static Project instance;
 
     //contains all variables in parameters
-    public Project(UUID projectID, String name, String description, double rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members) {
+    public Project(UUID projectID, String name, String description, double rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columns, ArrayList<User> members) {
         this.projectID = projectID;
         this.name = name;
         this.description = description;
         this.rating = rating;
         this.isFinished = isFinished;
         this.isPublic = isPublic;
-        this.columns = columnList;
+        this.columns = columns;
         this.members = members;
     }
     
@@ -59,7 +59,7 @@ public class Project {
         return isPublic;
     }
 
-    public ArrayList<Columns> getColumnList(){
+    public ArrayList<Columns> getColumns(){
         return columns;
     }
 
