@@ -118,7 +118,6 @@ public class DataWriter extends DataConstants {
 
                 }
             }
-<<<<<<< HEAD
 
             columnObject.put("tasks", tasksArray);
             columnsArray.add(columnObject);
@@ -127,10 +126,7 @@ public class DataWriter extends DataConstants {
         projectObject.put("columnList", columnsArray);
         jsonProjects.add(projectObject);
     }
-=======
-        }
->>>>>>> 2a82ae3cefad483095e5ceb4dbf5bbb27767913b
-        
+
         // Write JSON file
         try (FileWriter file = new FileWriter("json/project.json")) {
             file.write(jsonProjects.toJSONString());
