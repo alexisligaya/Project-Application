@@ -10,9 +10,6 @@ import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants {
     
     public static void saveUsers() {
-        // User user = User.getInstance();                      (don't delete, will need later)!!!!!!!
-        // ArrayList<User> users = user.getUsers();
-        
         //hardcoding some users for testing purposes
         ArrayList<User> users = new ArrayList<>();
         JSONObject columnList = 
@@ -49,12 +46,6 @@ public class DataWriter extends DataConstants {
         userObject.put(USER_EMAIL, user.getEmail());
         userObject.put(USER_PASSWORD, user.getPassword());
         userObject.put(USER_DOB, user.getDateOfBirth().toString());
-        
-        // JSONArray tasksArray = new JSONArray();                 (don't delete, will need later)!!!!!!
-        // for (Tasks task : user.getTasks()) {
-        //     tasksArray.add(task.toString());
-        // }
-        // userObject.put(USER_TASKS, tasksArray);
         
         return userObject;
     }
@@ -148,8 +139,6 @@ public class DataWriter extends DataConstants {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
 
     public static void main(String[] args){
         saveUsers();
