@@ -107,6 +107,16 @@ public class DataWriter extends DataConstants {
                     commentObject.put("commentBy", comment.getCommentBy());
 
                 }
+                JSONArray changesArray = new JSONArray();
+                for(Change change : task.getChanges()){
+                    JSONObject changeObject = new JSONObject();
+                    changeObject.put("description", change.getDescription().toString());
+                    changeObject.put("date", change.getDate());
+                    changeObject.put("user", change.getUserID());
+                    changeObject.put("project", change.getProjectID());
+                }
+
+                }
             }
         }
         
@@ -123,4 +133,5 @@ public class DataWriter extends DataConstants {
         saveUsers();
         saveProjects();
     }
+}
 }
