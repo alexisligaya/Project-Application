@@ -32,12 +32,14 @@ public class DataLoader extends DataConstants{
 				
 				user.add(new User(userID, firstName, lastName, username, email, password, dob));
 			}
+			
 			return user;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		
+			return null;
 	}
 
 	public static Date stringToDate(String dateText) {
@@ -61,16 +63,16 @@ public class DataLoader extends DataConstants{
 
 			//convert string projectID to uuid
 			for(int i = 0; i < projectJSON.size(); i++){
-				JSONObject ProjectData = (JSONObject) projectJSON.get(i) ;
-				String projectID = (String)ProjectData.get(PROJECT_ID);
-				String name = (String)ProjectData.get(PROJECT_NAME);
-				String description= (String)ProjectData.get(PROJECT_DESCRIPTION);
-				float rating = (float)ProjectData.get(PROJECT_RATING);
-				boolean isFinished = (boolean)ProjectData.get(PROJECT_IS_FINISHED);
-				boolean isPublic = (boolean)ProjectData.get(PROJECT_IS_PUBLIC);
-				JSONArray columnList = (JSONArray)ProjectData.get(PROJECT_COLUMN_LIST);
+				JSONObject projectDataa = (JSONObject) projectJSON.get(i) ;
+				String projectID = (String)projectDataa.get(PROJECT_ID);
+				String name = (String)projectDataa.get(PROJECT_NAME);
+				String description= (String)projectDataa.get(PROJECT_DESCRIPTION);
+				double rating = (float)projectDataa.get(PROJECT_RATING);
+				boolean isFinished = (boolean)projectDataa.get(PROJECT_IS_FINISHED);
+				boolean isPublic = (boolean)projectDataa.get(PROJECT_IS_PUBLIC);
+				JSONArray columnList = (JSONArray)projectDataa.get(PROJECT_COLUMN_LIST);
 				
-				projects.add(new Project(name, description));
+				projects.add(new Project(projectID, name, description, rating, isFinished, isPublic, columnList));
 			}
 			return projects;
 		} catch (Exception e){
@@ -79,15 +81,16 @@ public class DataLoader extends DataConstants{
 		return null;
 	}
 
+
 	public static void main(String[] args){
 		ArrayList<User> users = loadUsers();
+
 		for(User user : users){
 			System.out.println(user);
 		}
 
 		//same thing
-		ArrayList<Project> projects = loadProjects();
-		for(Project project : projects){
+		for(Project projects : projects){
 			System.out.println(project);
 		}
 	}
