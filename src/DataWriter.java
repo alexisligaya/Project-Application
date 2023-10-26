@@ -15,6 +15,7 @@ public class DataWriter extends DataConstants {
         
         //hardcoding some users for testing purposes
         ArrayList<User> users = new ArrayList<>();
+        JSONObject columnList = 
         User user1 = new User( "John", "Doe", "JohnnyD", "JD101@gmail.com", "JD10101", new Date());
         User user2 = new User( "Jane", "Doe", "JaneDoe123", "Doe123@gmail.com", "JaneLovesCats", new Date());
         User user3 = new User( "Casey", "Vu", "CaseyVuDoo", "Vu001@gmail.com", "Casey123@", new Date());
@@ -91,6 +92,8 @@ public class DataWriter extends DataConstants {
         for (int i = 0; i < projects.size(); i++) {
             jsonProjects.add(getProjectJSON(projects.get(i)));
         }
+
+        
         
         // Write JSON file
         try (FileWriter file = new FileWriter("json/project.json")) {
@@ -99,6 +102,8 @@ public class DataWriter extends DataConstants {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        
     }
 
     public static void main(String[] args){
