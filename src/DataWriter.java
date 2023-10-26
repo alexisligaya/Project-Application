@@ -78,9 +78,9 @@ public class DataWriter extends DataConstants {
         
         //hardcode for testing
         ArrayList<Project> projects = new ArrayList<>();
+        
         ArrayList<Columns> columns = new ArrayList<Columns>();
         ArrayList<User> users = new ArrayList<User>();
-        
         Project proj1 = new Project(UUID.randomUUID(),"Flappy Bird", "Developing an app made for entertainment purposes", 6.5, false, false, columns, users);
         Project proj2 = new Project(UUID.randomUUID(),"Crossy Road", "Developing an app made for entertainment purposes", 9.9, false, false, columns, users);
         projects.add(proj1);
@@ -93,7 +93,53 @@ public class DataWriter extends DataConstants {
             jsonProjects.add(getProjectJSON(projects.get(i)));
         }
 
-        
+        JSONArray columnListArray = new JSONArray();
+        for (Column column : project.getColumnList()) {
+            JSONObject columnObject = new JSONObject();
+            columnObject.put("title", column.getTitle());
+
+            // Create an array for tasks
+            JSONArray tasksArray = new JSONArray();
+            for (Task task : column.getTasks()) {
+                JSONObject taskObject = new JSONObject();
+                taskObject.put("deadline", task.getDeadline().toString());
+                taskObject.put("taskDescription", task.getTaskDescription());
+                taskObject.put("priority", task.getPriority());
+                taskObject.put("hours", task.getHours());
+
+                // Create an array for comments
+                JSONArray commentsArray = new JSONArray();
+                for (Comment comment : task.getComments()) {
+                    JSONObject commentObject = new JSONObject();
+                    commentObject.put("date", comment.getDate().toString());
+                    commentObject.put("text", comment.getText());
+                    commentObject.put("commentBy", comment.getCommentBy());
+
+                    // Create an array for commentList
+                    JSONArray commentListArray = new JSONArray();
+                    for (Comment commentInList : comment.getCommentList()) {
+                        JSONObject commentInListObject = new JSONObject();
+                        commentInListObject.put("date", commentInList.getDate().toString());
+                        commentInListObject.put("text", commentInList.getText());
+                        commentInListObject.put("commentBy", commentInList.getCommentBy());
+                        commentListArray.add(commentInListObject);
+                    }
+
+                    commentObject.put("commentList", commentListArray);
+                    commentsArray.add(commentObject);
+                }
+
+                taskObject.put("comments", commentsArray);
+                tasksArray.add(taskObject);
+            }
+
+            columnObject.put("tasks", tasksArray);
+            columnListArray.add(columnObject);
+        }
+
+        projectObject.put("columnList", columnListArray);
+        jsonProjects.add(projectObject);
+    }
         
         // Write JSON file
         try (FileWriter file = new FileWriter("json/project.json")) {
