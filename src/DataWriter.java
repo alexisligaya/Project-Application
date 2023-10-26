@@ -117,8 +117,8 @@ public class DataWriter extends DataConstants {
                     JSONObject changeObject = new JSONObject();
                     changeObject.put("description", change.getDescription().toString());
                     changeObject.put("date", change.getDate());
-                    changeObject.put("user", change.getUserID());
-                    changeObject.put("project", change.getProjectID());
+                    changeObject.put("user", change.getUser());
+                    changeObject.put("project", change.getProject());
                 }
 
                 }
