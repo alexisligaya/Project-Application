@@ -1,13 +1,16 @@
 import java.util.UUID;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Project {
     private UUID projectID;
     private String name, description;
     private double rating;
     private boolean isFinished, isPublic;
-    private ArrayList<Columns> columnList; //make these empty for now
     private ArrayList<User> members;
+    private ArrayList<Tasks> tasks;
+    private ArrayList<Columns> columns; //make these empty for now
+    private ArrayList<Comment> comments; 
     private static Project instance;
 
     //contains all variables in parameters
@@ -18,21 +21,18 @@ public class Project {
         this.rating = rating;
         this.isFinished = isFinished;
         this.isPublic = isPublic;
-        this.columnList = columnList;
+        this.columns = columnList;
         this.members = members;
     }
     
     //does not contain the array lists in parameters (empty array lists)
-    public Project(UUID projectID, String name, String description, double rating, boolean isFinished, boolean isPublic) {
-        this.projectID = projectID;
+    public Project(String name, String description) {
         this.name = name;
         this.description = description;
-        this.rating = rating;
-        this.isFinished = isFinished;
-        this.isPublic = isPublic;
-        this.columnList = new ArrayList<>();
-        this.members = new ArrayList<>();
-    }
+        this.tasks = new ArrayList<>();
+        this.columns = new ArrayList<>();
+        this.comments = new ArrayList<>();
+        }
     
     //does not contain UUID in parameters (randomized UUID)
     public Project(String name, String description, double rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members) {
@@ -42,14 +42,8 @@ public class Project {
         this.rating = rating;
         this.isFinished = isFinished;
         this.isPublic = isPublic;
-        this.columnList = columnList;
+        this.columns = columnList;
         this.members = members;
-    }
-
-    public Project(String name, String description){
-        this.projectID= UUID.randomUUID();
-        this.name = name;
-        this.description = description;
     }
 
     public Project(){
@@ -57,7 +51,7 @@ public class Project {
         this.rating= 1f;
         this.isFinished= false;
         this.isPublic = false;
-        this.columnList= new ArrayList<>();
+        this.columns= new ArrayList<>();
         this.members= new ArrayList<>();
     }
     
@@ -86,7 +80,7 @@ public class Project {
     }
 
     public ArrayList<Columns> getColumnList(){
-        return columnList;
+        return columns;
     }
 
     public ArrayList<User> getMembers(){
@@ -99,6 +93,23 @@ public class Project {
         return instance;
     }
 
+    //add tasks
+    public void addTask(Date deadline, String taskDescription, int priority, double hours, User assignedUser){
+        Tasks task = new Tasks(deadline, taskDescription, priority, hours, assignedUser);
+        tasks.add(task);
+    }
+
+    //add columns
+    public void addColumn(String columnName){
+        Columns column = new Columns(columnName);
+    }
+
+    //add comments
+    public void addComment(Date date, String text, User commentBy, ArrayList<Comment> commentList){
+        Comment comment = new Comment(date, text, commentBy, commentList);
+        comments.add(comment);
+    }
+
     public String toString(){
         String result = "Project ID: " + this.projectID;
         result += "\nName: "+this.name;
@@ -106,9 +117,8 @@ public class Project {
         result += "\nRating: " + this.rating;
         result += "\nIs Finished: " + this.isFinished;
         result += "\nIs Public: " + this.isPublic;
-        result += "\nColumn List: " + this.columnList;
+        result += "\nColumns: " + this.columns;
         result += "\nMembers: " + this.members;
         return result;
     }
-
 }

@@ -72,7 +72,7 @@ public class DataLoader extends DataConstants{
 				boolean isPublic = (boolean)projectDataa.get(PROJECT_IS_PUBLIC);
 				JSONArray columnList = (JSONArray)projectDataa.get(PROJECT_COLUMN_LIST);
 				
-				projects.add(new Project(projectID, name, description, rating, isFinished, isPublic, columnList));
+				projects.add(new Project(name, description));
 			}
 			return projects;
 		} catch (Exception e){
