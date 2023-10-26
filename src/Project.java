@@ -10,7 +10,6 @@ public class Project {
     private ArrayList<User> members;
     private ArrayList<Columns> columns; //make these empty for now
     private ArrayList<Tasks> tasks;
-    
     private ArrayList<Comments> comments; 
     private static Project instance;
 
@@ -28,33 +27,13 @@ public class Project {
     
     //does not contain the array lists in parameters (empty array lists)
     public Project(String name, String description) {
+         this.projectID = UUID.randomUUID();
         this.name = name;
         this.description = description;
         this.tasks = new ArrayList<>();
         this.columns = new ArrayList<>();
         this.comments = new ArrayList<>();
         }
-    
-    //does not contain UUID in parameters (randomized UUID)
-    public Project(String name, String description, double rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columnList, ArrayList<User> members) {
-        this.projectID = UUID.randomUUID();
-        this.name = name;
-        this.description = description;
-        this.rating = rating;
-        this.isFinished = isFinished;
-        this.isPublic = isPublic;
-        this.columns = columnList;
-        this.members = members;
-    }
-
-    public Project(){
-        this.projectID = UUID.randomUUID();
-        this.rating= 1f;
-        this.isFinished= false;
-        this.isPublic = false;
-        this.columns= new ArrayList<>();
-        this.members= new ArrayList<>();
-    }
     
     public UUID getProjectID(){
         return projectID;
@@ -95,8 +74,8 @@ public class Project {
     }
 
     //add tasks
-    public void addTasks(Date deadline, String taskDescription, int priority, double hours, User assignedUser){
-        Tasks task = new Tasks(deadline, taskDescription, priority, hours, assignedUser);
+    public void addTasks(Date deadline, String taskDescription, int priority, double hours, User assignedUser, ArrayList<Change> changes){
+        Tasks task = new Tasks(deadline, taskDescription, priority, hours, assignedUser, changes);
         tasks.add(task);
     }
 
