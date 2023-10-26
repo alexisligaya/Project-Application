@@ -115,31 +115,9 @@ public class DataWriter extends DataConstants {
                     commentObject.put("text", comment.getText());
                     commentObject.put("commentBy", comment.getCommentBy());
 
-                    // Create an array for commentList
-                    JSONArray commentListArray = new JSONArray();
-                    for (Comments commentInList : comment.getCommentList()) {
-                        JSONObject commentInListObject = new JSONObject();
-                        commentInListObject.put("date", commentInList.getDate().toString());
-                        commentInListObject.put("text", commentInList.getText());
-                        commentInListObject.put("commentBy", commentInList.getCommentBy());
-                        commentListArray.add(commentInListObject);
-                    }
-
-                    commentObject.put("commentList", commentListArray);
-                    commentsArray.add(commentObject);
                 }
-
-                taskObject.put("comments", commentsArray);
-                tasksArray.add(taskObject);
             }
-
-            columnObject.put("tasks", tasksArray);
-            columnListArray.add(columnObject);
         }
-
-        projectObject.put("columnList", columnListArray);
-        jsonProjects.add(projectObject);
-    }
         
         // Write JSON file
         try (FileWriter file = new FileWriter("json/project.json")) {
@@ -149,7 +127,7 @@ public class DataWriter extends DataConstants {
             e.printStackTrace();
         }
 
-    }
+            
 
     public static void main(String[] args){
         saveUsers();
