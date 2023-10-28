@@ -64,15 +64,17 @@ public class DataLoader extends DataConstants{
 			//convert string projectID to uuid
 			for(int i = 0; i < projectJSON.size(); i++){
 				JSONObject projectDataa = (JSONObject) projectJSON.get(i) ;
-				String projectID = (String)projectDataa.get(PROJECT_ID);
+				UUID projectID = (UUID)projectDataa.get(PROJECT_ID);
 				String name = (String)projectDataa.get(PROJECT_NAME);
 				String description= (String)projectDataa.get(PROJECT_DESCRIPTION);
 				double rating = (float)projectDataa.get(PROJECT_RATING);
 				boolean isFinished = (boolean)projectDataa.get(PROJECT_IS_FINISHED);
 				boolean isPublic = (boolean)projectDataa.get(PROJECT_IS_PUBLIC);
-				JSONArray columns= (JSONArray)projectDataa.get(PROJECT_COLUMNS);
-				
-				projects.add(new Project(projectID, name, description, rating, isFinished, isPublic, columns));
+				//JSONArray columns= (JSONArray)projectDataa.get(PROJECT_COLUMNS);
+				ArrayList<Columns> columns = new ArrayList<>();
+				ArrayList<User> members = new ArrayList<>();
+
+				projects.add(new Project(projectID, name, description, rating, isFinished, isPublic, columns, members));
 			}
 			return projects;
 		} catch (Exception e){

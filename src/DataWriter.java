@@ -12,7 +12,7 @@ public class DataWriter extends DataConstants {
     public static void saveUsers() {
         //hardcoding some users for testing purposes
         ArrayList<User> users = new ArrayList<>();
-        JSONObject columnList = 
+        //JSONObject columnList = 
         User user1 = new User( "John", "Doe", "JohnnyD", "JD101@gmail.com", "JD10101", new Date());
         User user2 = new User( "Jane", "Doe", "JaneDoe123", "Doe123@gmail.com", "JaneLovesCats", new Date());
         User user3 = new User( "Casey", "Vu", "CaseyVuDoo", "Vu001@gmail.com", "Casey123@", new Date());
@@ -64,9 +64,6 @@ public class DataWriter extends DataConstants {
 
          //here
 
-
-
-
         return projectObject;
     }
 
@@ -86,45 +83,72 @@ public class DataWriter extends DataConstants {
         
         // Creating JSON objects for each user
         for (int i = 0; i < projects.size(); i++) {
-            jsonProjects.add(getProjectJSON(projects.get(i)));
-        }
+           // jsonProjects.add(getProjectJSON(projects.get(i)));
+            JSONObject projectObject = new JSONObject();
+            projectObject.put("projectID", projects.get(i).getProjectID());
+            projectObject.put("name", projects.get(i).getName());
+            projectObject.put("description", projects.get(i).getDescription());
+            projectObject.put("rating", projects.get(i).getRating());
+            projectObject.put("public", projects.get(i).getIsPublic());
+            projectObject.put("isFinished", projects.get(i).getIsFinished());
 
-        JSONArray columnsArray = new JSONArray();
-        for (Columns column : project.getColumns()) {
-            JSONObject columnObject = new JSONObject();
-            columnObject.put("title", column.getTitle());
-
-            // Create an array for tasks
-            JSONArray tasksArray = new JSONArray();
-            for (Tasks task : column.getTasks()) {
-                JSONObject taskObject = new JSONObject();
-                taskObject.put("deadline", task.getDeadline().toString());
-                taskObject.put("taskDescription", task.getTaskDescription());
-                taskObject.put("priority", task.getPriority());
-                taskObject.put("hours", task.getHours());
-
-                // Create an array for comments
-                JSONArray commentsArray = new JSONArray();
-                for (Comments comment : task.getComments()) {
-                    JSONObject commentObject = new JSONObject();
-                    commentObject.put("date", comment.getDate().toString());
-                    commentObject.put("text", comment.getText());
-                    commentObject.put("commentBy", comment.getCommentBy());
-
-                }
-                JSONArray changesArray = new JSONArray();
-                for(Change change : task.getChanges()){
-                    JSONObject changeObject = new JSONObject();
-                    changeObject.put("description", change.getDescription().toString());
-                    changeObject.put("date", change.getDate());
-                    changeObject.put("user", change.getUser());
-                    changeObject.put("project", change.getProject());
-                }
-
-                }
+            JSONArray membersArray = new JSONArray();
+            for(User member : projects.get(i).getMembers()){
+                membersArray.add(member.getUserID());
             }
+            
+
+    
+            JSONArray columnsArray = new JSONArray();
+            for (Columns column : projects.get(i).getColumns()) {
+                JSONObject columnObject = new JSONObject();
+                columnObject.put("title", column.getTitle());
+
+                // Create an array for tasks
+                JSONArray tasksArray = new JSONArray();
+                for (Tasks task : column.getTasks()) {
+                    JSONObject taskObject = new JSONObject();
+                    taskObject.put("deadline", task.getDeadline().toString());
+                    taskObject.put("taskDescription", task.getTaskDescription());
+                    taskObject.put("priority", task.getPriority());
+                    taskObject.put("hours", task.getHours());
+
+                    // Create an array for comments
+                    JSONArray commentsArray = new JSONArray();
+                    for (Comments comment : task.getComments()) {
+                        JSONObject commentObject = new JSONObject();
+                        commentObject.put("date", comment.getDate().toString());
+                        commentObject.put("text", comment.getText());
+                        commentObject.put("commentBy", comment.getCommentBy());
+
+                        commentsArray.add(commentObject);
+
+                    }
+                    JSONArray changesArray = new JSONArray();
+                    for(Change change : task.getChanges()){
+                        JSONObject changeObject = new JSONObject();
+                        changeObject.put("description", change.getDescription().toString());
+                        changeObject.put("date", change.getDate());
+                        changeObject.put("user", change.getUser());
+                        changeObject.put("project", change.getProject());
+
+                        changesArray.add(changeObject);
+                    }
+
+                    taskObject.put("comments", commentsArray);
+                    taskObject.put("changes", changesArray);
+                    
+                    tasksArray.add(taskObject);
+                }
+
+                columnObject.put("tasks", tasksArray);
+                columnsArray.add(columnObject);
+            }
+            projectObject.put("members", membersArray);
+            projectObject.put("columnList", columnsArray);
+            jsonProjects.add(projectObject);
         }
-    }
+    
 
         // Write JSON file
         try (FileWriter file = new FileWriter("json/project.json")) {
@@ -133,11 +157,11 @@ public class DataWriter extends DataConstants {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+    }
 
     public static void main(String[] args){
         saveUsers();
         saveProjects();
     }
-
+}
 
