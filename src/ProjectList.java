@@ -5,7 +5,7 @@ public class ProjectList {
     private ArrayList<Project> projects;
 
     public ProjectList(){
-        this.projects= new ArrayList<Project>();
+        this.projects= DataLoader.loadProjects();
     }
 
     public static ProjectList getInstance(){

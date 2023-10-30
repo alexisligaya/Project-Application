@@ -57,14 +57,14 @@ public class DataLoader extends DataConstants{
 		ArrayList<Project> projects = new ArrayList<Project>();
 
 		try{
-			FileReader reader = new FileReader("../json/project.json");
+			FileReader reader = new FileReader(PROJECT_FILE_NAME);
 			JSONParser parser = new JSONParser();
 			JSONArray projectJSON = (JSONArray)new JSONParser().parse(reader);
 
 			//convert string projectID to uuid
 			for(int i = 0; i < projectJSON.size(); i++){
 				JSONObject projectDataa = (JSONObject) projectJSON.get(i) ;
-				UUID projectID = (UUID)projectDataa.get(PROJECT_ID);
+				UUID projectID = UUID.fromString((String)projectDataa.get(PROJECT_ID));
 				String name = (String)projectDataa.get(PROJECT_NAME);
 				String description= (String)projectDataa.get(PROJECT_DESCRIPTION);
 				double rating = (float)projectDataa.get(PROJECT_RATING);
@@ -83,16 +83,15 @@ public class DataLoader extends DataConstants{
 		return null;
 	}
 
-
 	public static void main(String[] args){
 		ArrayList<User> users = loadUsers();
-
+		ArrayList<Project> projects = loadProjects();
 		for(User user : users){
 			System.out.println(user);
 		}
 
 		//same thing
-		for(Project projects : projects){
+		for(Project project : projects){
 			System.out.println(projects);
 		}
 	}

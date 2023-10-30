@@ -10,6 +10,7 @@ public abstract class DataConstants {
     protected static final String USER_DOB = "dateofBirth";
     protected static final String USER_TASKS = "tasks";
 
+    protected static final String PROJECT_FILE_NAME = "json/project.json";
     protected static final String PROJECT_ID = "projectID";
     protected static final String PROJECT_NAME = "name";
     protected static final String PROJECT_DESCRIPTION = "description";

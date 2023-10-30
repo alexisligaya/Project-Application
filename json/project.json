@@ -1,1 +1,22 @@
-[{"public":false,"members":[],"name":"Flappy Bird","rating":6.5,"description":"Developing an app made for entertainment purposes","columnList":[],"isFinished":false,"projectID":cbc7f8b3-455b-4008-a831-a0dd396164a7},{"public":false,"members":[],"name":"Crossy Road","rating":9.9,"description":"Developing an app made for entertainment purposes","columnList":[],"isFinished":false,"projectID":3cdb4418-46a2-4df3-96cc-ec9d4a9f9ee7}]
+[
+    {
+        "public": false,
+        "members": [],
+        "name": "Flappy Bird",
+        "rating": 6.5,
+        "description": "Developing an app made for entertainment purposes",
+        "columnList": [],
+        "isFinished": false,
+        "projectID":cbc7f8b3-455b-4008-a831-a0dd396164a7
+    },
+    {
+        "public": false,
+        "members": [],
+        "name": "Crossy Road",
+        "rating": 9.9,
+        "description": "Developing an app made for entertainment purposes",
+        "columnList": [],
+        "isFinished": false,
+        "projectID": 3cdb4418-46a2-4df3-96cc-ec9d4a9f9ee7
+    }
+]
