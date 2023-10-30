@@ -47,13 +47,15 @@ public class Team {
         return instance;
     }
 
-    public boolean removeScrumTeamMember(User user) {
-        if (members.contains(user)) {
-            return members.remove(user);
-        } else {
-            return false; 
-        }
+  public boolean removeScrumTeamMember(User user){
+    if(scrumTeamMembers.contains(user)){
+        scrumTeamMembers.remove(user);
+        return true;
     }
+    else{
+        return false;
+    }
+  }
 
     public void addScrumTeamMember(User user){
         members.add(user);
