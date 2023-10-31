@@ -70,12 +70,6 @@ public class Application {
         return team;
     }
 
-
-    //sign up
-    public boolean signUp(String firstName, String lastName, String userName, String email, String password, String company, Date dateOfBirth){
-        return UserList.getInstance().addUser(firstName, lastName, userName, email, password, company, dateOfBirth);
-       
-
     /**
      * Signing up a user with the following information:
      * 
@@ -87,8 +81,7 @@ public class Application {
      * @param dateOfBirth - user's date of birth
      * @return true that the user has been signed up
      */
-    public boolean signUp(String firstName, String lastName, String userName, String email, String password, String company
-            Date dateOfBirth) {
+    public boolean signUp(String firstName, String lastName, String userName, String email, String password, String company, Date dateOfBirth) {
         return UserList.getInstance().addUser(firstName, lastName, userName, email, password, company, dateOfBirth);
 
     }
