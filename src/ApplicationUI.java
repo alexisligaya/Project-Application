@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
 public class ApplicationUI {
+    
     private static final String WELCOME_MESSAGE = "Welcome to our Application";
     Scanner keyboard = new Scanner(System.in);
     private Application application;
@@ -71,8 +72,8 @@ public class ApplicationUI {
                         //open project
                         if(count == 1){
                             
-
                         }
+                        
                         //create new project
                         else if(count == 2){
                             keyboard.nextLine();
@@ -98,6 +99,7 @@ public class ApplicationUI {
                     }
                 }
             } 
+            
             //signing up
             else if (input == 2) {
                 keyboard.nextLine();
@@ -129,6 +131,7 @@ public class ApplicationUI {
 
                 DataWriter.saveUsers(UserList.getInstance().getUsers());
             } 
+            
             //exit system
             else if (input == 3) {
                 System.exit(0);

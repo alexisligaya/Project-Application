@@ -4,35 +4,68 @@ public class Columns {
     private String title;
     private ArrayList<Tasks> tasks;
 
-    //calling this from json
+    /**
+     * Constructor for a Columns object with the given parameters
+     * 
+     * @param title - title of column
+     * @param tasks - an ArrayList of tasks
+     */
     public Columns(String title, ArrayList<Tasks> tasks) {
-        this.title=title;
-        this.tasks=tasks;
+        this.title = title;
+        this.tasks = tasks;
     }
 
-    //one with empty array list of tasks
-    public Columns(){
-        
+    /**
+     * One with an empty ArrayList of tasks
+     */
+    public Columns() {
+
     }
 
-    public String getTitle(){
+    /**
+     * Gets the title of the column
+     * 
+     * @return a string representation of the title
+     */
+    public String getTitle() {
         return title;
     }
 
-    public ArrayList<Tasks> getTasks(){
+    /**
+     * Gets the ArrayList of tasks for this column
+     * 
+     * @return an ArrayList of tasks
+     */
+    public ArrayList<Tasks> getTasks() {
         return tasks;
     }
-    
-    public void addTask (Tasks task){
+
+    /**
+     * Adds a task to the ArrayList of tasks for this column
+     * 
+     * @param task - an ArrayList of tasks
+     */
+    public void addTask(Tasks task) {
         tasks.add(task);
     }
-   public void removeTask(Tasks task){
-    tasks.remove(task);
-   }
 
-    public String toString(){
+    /**
+     * Removes a task from the ArrayList of tasks for this column
+     * 
+     * @param task - an ArrayList of tasks
+     */
+    public void removeTask(Tasks task) {
+        tasks.remove(task);
+    }
+
+    /**
+     * Formats the string of all the information for the column
+     * 
+     * @return a formatted string
+     */
+    public String toString() {
         String result = "Title: " + this.title;
-        result += "\nTasks: "+this.tasks;
+        result += "\nTasks: " + this.tasks;
         return result;
     }
 

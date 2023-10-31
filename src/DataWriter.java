@@ -9,6 +9,10 @@ import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
     
+    /**
+     * Saves a list of User objects as a JSON file.
+     * @param users - the ArrayList of User objects to be saved as JSON.
+     */
     public static void saveUsers(ArrayList<User> users) {
         JSONArray jsonUsers = new JSONArray();
         
@@ -27,6 +31,10 @@ public class DataWriter extends DataConstants {
         }
     }
     
+    /**
+     * Saves a list of Project objects as a JSON that organizes projects by user ID.
+     * @param projects - the ArrayList of Project objects to be saved as JSON.
+     */
     public static void saveProjects(ArrayList<Project> projects) {
         JSONObject jsonProjects = new JSONObject();
         
@@ -52,6 +60,11 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    /**
+     * Parsing JSON files. Converts a User object to a JSONObject representing the user's information.
+     * @param user - The User object to parse.
+     * @return - a JSONObject containing user information
+     */
     public static JSONObject getUserJSON(User user) {
         JSONObject userObject = new JSONObject();
 
@@ -71,6 +84,11 @@ public class DataWriter extends DataConstants {
         return userObject;
     }
 
+    /** COME BACK TO JAVADOC THE REST
+     * Parsing JSON files. Converts a Project object to a JSONObject representing the project's information.
+     * @param project the Project object to parse.
+     * @return a JSONObject containing project information
+     */
     public static JSONObject getProjectJSON(Project project) {
         JSONObject projectObject = new JSONObject();
 
@@ -137,12 +155,7 @@ public class DataWriter extends DataConstants {
                 columnObject.put("tasks", tasksArray);
                 columnsArray.add(columnObject);
             }
-            projectObject.put("members", membersArray);
-            projectObject.put("columnList", columnsArray);
-
-            return projectObject;
-    }
-
+        }
     public static void main(String[] args) {
          //hardcode user
          ArrayList<User> users = UserList.getInstance().getUsers();
