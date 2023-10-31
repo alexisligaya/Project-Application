@@ -4,12 +4,12 @@ public class Application {
     private static User users;
     private User currentUser;
     private Project project;
-    private Project currentProject;
     private Team team;
     private UserList userList;
     private ProjectList projectList;
 
     public Application(){
+        userList = UserList.getInstance();
         users=User.getInstance();
         project=Project.getInstance();
         team=Team.getInstance();
@@ -38,6 +38,7 @@ public class Application {
     //sign up
     public boolean signUp(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
         return UserList.getInstance().addUser(firstName, lastName, userName, email, password, dateOfBirth);
+       
     }
 
     //user logs in

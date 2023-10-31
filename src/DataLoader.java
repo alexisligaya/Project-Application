@@ -15,7 +15,7 @@ public class DataLoader extends DataConstants{
 		ArrayList<User> user = new ArrayList<User>();
 		
 		try {
-			FileReader reader = new FileReader(USER_FILE_NAME);
+			FileReader reader = new FileReader("json/user-test.json");
 			JSONParser parser = new JSONParser();
 			JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
 			
@@ -56,7 +56,7 @@ public class DataLoader extends DataConstants{
 		ArrayList<Project> projects = new ArrayList<Project>();
 
 		try{
-			FileReader reader = new FileReader(PROJECT_FILE_NAME);
+			FileReader reader = new FileReader("json/project.json");
 			JSONParser parser = new JSONParser();
 			JSONArray projectJSON = (JSONArray)new JSONParser().parse(reader);
 

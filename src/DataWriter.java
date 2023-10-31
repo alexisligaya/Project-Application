@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.Date;
@@ -20,6 +21,7 @@ public class DataWriter extends DataConstants {
         try (FileWriter file = new FileWriter("json/user-test.json")) {
             file.write(jsonUsers.toJSONString());
             file.flush();
+            //file.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -51,8 +53,12 @@ public class DataWriter extends DataConstants {
         userObject.put(USER_USERNAME, user.getUserName());
         userObject.put(USER_EMAIL, user.getEmail());
         userObject.put(USER_PASSWORD, user.getPassword());
-        userObject.put(USER_DOB, user.getDateOfBirth().toString());
+        //userObject.put(USER_DOB, user.getDateOfBirth().toString());
         
+        SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
+        String formattedDate = dateFormat.format(user.getDateOfBirth());
+        userObject.put(USER_DOB, formattedDate);
+
         return userObject;
     }
 
@@ -81,7 +87,12 @@ public class DataWriter extends DataConstants {
                 JSONArray tasksArray = new JSONArray();
                 for (Tasks task : column.getTasks()) {
                     JSONObject taskObject = new JSONObject();
-                    taskObject.put("deadline", task.getDeadline().toString());
+                    //taskObject.put("deadline", task.getDeadline().toString());
+
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                    String formattedDeadline = dateFormat.format(task.getDeadline());
+                    taskObject.put("deadline", formattedDeadline);
+
                     taskObject.put("taskDescription", task.getTaskDescription());
                     taskObject.put("priority", task.getPriority());
                     taskObject.put("hours", task.getHours());
@@ -124,53 +135,6 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-        // Hardcode user
-        ArrayList<User> users = UserList.getInstance().getUsers();
-        User user1 = new User( 
-            UUID.randomUUID(),
-            "John", 
-            "Dill", 
-            "JohnnyD", 
-            "JD101@gmail.com",
-            "JD10101", 
-            new Date());
-        users.add(user1);
-        saveUsers(users);
-    
-        // Hardcode project
-        ArrayList<Project> projects = ProjectList.getInstance().getProjects();
-    
-        boolean projectExists = false;
-        String newProjectName = "Bird"; // Change this to the desired new project name
-    
-        for (Project project : projects) {
-            if (project.getName().equals(newProjectName)) {
-                projectExists = true;
-                break;
-            }
-        }
-    
-        if (!projectExists) {
-            // Create a new project only if a project with the given name doesn't exist
-            ArrayList<User> projectUsers = new ArrayList<>();
-            projectUsers.add(user1);
-            
-            ArrayList<Columns> columns = new ArrayList<>();
-            // Other project setup steps...
-    
-            Project newProject = new Project(
-                UUID.randomUUID(),
-                newProjectName,
-                " My new project", // Add description here
-                7.5, // Rating or other project details
-                false,
-                false,
-                columns,
-                projectUsers
-            );
-    
-            projects.add(newProject);
-            saveProjects(projects);
-        }
+        
     }
 }

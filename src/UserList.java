@@ -3,21 +3,19 @@ import java.util.Date;
 import java.util.UUID;
 
 public class UserList {
-   
     private static UserList instance;
     private ArrayList<User> users;
-    private static UserList userList;
 
     private UserList() {
         this.users = new ArrayList<User>();
     }
 
-
     public static UserList getInstance(){
-        if(userList==null){
-            userList=new UserList();
+        if(instance==null){
+            instance=new UserList();
+            instance.loadUsers();
         }
-        return userList;
+        return instance;
     }
    
     public ArrayList<User> getUsers(){
@@ -62,6 +60,7 @@ public class UserList {
         //add to list
         User newUser = new User(firstName, lastName, userName, email, password, dateOfBirth);
         users.add(newUser);
+        saveUsers();
 
         //return null if not successful
 
@@ -69,7 +68,6 @@ public class UserList {
         return true;
     }
 
-    
     public String toString(){
         String result= "Users: " + this.users;
         return result;
@@ -77,6 +75,13 @@ public class UserList {
 
     public void saveUsers(){
         DataWriter.saveUsers(users);
+    }
+
+    public void loadUsers(){
+        this.users = DataLoader.loadUsers();
+        if(this.users == null){
+            this.users = new ArrayList<User>();
+        }
     }
 }
 
