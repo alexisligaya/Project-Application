@@ -123,8 +123,8 @@ public class DataWriter extends DataConstants {
 
                 }
             }
-        }
-    }
+        
+    
 
         // Write JSON file
         try (FileWriter file = new FileWriter("json/project.json")) {
@@ -133,11 +133,13 @@ public class DataWriter extends DataConstants {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
 
     public static void main(String[] args){
         saveUsers();
         saveProjects();
     }
+}
 
 
