@@ -14,8 +14,14 @@ public class ProjectList {
         return instance;
     }
 
-    public ArrayList<Project> getProjects(){
-        return projects;
+    public ArrayList<Project> getProjects(String title){
+        ArrayList<Project> matchingProjects = new ArrayList<>();
+        for(Project project: projects){
+            if(project.getName().equalsIgnoreCase(title)){
+                matchingProjects.add(project);
+            }
+        }
+        return matchingProjects;
     }
 
     public Project getProjects(String name, String description){

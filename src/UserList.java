@@ -6,15 +6,18 @@ public class UserList {
    
     private static UserList instance;
     private ArrayList<User> users;
+    private static UserList userList;
 
     private UserList() {
         this.users = new ArrayList<User>();
     }
 
+
     public static UserList getInstance(){
-        if(instance == null)
-            instance = new UserList();
-         return instance;
+        if(userList==null){
+            userList=new UserList();
+        }
+        return userList;
     }
    
     public ArrayList<User> getUsers(){
