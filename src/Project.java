@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Project {
+    
     private UUID projectID;
     private String name, description;
     private double rating;
@@ -13,7 +14,17 @@ public class Project {
     private ArrayList<Comments> comments; 
     private static Project instance;
 
-    //contains all variables in parameters
+    /**
+     * Constructor for Project that contains all variables in parameters
+     * @param projectID
+     * @param name
+     * @param description
+     * @param rating
+     * @param isFinished
+     * @param isPublic
+     * @param columns
+     * @param members
+     */
     public Project(UUID projectID, String name, String description, double rating, boolean isFinished, boolean isPublic, ArrayList<Columns> columns, ArrayList<User> members) {
         this.projectID = projectID;
         this.name = name;
@@ -26,6 +37,11 @@ public class Project {
     }
     
     //does not contain the array lists in parameters (empty array lists)
+    /**
+     * 
+     * @param name
+     * @param description
+     */
     public Project(String name, String description) {
         this.projectID = UUID.randomUUID();
         this.name = name;
