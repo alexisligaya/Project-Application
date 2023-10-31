@@ -70,7 +70,8 @@ public class ApplicationUI {
 
                         //open project
                         if(count == 1){
-                            // Implementation for opening a project
+                            
+                            
                         }
                         //create new project
                         else if(count == 2){
