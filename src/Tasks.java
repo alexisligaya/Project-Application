@@ -20,6 +20,16 @@ public class Tasks {
         this.comments = comments;
     }
 
+    public Tasks(String taskDescription){
+        this.taskDescription=taskDescription;
+        this.deadline=null;
+        this.priority=0;
+        this.hours=0;
+        this.assignedUser=null;
+        this.changes= new ArrayList<>();
+        this.comments = new ArrayList<>();
+    }
+
     public Date getDeadline(){
         return deadline;
     }
@@ -40,10 +50,6 @@ public class Tasks {
         return assignedUser;
     }
 
-    public void assignUser(User user){
-        this.assignedUser = user;
-    }
-
     public ArrayList<Change> getChanges(){
         return changes;
     }
@@ -52,9 +58,29 @@ public class Tasks {
         return comments;
     }
 
+    public void assignUser(User user){
+        String description = "Task assigned from "; 
+        if(this.assignedUser == null){
+            description += "null";
+        }
+        else{
+            description += this.assignedUser.getUserName();
+        }
+        description += " to " + user.getUserName();
+
+        this.assignedUser = user;
+        addChanges(description);
+    }
+
+    public void addComment(Comments comment){
+        String description = "Comment by " + comment.getCommentBy() + ": " + comment.getText();
+        comments.add(comment);
+        addChanges(description);
+    }
+
     //add changes
-    public void addChanges(String description, Date date, User user, Project project){
-        Change change = new Change(description, date, user, project);
+    public void addChanges(String description){
+        Change change = new Change(description);
         changes.add(change);
     }
 

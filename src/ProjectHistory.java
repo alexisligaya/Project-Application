@@ -19,8 +19,9 @@ public class ProjectHistory {
    }
    
     public void addChange(User user, String description){
-        Change change = new Change(description, new Date(), user, null);
-        changes.add(change);
+        //NOTE: implement when project history is used
+        //Change change = new Change(description, new Date(), user, null);
+        //changes.add(change);
         lastUpdate = new Date();
     }
 

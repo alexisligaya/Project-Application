@@ -19,7 +19,8 @@ public class Columns {
      * One with an empty ArrayList of tasks
      */
     public Columns() {
-
+        this.title = "Backlog";
+        this.tasks= new ArrayList<>();
     }
 
     /**
@@ -38,6 +39,11 @@ public class Columns {
      */
     public ArrayList<Tasks> getTasks() {
         return tasks;
+    }
+
+
+    public void setTitle(String title){
+        this.title=title;
     }
 
     /**

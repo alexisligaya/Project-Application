@@ -1,8 +1,9 @@
 import java.util.Date;
+import java.time.LocalDate;
 
 public class Comments {
 
-    private Date date;
+    private LocalDate date;
     private String text;
     private User commentBy;
 
@@ -13,8 +14,8 @@ public class Comments {
      * @param text      - comment text/context
      * @param commentBy - user who posted the comment
      */
-    public Comments(Date date, String text, User commentBy) {
-        this.date = date;
+    public Comments(String text, User commentBy) {
+        this.date = LocalDate.now();
         this.text = text;
         this.commentBy = commentBy;
     }
@@ -24,7 +25,7 @@ public class Comments {
      * 
      * @return a Date object
      */
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 

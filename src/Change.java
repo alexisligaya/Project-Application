@@ -1,9 +1,10 @@
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Change {
 
     private String description;
-    private Date date;
+    private LocalDate date;
     private User user;
     private Project project;
 
@@ -15,11 +16,9 @@ public class Change {
      * @param user        - the user responsible for the change
      * @param project     - the current project whose information is being changed
      */
-    public Change(String description, Date date, User user, Project project) {
+    public Change(String description) {
         this.description = description;
-        this.date = date;
-        this.user = user;
-        this.project = project;
+        this.date = LocalDate.now();
     }
 
     /**
@@ -36,7 +35,7 @@ public class Change {
      * 
      * @return a date of when the change was made
      */
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 

@@ -38,23 +38,18 @@ public class DataWriter extends DataConstants {
      * @param projects - the ArrayList of Project objects to be saved as JSON.
      */
     public static void saveProjects(ArrayList<Project> projects) {
-        JSONObject jsonProjects = new JSONObject();
+        JSONArray jsonProjects = new JSONArray();
 
         // Creating JSON objects for each user
         // projects by userID
         for (Project project : projects) {
-            for (User member : project.getMembers()) {
-                JSONArray userProjects = (JSONArray) jsonProjects.get(member.getUserID().toString());
-                if (userProjects == null) {
-                    userProjects = new JSONArray();
-                    jsonProjects.put(member.getUserID().toString(), userProjects);
-                }
-                userProjects.add(getProjectJSON(project));
-            }
+            jsonProjects.add(getProjectJSON(project));
         }
+        
 
         // Write JSON file
         try (FileWriter file = new FileWriter("json/project.json")) {
+
             file.write(jsonProjects.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -127,9 +122,7 @@ public class DataWriter extends DataConstants {
                 JSONObject taskObject = new JSONObject();
                 // taskObject.put("deadline", task.getDeadline().toString());
 
-                SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                String formattedDeadline = dateFormat.format(task.getDeadline());
-                taskObject.put("deadline", formattedDeadline);
+              
 
                 taskObject.put("taskDescription", task.getTaskDescription());
                 taskObject.put("priority", task.getPriority());
@@ -151,8 +144,12 @@ public class DataWriter extends DataConstants {
                     JSONObject changeObject = new JSONObject();
                     changeObject.put("description", change.getDescription().toString());
                     changeObject.put("date", change.getDate().toString());
-                    changeObject.put("user", change.getUser().toString());
-                    changeObject.put("project", change.getProject().toString());
+                    if(change.getUser() != null){
+                        changeObject.put("user", change.getUser().toString());
+                    }
+                    if(change.getProject() != null){
+                        changeObject.put("project", change.getProject().toString());
+                    }
 
                     changesArray.add(changeObject);
                 }
@@ -188,15 +185,27 @@ public class DataWriter extends DataConstants {
         User user2 = new User( 
              UUID.randomUUID(),
              "Jeff", 
-             "Goldbum", 
+             "Goldblum", 
              "JGold", 
              "JGold12@gmail.com",
              "123", 
              "None",
              new Date());
 
+        User user3 = new User( 
+             UUID.randomUUID(),
+             "Atticus", 
+             "Finch", 
+             "AFinch", 
+             "AF12@gmail.com",
+             "123", 
+             "Code Mission Possible",
+             new Date());
+
+
          users.add(user1);
          users.add(user2);
+         users.add(user3);
          saveUsers(users);
  
          //hardcode projects
@@ -204,53 +213,40 @@ public class DataWriter extends DataConstants {
          ArrayList<User> projectUsers = new ArrayList<>();
          projectUsers.add(user1);
          
-         ArrayList<Columns> columns = new ArrayList<>();
-         ArrayList<Comments> comments = new ArrayList<>();
-         Comments comment1 = new Comments(new Date(), "This is a comment", user1);
-         comments.add(comment1);
- 
-         ArrayList<Tasks> tasks = new ArrayList<>();
-         ArrayList<Change> changes = new ArrayList<>();
-         User assignedUser = user1;
-         Tasks task1 = new Tasks(new Date(), "Task description", 1, 2, assignedUser, changes, comments);
-         tasks.add(task1);
- 
-         Columns column = new Columns("Column title", tasks);
-         columns.add(column);
- 
          //project 1
          Project proj1 = new Project(
-         UUID.randomUUID(),
          "Electric Missiles", 
-         "boom", 
-         6.5, 
-         false, 
-         false, 
-         columns, 
-         projectUsers);
+         "boom");
 
          //project 2
          Project proj2 = new Project(
-         UUID.randomUUID(),
          "Soap Free Washers", 
-         "soapy", 
-         5.0, 
-         false, 
-         false, 
-         columns, 
-         projectUsers);
+         "soapy");
 
          //project 3
          Project proj3 = new Project(
-         UUID.randomUUID(),
          "Air Computers", 
-         "airy", 
-         7.5, 
-         false, 
-         false, 
-         columns, 
-         projectUsers);
+         "airy");
  
+        proj1.addColumns("Doing");
+        proj1.addColumns("Abandoned");
+        proj1.addColumns("Done");
+
+        Tasks currTask = proj1.addTasks("Initialize super algorithm to detonate at warp speed");
+        currTask.assignUser(user2);
+        currTask.addComment(new Comments("Avoid civilians Jeff!", user1));
+
+        currTask = proj1.addTasks("Curve the metal to make a cylindrical shape");
+        currTask.assignUser(user1);
+        proj1.moveTasks(currTask, 0, 1);
+        currTask.addComment(new Comments("Not cylindrical enough", user2));
+        currTask.addComment(new Comments("What's a cylinder", user3));
+        currTask.addComment(new Comments("How about you do it jeff", user1));
+        currTask.assignUser(user2);
+
+        currTask = proj1.addTasks("Make impossible burger possible");
+        proj1.moveTasks(currTask, 0, 2);
+
          projects.add(proj1);
          projects.add(proj2);
          projects.add(proj3);

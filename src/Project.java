@@ -10,7 +10,6 @@ public class Project {
     private boolean isFinished, isPublic;
     private ArrayList<User> members;
     private ArrayList<Columns> columns; //make these empty for now
-    private ArrayList<Tasks> tasks;
     private ArrayList<Comments> comments; 
     private static Project instance;
 
@@ -47,6 +46,8 @@ public class Project {
         this.name = name;
         this.description = description;
         this.columns = new ArrayList<>();
+        Columns defaultColumn = new Columns();
+        this.columns.add(defaultColumn);
         this.members = new ArrayList<>();
         }
     
@@ -96,19 +97,32 @@ public class Project {
     //add tasks
     public void addTasks(Date deadline, String taskDescription, int priority, double hours, User assignedUser, ArrayList<Change> changes, ArrayList<Comments> comments){
         Tasks task = new Tasks(deadline, taskDescription, priority, hours, assignedUser, changes, comments);
-        tasks.add(task);
+        columns.get(0).addTask(task);
+    }
+
+    public Tasks addTasks(String taskDescription){
+        Tasks task = new Tasks(taskDescription);
+        columns.get(0).addTask(task);
+        return task;
     }
 
     //add columns
-    public void addColumns(String title, ArrayList<Tasks> tasks){
-        Columns column = new Columns(title, tasks);
+    public void addColumns(String title){
+        Columns column = new Columns();
+        column.setTitle(title);
         columns.add(column);
     }
 
     //add comments
     public void addComments(Date date, String text, User commentBy){
-        Comments comment = new Comments(date, text, commentBy);
+        Comments comment = new Comments(text, commentBy);
         comments.add(comment);
+    }
+
+    //move 
+    public void moveTasks(Tasks task, int fromColumnPos, int toColumnPos){
+        this.columns.get(fromColumnPos).removeTask(task);
+        this.columns.get(toColumnPos).addTask(task);
     }
 
     public String toString(){
