@@ -34,14 +34,9 @@ public class DataWriter extends DataConstants {
         //projects by userID
         for (Project project : projects) {
             for(User member : project.getMembers()){
-                Object userProjectsObj = jsonProjects.get(member.getUserID().toString());
-                JSONArray userProjects = null;;
-
-                if(userProjectsObj instanceof JSONArray){
-                    userProjects = (JSONArray) userProjectsObj;
-                }
-                else{
-                    userProjects= new JSONArray();
+                JSONArray userProjects = (JSONArray) jsonProjects.get(member.getUserID().toString());
+                if(userProjects == null){
+                    userProjects = new JSONArray();
                     jsonProjects.put(member.getUserID().toString(), userProjects);
                 }
                 userProjects.add(getProjectJSON(project));
@@ -57,11 +52,6 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    /**
-     * Converts a User object to a JSONObject representing the user's information.
-     * @param user The User object to convert.
-     * @return a JSONObject containing user information
-     */
     public static JSONObject getUserJSON(User user) {
         JSONObject userObject = new JSONObject();
 
@@ -146,6 +136,12 @@ public class DataWriter extends DataConstants {
                 columnObject.put("tasks", tasksArray);
                 columnsArray.add(columnObject);
             }
+            projectObject.put("members", membersArray);
+            projectObject.put("columnList", columnsArray);
+
+            return projectObject;
+    }
+
     public static void main(String[] args) {
         
     }

@@ -23,6 +23,7 @@ public class Comments {
         return commentBy;
     }
 
+    
     public String toString(){
         String result = "Date: " + this.date;
         result += "\nText: "+this.text;
