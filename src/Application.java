@@ -26,6 +26,7 @@ public class Application {
     public Project getProject(){
         return project;
     }
+
     public ProjectList getProjectList(){
         return projectList;
     }
@@ -54,10 +55,9 @@ public class Application {
     }
 
     //add project
-    public boolean addProject(String name, String description){
+    public void addProject(String name, String description){
         //call projectList
-        currentProject = ProjectList.getInstance().getProjects(name, description);
-        return currentProject != null;
+        ProjectList.getInstance().addProject(name, description);
     }
 
     public boolean removeProject(String name, String description) {

@@ -5,7 +5,7 @@ public class ProjectList {
     private ArrayList<Project> projects;
 
     public ProjectList(){
-        this.projects= DataLoader.loadProjects();
+        this.projects= new ArrayList<Project>();
     }
 
     public static ProjectList getInstance(){
@@ -32,22 +32,15 @@ public class ProjectList {
         return null; //project with given projectID not found
     }
 
-    public boolean addProject(String name, String description){
-        //validate
-        if(name == null || description == null)
-            return false;
+    public ArrayList<Project> getProjects(){
+        return projects;
+    }
 
-        //make a project
-        for(Project projects : projects){
-            if(projects.getName().equals(name) || projects.getDescription().equals(description))
-                return false;
-        }
+    public void addProject(String name, String description){
         //add to list
         Project newProject = new Project(name, description);
         projects.add(newProject);
 
-        //create newProject if successful
-        return true;
     }
 
     public boolean removeProject(String name, String description) {

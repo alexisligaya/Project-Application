@@ -128,8 +128,8 @@ public class DataWriter extends DataConstants {
         ArrayList<User> users = UserList.getInstance().getUsers();
         User user1 = new User( 
             UUID.randomUUID(),
-            "Johnasd", 
-            "Doe", 
+            "John", 
+            "Dill", 
             "JohnnyD", 
             "JD101@gmail.com",
             "JD10101", 
@@ -141,7 +141,7 @@ public class DataWriter extends DataConstants {
         ArrayList<Project> projects = ProjectList.getInstance().getProjects();
     
         boolean projectExists = false;
-        String newProjectName = "Flappy Birds"; // Change this to the desired new project name
+        String newProjectName = "Bird"; // Change this to the desired new project name
     
         for (Project project : projects) {
             if (project.getName().equals(newProjectName)) {
@@ -161,7 +161,7 @@ public class DataWriter extends DataConstants {
             Project newProject = new Project(
                 UUID.randomUUID(),
                 newProjectName,
-                "Description of the new project", // Add description here
+                " My new project", // Add description here
                 7.5, // Rating or other project details
                 false,
                 false,
@@ -173,7 +173,4 @@ public class DataWriter extends DataConstants {
             saveProjects(projects);
         }
     }
-    
-    
 }
-
