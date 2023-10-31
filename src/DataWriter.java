@@ -34,14 +34,9 @@ public class DataWriter extends DataConstants {
         //projects by userID
         for (Project project : projects) {
             for(User member : project.getMembers()){
-                Object userProjectsObj = jsonProjects.get(member.getUserID().toString());
-                JSONArray userProjects = null;;
-
-                if(userProjectsObj instanceof JSONArray){
-                    userProjects = (JSONArray) userProjectsObj;
-                }
-                else{
-                    userProjects= new JSONArray();
+                JSONArray userProjects = (JSONArray) jsonProjects.get(member.getUserID().toString());
+                if(userProjects == null){
+                    userProjects = new JSONArray();
                     jsonProjects.put(member.getUserID().toString(), userProjects);
                 }
                 userProjects.add(getProjectJSON(project));
@@ -154,4 +149,5 @@ public class DataWriter extends DataConstants {
     public static void main(String[] args) {
         
     }
+}
 }
