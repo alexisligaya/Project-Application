@@ -6,6 +6,7 @@ public class Tasks {
     private String taskDescription;
     private int priority;
     private double hours;
+    private User assignedUser;
     private ArrayList<Change> changes;
     private ArrayList<Comments> comments;
 
@@ -14,6 +15,7 @@ public class Tasks {
         this.taskDescription = taskDescription;
         this.priority = priority;
         this.hours = hours;
+        this.assignedUser = assignedUser;
         this.changes = changes;
         this.comments = comments;
     }
@@ -34,8 +36,12 @@ public class Tasks {
         return hours;
     }
 
-    public void assignToUser(User user){
-        
+    public User getAssignedUser(){
+        return assignedUser;
+    }
+
+    public void assignUser(User user){
+        this.assignedUser = user;
     }
 
     public ArrayList<Change> getChanges(){
@@ -57,6 +63,7 @@ public class Tasks {
         result += "\nTask Description: "+this.taskDescription;
         result += "\nPriority: " + this.priority;
         result += "\nHours: " + this.hours;
+        result += "\nAssigned User: " + this.assignedUser;
         return result;
     }
 }

@@ -9,7 +9,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
 public class DataLoader extends DataConstants{
 	
     public static ArrayList<User> loadUsers() {
@@ -67,7 +66,7 @@ public class DataLoader extends DataConstants{
 				UUID projectID = UUID.fromString((String)projectDataa.get(PROJECT_ID));
 				String name = (String)projectDataa.get(PROJECT_NAME);
 				String description= (String)projectDataa.get(PROJECT_DESCRIPTION);
-				double rating = (float)projectDataa.get(PROJECT_RATING);
+				double rating = (double)projectDataa.get(PROJECT_RATING);
 				boolean isFinished = (boolean)projectDataa.get(PROJECT_IS_FINISHED);
 				boolean isPublic = (boolean)projectDataa.get(PROJECT_IS_PUBLIC);
 				//JSONArray columns= (JSONArray)projectDataa.get(PROJECT_COLUMNS);
@@ -85,16 +84,14 @@ public class DataLoader extends DataConstants{
 
 	public static void main(String[] args){
 		ArrayList<User> users = loadUsers();
-		ArrayList<Project> projects = loadProjects();
 		for(User user : users){
 			System.out.println(user);
 		}
 
 		//same thing
+		ArrayList<Project> projects = loadProjects();
 		for(Project project : projects){
-			System.out.println(projects);
+			System.out.println(project);
 		}
 	}
-
-
 }

@@ -1,16 +1,14 @@
 import java.util.Date;
-import java.util.ArrayList;
 
 public class Comments {
     private Date date;
     private String text;
     private User commentBy;
-    private ArrayList<Comments> commentList;
 
-    public Comments(Date date, String text, User commentBy, ArrayList<Comments> commentList){
+    public Comments(Date date, String text, User commentBy){
         this.date= date;
         this.text= text;
-        this.commentList=commentList;
+        this.commentBy = commentBy;
     }
 
     public Date getDate(){
@@ -23,10 +21,6 @@ public class Comments {
 
     public User getCommentBy(){
         return commentBy;
-    }
-
-    public ArrayList<Comments> getCommentList(){
-        return commentList;
     }
 
     public String toString(){

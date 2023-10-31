@@ -73,7 +73,7 @@ public class UserList {
     }
 
     public void saveUsers(){
-        DataWriter.saveUsers();
+        DataWriter.saveUsers(users);
     }
 }
 

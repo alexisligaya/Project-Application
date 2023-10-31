@@ -1,30 +1,19 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.UUID;
-
+import java.util.Date;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
     
-    public static void saveUsers() {
-        //hardcoding some users for testing purposes
-        ArrayList<User> users = new ArrayList<>();
-        //JSONObject columnList = 
-        User user1 = new User( "John", "Doe", "JohnnyD", "JD101@gmail.com", "JD10101", new Date());
-        User user2 = new User( "Jane", "Doe", "JaneDoe123", "Doe123@gmail.com", "JaneLovesCats", new Date());
-        User user3 = new User( "Casey", "Vu", "CaseyVuDoo", "Vu001@gmail.com", "Casey123@", new Date());
-        users.add(user1);
-        users.add(user2);
-        users.add(user3);
-
+    public static void saveUsers(ArrayList<User> users) {
         JSONArray jsonUsers = new JSONArray();
         
         // Creating JSON objects for each user
-        for (int i = 0; i < users.size(); i++) {
-            jsonUsers.add(getUserJSON(users.get(i)));
+        for (User user : users) {
+            jsonUsers.add(getUserJSON(user));
         }
         
         // Write JSON file
@@ -36,6 +25,23 @@ public class DataWriter extends DataConstants {
         }
     }
     
+    public static void saveProjects(ArrayList<Project> projects) {
+        JSONArray jsonProjects = new JSONArray();
+        
+        //Creating JSON objects for each user
+        for (Project project : projects) {
+            jsonProjects.add(getProjectJSON(project));
+        }
+
+        // Write JSON file
+        try (FileWriter file = new FileWriter("json/project.json")) {
+            file.write(jsonProjects.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static JSONObject getUserJSON(User user) {
         JSONObject userObject = new JSONObject();
 
@@ -59,45 +65,15 @@ public class DataWriter extends DataConstants {
         projectObject.put(PROJECT_RATING, project.getRating());
         projectObject.put(PROJECT_IS_FINISHED, project.getIsFinished());
         projectObject.put(PROJECT_IS_PUBLIC, project.getIsPublic());
-        projectObject.put(PROJECT_COLUMNS, project.getColumns());
-        projectObject.put(PROJECT_MEMBERS, project.getMembers());
+        //projectObject.put(PROJECT_COLUMNS, project.getColumns());
+        //projectObject.put(PROJECT_MEMBERS, project.getMembers());
 
-        return projectObject;
-    }
-
-    public static void saveProjects() {
-        
-        //hardcode for testing
-        //ArrayList<Project> projects = new ArrayList<>();
-        //ArrayList<Columns> columns = new ArrayList<Columns>();
-        //ArrayList<User> users = new ArrayList<User>();
-        ArrayList<Project> projects = ProjectList.getInstance().getProjects();
-
-        //Project proj1 = new Project(UUID.randomUUID(),"Flappy Bird", "Developing an app made for entertainment purposes", 6.5, false, false, columns, users);
-        //Project proj2 = new Project(UUID.randomUUID(),"Crossy Road", "Developing an app made for entertainment purposes", 9.9, false, false, columns, users);
-        //projects.add(proj1);
-        //projects.add(proj2);
-
-        JSONArray jsonProjects = new JSONArray();
-        
-        // Creating JSON objects for each user
-        for (int i = 0; i < projects.size(); i++) {
-           // jsonProjects.add(getProjectJSON(projects.get(i)));
-            JSONObject projectObject = new JSONObject();
-            projectObject.put("projectID", projects.get(i).getProjectID());
-            projectObject.put("name", projects.get(i).getName());
-            projectObject.put("description", projects.get(i).getDescription());
-            projectObject.put("rating", projects.get(i).getRating());
-            projectObject.put("public", projects.get(i).getIsPublic());
-            projectObject.put("isFinished", projects.get(i).getIsFinished());
-
-            JSONArray membersArray = new JSONArray();
-            for(User member : projects.get(i).getMembers()){
-                membersArray.add(member.getUserID());
-            }
-            
+        JSONArray membersArray = new JSONArray();
+        for(User member : project.getMembers()){
+            membersArray.add(member.getUserID().toString());
+        }
             JSONArray columnsArray = new JSONArray();
-            for (Columns column : projects.get(i).getColumns()) {
+            for (Columns column : project.getColumns()) {
                 JSONObject columnObject = new JSONObject();
                 columnObject.put("title", column.getTitle());
 
@@ -116,7 +92,7 @@ public class DataWriter extends DataConstants {
                         JSONObject commentObject = new JSONObject();
                         commentObject.put("date", comment.getDate().toString());
                         commentObject.put("text", comment.getText());
-                        commentObject.put("commentBy", comment.getCommentBy());
+                        commentObject.put("commentBy", comment.getCommentBy().getUserName());
 
                         commentsArray.add(commentObject);
 
@@ -125,9 +101,9 @@ public class DataWriter extends DataConstants {
                     for(Change change : task.getChanges()){
                         JSONObject changeObject = new JSONObject();
                         changeObject.put("description", change.getDescription().toString());
-                        changeObject.put("date", change.getDate());
-                        changeObject.put("user", change.getUser());
-                        changeObject.put("project", change.getProject());
+                        changeObject.put("date", change.getDate().toString());
+                        changeObject.put("user", change.getUser().toString());
+                        changeObject.put("project", change.getProject().toString());
 
                         changesArray.add(changeObject);
                     }
@@ -143,22 +119,61 @@ public class DataWriter extends DataConstants {
             }
             projectObject.put("members", membersArray);
             projectObject.put("columnList", columnsArray);
-            jsonProjects.add(projectObject);
+
+            return projectObject;
+    }
+
+    public static void main(String[] args) {
+        // Hardcode user
+        ArrayList<User> users = UserList.getInstance().getUsers();
+        User user1 = new User( 
+            UUID.randomUUID(),
+            "Johnasd", 
+            "Doe", 
+            "JohnnyD", 
+            "JD101@gmail.com",
+            "JD10101", 
+            new Date());
+        users.add(user1);
+        saveUsers(users);
+    
+        // Hardcode project
+        ArrayList<Project> projects = ProjectList.getInstance().getProjects();
+    
+        boolean projectExists = false;
+        String newProjectName = "Flappy Birds"; // Change this to the desired new project name
+    
+        for (Project project : projects) {
+            if (project.getName().equals(newProjectName)) {
+                projectExists = true;
+                break;
+            }
         }
     
-
-        // Write JSON file
-        try (FileWriter file = new FileWriter("json/project.json")) {
-            file.write(jsonProjects.toJSONString());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!projectExists) {
+            // Create a new project only if a project with the given name doesn't exist
+            ArrayList<User> projectUsers = new ArrayList<>();
+            projectUsers.add(user1);
+            
+            ArrayList<Columns> columns = new ArrayList<>();
+            // Other project setup steps...
+    
+            Project newProject = new Project(
+                UUID.randomUUID(),
+                newProjectName,
+                "Description of the new project", // Add description here
+                7.5, // Rating or other project details
+                false,
+                false,
+                columns,
+                projectUsers
+            );
+    
+            projects.add(newProject);
+            saveProjects(projects);
         }
     }
-
-    public static void main(String[] args){
-        saveUsers();
-        saveProjects();
-    }
+    
+    
 }
 

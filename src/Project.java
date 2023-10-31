@@ -27,12 +27,11 @@ public class Project {
     
     //does not contain the array lists in parameters (empty array lists)
     public Project(String name, String description) {
-         this.projectID = UUID.randomUUID();
+        this.projectID = UUID.randomUUID();
         this.name = name;
         this.description = description;
-        this.tasks = new ArrayList<>();
         this.columns = new ArrayList<>();
-        this.comments = new ArrayList<>();
+        this.members = new ArrayList<>();
         }
     
     public UUID getProjectID(){
@@ -86,8 +85,8 @@ public class Project {
     }
 
     //add comments
-    public void addComments(Date date, String text, User commentBy, ArrayList<Comments> commentList){
-        Comments comment = new Comments(date, text, commentBy, commentList);
+    public void addComments(Date date, String text, User commentBy){
+        Comments comment = new Comments(date, text, commentBy);
         comments.add(comment);
     }
 
