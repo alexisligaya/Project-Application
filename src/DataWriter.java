@@ -141,7 +141,6 @@ public class DataWriter extends DataConstants {
                 columnObject.put("tasks", tasksArray);
                 columnsArray.add(columnObject);
             }
-<<<<<<< HEAD
         
     
 
@@ -156,21 +155,6 @@ public class DataWriter extends DataConstants {
 
 
     public static void main(String[] args){
-        saveUsers();
-        saveProjects();
-    }
-}
-
-
-=======
-            projectObject.put("members", membersArray);
-            projectObject.put("columnList", columnsArray);
-
-            return projectObject;
-    }
-
-    public static void main(String[] args) {
         
     }
-}
->>>>>>> 93361a19f785ebc66d5c1bc3d384fc5060dac9ea
+}  
