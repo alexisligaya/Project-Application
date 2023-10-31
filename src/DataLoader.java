@@ -9,14 +9,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
 public class DataLoader extends DataConstants{
 	
     public static ArrayList<User> loadUsers() {
 		ArrayList<User> user = new ArrayList<User>();
 		
 		try {
-			FileReader reader = new FileReader(USER_FILE_NAME);
+			FileReader reader = new FileReader("json/user-test.json");
 			JSONParser parser = new JSONParser();
 			JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
 			
@@ -57,22 +56,24 @@ public class DataLoader extends DataConstants{
 		ArrayList<Project> projects = new ArrayList<Project>();
 
 		try{
-			FileReader reader = new FileReader("../json/project.json");
+			FileReader reader = new FileReader("json/project.json");
 			JSONParser parser = new JSONParser();
 			JSONArray projectJSON = (JSONArray)new JSONParser().parse(reader);
 
 			//convert string projectID to uuid
 			for(int i = 0; i < projectJSON.size(); i++){
 				JSONObject projectDataa = (JSONObject) projectJSON.get(i) ;
-				String projectID = (String)projectDataa.get(PROJECT_ID);
+				UUID projectID = UUID.fromString((String)projectDataa.get(PROJECT_ID));
 				String name = (String)projectDataa.get(PROJECT_NAME);
 				String description= (String)projectDataa.get(PROJECT_DESCRIPTION);
-				double rating = (float)projectDataa.get(PROJECT_RATING);
+				double rating = (double)projectDataa.get(PROJECT_RATING);
 				boolean isFinished = (boolean)projectDataa.get(PROJECT_IS_FINISHED);
 				boolean isPublic = (boolean)projectDataa.get(PROJECT_IS_PUBLIC);
-				JSONArray columns= (JSONArray)projectDataa.get(PROJECT_COLUMNS);
-				
-				projects.add(new Project(projectID, name, description, rating, isFinished, isPublic, columns));
+				//JSONArray columns= (JSONArray)projectDataa.get(PROJECT_COLUMNS);
+				ArrayList<Columns> columns = new ArrayList<>();
+				ArrayList<User> members = new ArrayList<>();
+
+				projects.add(new Project(projectID, name, description, rating, isFinished, isPublic, columns, members));
 			}
 			return projects;
 		} catch (Exception e){
@@ -81,19 +82,16 @@ public class DataLoader extends DataConstants{
 		return null;
 	}
 
-
 	public static void main(String[] args){
 		ArrayList<User> users = loadUsers();
-
 		for(User user : users){
 			System.out.println(user);
 		}
 
 		//same thing
-		for(Project projects : projects){
-			System.out.println(projects);
+		ArrayList<Project> projects = loadProjects();
+		for(Project project : projects){
+			System.out.println(project);
 		}
 	}
-
-
 }

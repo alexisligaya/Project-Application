@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class User {
-    
     private UUID userID;
     private String firstName, lastName, userName, email, password;
     private Date dateOfBirth;
@@ -88,9 +87,6 @@ public class User {
         return user != null && user.isOnline(userID);
     }
     
-
-    
-
     public String toString() {
         String result = "User ID: " + this.userID;
         result += "\nFirst name: " + this.firstName;

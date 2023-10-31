@@ -14,39 +14,37 @@ public class ProjectList {
         return instance;
     }
 
-    public ArrayList<Project> getProjects(){
-        return projects;
+    public ArrayList<Project> getProjects(String title){
+        ArrayList<Project> matchingProjects = new ArrayList<>();
+        for(Project project: projects){
+            if(project.getName().equalsIgnoreCase(title)){
+                matchingProjects.add(project);
+            }
+        }
+        return matchingProjects;
     }
 
     public Project getProjects(String name, String description){
-        for(Project projects : projects){
-                return projects;
+        for(Project project : projects){
+            if(project.getName().equals(name) && project.getDescription().equals(description))
+                return project;
         }
         return null; //project with given projectID not found
     }
 
-    public boolean addProject(String name, String description){
-        //validate
-        if(name == null || description == null)
-            return false;
-
-        //make a project
-        for(Project projects : projects)
-            if(projects.getName().equals(name) || projects.getDescription().equals(description))
-                return false;
-
-        //add to list
-        Project newProject = new Project(name, description);
-        projects.add(newProject);
-
-        //create newProject if successful
-        return true;
+    public ArrayList<Project> getProjects(){
+        return projects;
     }
+
+    public void addProject(Project project){
+        //add to list
+        projects.add(project);
+
+    }
+
 
     public boolean removeProject(String name, String description) {
         Project projectToRemove = null;
-
-
        
         for (Project project : projects) {
             if (project.getName().equals(name) && project.getDescription().equals(description)) {
@@ -54,17 +52,13 @@ public class ProjectList {
                 break;
             }
         }
-
-
         if (projectToRemove != null) {
-           
             projects.remove(projectToRemove);
             return true;
-        } else {
+        } 
+        else 
             return false;
-        }
     }
-
 
     public String toString(){
         String result = "Projects: " + this.projects;
@@ -72,7 +66,7 @@ public class ProjectList {
     }
 
     public void saveProjects(){
-        DataWriter.saveProjects();
+        DataWriter.saveProjects(projects);
     }
 }
 
