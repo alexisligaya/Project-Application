@@ -34,9 +34,14 @@ public class DataWriter extends DataConstants {
         //projects by userID
         for (Project project : projects) {
             for(User member : project.getMembers()){
-                JSONArray userProjects = (JSONArray) jsonProjects.get(member.getUserID().toString());
-                if(userProjects == null){
-                    userProjects = new JSONArray();
+                Object userProjectsObj = jsonProjects.get(member.getUserID().toString());
+                JSONArray userProjects = null;;
+
+                if(userProjectsObj instanceof JSONArray){
+                    userProjects = (JSONArray) userProjectsObj;
+                }
+                else{
+                    userProjects= new JSONArray();
                     jsonProjects.put(member.getUserID().toString(), userProjects);
                 }
                 userProjects.add(getProjectJSON(project));
@@ -52,6 +57,11 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    /**
+     * Parsing JSON files. Converts a User object to a JSONObject representing the user's information.
+     * @param user The User object to parse.
+     * @return a JSONObject containing user information
+     */
     public static JSONObject getUserJSON(User user) {
         JSONObject userObject = new JSONObject();
 
@@ -70,6 +80,11 @@ public class DataWriter extends DataConstants {
         return userObject;
     }
 
+    /** COME BACK TO JAVADOC THE REST
+     * Parsing JSON files. Converts a Project object to a JSONObject representing the project's information.
+     * @param project the Project object to parse.
+     * @return a JSONObject containing project information
+     */
     public static JSONObject getProjectJSON(Project project) {
         JSONObject projectObject = new JSONObject();
 
@@ -136,12 +151,6 @@ public class DataWriter extends DataConstants {
                 columnObject.put("tasks", tasksArray);
                 columnsArray.add(columnObject);
             }
-            projectObject.put("members", membersArray);
-            projectObject.put("columnList", columnsArray);
-
-            return projectObject;
-    }
-
     public static void main(String[] args) {
         
     }
