@@ -39,8 +39,8 @@ public class Application {
     }
 
     //sign up
-    public boolean signUp(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
-        return UserList.getInstance().addUser(firstName, lastName, userName, email, password, dateOfBirth);
+    public boolean signUp(String firstName, String lastName, String userName, String email, String password, String company, Date dateOfBirth){
+        return UserList.getInstance().addUser(firstName, lastName, userName, email, password, company, dateOfBirth);
        
     }
 

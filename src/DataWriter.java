@@ -61,6 +61,7 @@ public class DataWriter extends DataConstants {
         userObject.put(USER_USERNAME, user.getUserName());
         userObject.put(USER_EMAIL, user.getEmail());
         userObject.put(USER_PASSWORD, user.getPassword());
+        userObject.put(USER_COMPANY, user.getCompany());
         //userObject.put(USER_DOB, user.getDateOfBirth().toString());
         
         SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
@@ -143,6 +144,62 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-        
+         //hardcode user
+         ArrayList<User> users = UserList.getInstance().getUsers();
+         User user1 = new User( 
+             UUID.randomUUID(),
+             "Atticus", 
+             "Madden", 
+             "AMadden", 
+             "AMadden12@gmail.com",
+             "123", 
+             "Code Mission Possible",
+             new Date());
+
+        User user2 = new User( 
+             UUID.randomUUID(),
+             "Jeff", 
+             "Goldbum", 
+             "JGold", 
+             "JGold12@gmail.com",
+             "123", 
+             "None",
+             new Date());
+
+         users.add(user1);
+         users.add(user2);
+         saveUsers(users);
+ 
+         //hardcode projects
+         ArrayList<Project> projects = ProjectList.getInstance().getProjects();
+         ArrayList<User> projectUsers = new ArrayList<>();
+         projectUsers.add(user1);
+         
+         ArrayList<Columns> columns = new ArrayList<>();
+         ArrayList<Comments> comments = new ArrayList<>();
+         Comments comment1 = new Comments(new Date(), "This is a comment", user1);
+         comments.add(comment1);
+ 
+         ArrayList<Tasks> tasks = new ArrayList<>();
+         ArrayList<Change> changes = new ArrayList<>();
+         User assignedUser = user1;
+         Tasks task1 = new Tasks(new Date(), "Task description", 1, 2, assignedUser, changes, comments);
+         tasks.add(task1);
+ 
+         Columns column = new Columns("Column title", tasks);
+         columns.add(column);
+ 
+         Project proj1 = new Project(
+         UUID.randomUUID(),
+         "Electric Missiles", 
+         "boom", 
+         6.5, 
+         false, 
+         false, 
+         columns, 
+         projectUsers);
+ 
+         projects.add(proj1);
+         saveProjects(projects);
     }
 }

@@ -71,7 +71,7 @@ public class ApplicationUI {
                         //open project
                         if(count == 1){
                             
-                            
+
                         }
                         //create new project
                         else if(count == 2){
@@ -111,6 +111,8 @@ public class ApplicationUI {
                 String email = keyboard.nextLine();
                 System.out.println("Enter password: ");
                 String password= keyboard.nextLine();
+                System.out.println("Enter company");
+                String company= keyboard.nextLine();
                 System.out.println("Enter date of birth (mm/dd/yyyy): ");
                 String dateOfBirth = keyboard.nextLine();
 
@@ -122,7 +124,7 @@ public class ApplicationUI {
                     System.out.println("Invalid date format");
                 }
 
-                application.signUp(firstName, lastName, userName, email, password, date);
+                application.signUp(firstName, lastName, userName, email, password, company, date);
                 System.out.println("You signed up");
 
                 DataWriter.saveUsers(UserList.getInstance().getUsers());

@@ -45,10 +45,10 @@ public class UserList {
         return null; // User with the given userID not found.
     }
 
-    public boolean addUser(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth){
+    public boolean addUser(String firstName, String lastName, String userName, String email, String password, String company, Date dateOfBirth){
         
         //validate credentials
-        if(firstName == null || lastName == null || userName == null || email == null || password == null || dateOfBirth == null)
+        if(firstName == null || lastName == null || userName == null || email == null || password == null || company == null || dateOfBirth == null)
             return false;
 
         //make a user
@@ -58,7 +58,7 @@ public class UserList {
         }
 
         //add to list
-        User newUser = new User(firstName, lastName, userName, email, password, dateOfBirth);
+        User newUser = new User(firstName, lastName, userName, email, password, company, dateOfBirth);
         users.add(newUser);
         saveUsers();
 

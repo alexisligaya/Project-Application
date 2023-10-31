@@ -4,27 +4,29 @@ import java.util.Date;
 
 public class User {
     private UUID userID;
-    private String firstName, lastName, userName, email, password;
+    private String firstName, lastName, userName, email, password, company;
     private Date dateOfBirth;
     private static User instance;
 
-    public User(UUID id, String firstName, String lastName, String userName, String email, String password, Date dateOfBirth) {
+    public User(UUID id, String firstName, String lastName, String userName, String email, String password, String company, Date dateOfBirth) {
         this.userID = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
         this.password = password;
+        this.company = company;
         this.dateOfBirth = dateOfBirth;
     }
 
-    public User(String firstName, String lastName, String userName, String email, String password, Date dateOfBirth) {
+    public User(String firstName, String lastName, String userName, String email, String password, String company, Date dateOfBirth) {
         this.userID = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
         this.password = password;
+        this.company = company;
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -52,13 +54,17 @@ public class User {
         return password;
     }
 
+    public String getCompany(){
+        return company;
+    }
+
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
     public static User getInstance() {
         if (instance == null)
-            instance = new User(UUID.randomUUID(), "John", "Doe", "JohnDoe","", "", new Date());
+            instance = new User(UUID.randomUUID(), "John", "Doe", "JohnDoe","", "", "", new Date());
         return instance;
     }
     public void joinTeam(Team team){
@@ -94,6 +100,7 @@ public class User {
         result += "\nUsername: " + this.userName;
         result += "\nEmail: " + this.email;
         result += "\nPassword: " + this.password;
+        result += "\nCompany: " + this.company;
         result += "\nDate of Birth: " + this.dateOfBirth;
         return result;
     }
