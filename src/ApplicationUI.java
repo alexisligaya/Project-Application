@@ -8,11 +8,11 @@ public class ApplicationUI {
     Scanner keyboard = new Scanner(System.in);
     private Application application;
     
-    public ApplicationUI(){
+    public ApplicationUI() {
         application = new Application();
     }
 
-    public void run(){
+    public void run() {
         System.out.println(WELCOME_MESSAGE);
         SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
         boolean exit = false;
@@ -35,84 +35,69 @@ public class ApplicationUI {
                     password = keyboard.nextLine();
 
                     if(application.login(userName, password)){
-                        System.out.println("Login successfull");
+                        System.out.println("Logged In\n");
                         loggedIn = true;
                         break;
                     }
                     else {
-                        System.out.println("Login failed");
+                        System.out.println("Login failed.");
                     }
                     counter++;
-                } while(!loggedIn && counter < 3 );
+                } while(!loggedIn && counter < 3);
 
                 if(counter == 3) {
-                    System.out.println("Failed attempts");
+                    System.out.println("Failed attempts.");
                     System.exit(0);
                 }
 
                 if(loggedIn) {
                     boolean running = true;
-                    while(running){
-                        System.out.println("Projects: ");
-        
-                        int count = 1;
+                    while(running) {
+                        //user's current project list
+                        //FIX: projects save in json but does not print all projects
+                        System.out.println("Your Projects: ");
+                        User currentUser = application.getCurrentUser();
+                        int projectCount = 1;
                         for(Project project : ProjectList.getInstance().getProjects()){
-                            System.out.println(count + ". " + project.getName());
-                            count++;
+                            if(project.getMembers().contains(currentUser)){
+                                System.out.println(projectCount + ". " + project.getName());
+                                projectCount++;
+                            }
                         }
-        
-                        System.out.println("Which project would you like to open?");
-                        int projectChoice = keyboard.nextInt();
-                        System.out.println(ProjectList.getInstance().getProjects().get(projectChoice - 1).getName());
-                        
-                        System.out.println(" 1:Add task \n 2:Move task \n 3:Add comment \n 4. Assign User \n 5. Exit");
-        
-                        int input1 = keyboard.nextInt();
-        
-                        if(input1 == 1){
-                                keyboard.nextLine();
-                                System.out.println("Enter deadline: ");
-                                String deadLine = keyboard.nextLine(); 
-                                Date date = null;
-                                try {
-                                    date = dateFormat.parse(deadLine);
-                                } catch (ParseException e) {
-                                    System.out.println("Invalid date format");
-                                }
-            
-                                System.out.println("Enter task description: ");
-                                String taskDescription = keyboard.nextLine();
-            
-                                System.out.println("Enter priority: ");
-                                int priority = keyboard.nextInt();
-            
-                                System.out.println("Enter hours: ");
-                                Double hours = keyboard.nextDouble();
-            
-                                System.out.println("Assign a user: ");
-            
-                                int userCount = 1;
-                                for(User user : UserList.getInstance().getUsers()){
-                                    System.out.println(userCount + ". " + user.getfirstName() + " " + user.getLastName());
-                                    userCount++;
-                                }
-                            }
-                            else if(input1 == 2){
-            
-                            }
-                            else if(input1 == 3){
-            
-                            }
-                            else if(input1 == 4){
-            
-                            }
-                            else if(input1 == 5){
-                                running = false;
-                            }
-                    }
-                }     
-            }
 
+                        System.out.println("\n1. Open Project \n2. Create new project \n3. Logout");
+                        int count = keyboard.nextInt();
+
+                        //open project
+                        if(count == 1){
+                            // Implementation for opening a project
+                        }
+                        //create new project
+                        else if(count == 2){
+                            keyboard.nextLine();
+
+                            System.out.println("\nEnter project name: ");
+                            String name = keyboard.nextLine();
+
+                            System.out.println("Enter project description: ");
+                            String description = keyboard.nextLine();
+
+                            Project newProject = new Project(name, description);
+                            newProject.addMember(currentUser);
+                            ProjectList.getInstance().addProject(newProject);
+
+                            System.out.println("Project '" + name + "' created");
+                            DataWriter.saveProjects(ProjectList.getInstance().getProjects());
+                        }
+                        //logout
+                        else if(count ==3){
+                            System.out.print("Logging out\n");
+                            running = false;
+                        }
+                    }
+                }
+            } 
+            //signing up
             else if (input == 2) {
                 keyboard.nextLine();
                 System.out.println("Enter first name: ");
@@ -127,7 +112,7 @@ public class ApplicationUI {
                 String password= keyboard.nextLine();
                 System.out.println("Enter date of birth (mm/dd/yyyy): ");
                 String dateOfBirth = keyboard.nextLine();
-                
+
                 Date date = null;
 
                 try {
@@ -140,14 +125,15 @@ public class ApplicationUI {
                 System.out.println("You signed up");
 
                 DataWriter.saveUsers(UserList.getInstance().getUsers());
-            }
+            } 
+            //exit system
             else if (input == 3) {
                 System.exit(0);
             }
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ApplicationUI applicationInterface = new ApplicationUI();
         applicationInterface.run();
     }

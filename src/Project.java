@@ -66,6 +66,11 @@ public class Project {
         return members;
     }
 
+    public void addMember(User user){ //adds member to project
+        if(!members.contains(user))
+            members.add(user);
+    }
+
     public static Project getInstance(){
         if(instance == null)
             instance = new Project("My Project", "this is my project");

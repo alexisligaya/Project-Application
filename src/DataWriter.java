@@ -28,11 +28,24 @@ public class DataWriter extends DataConstants {
     }
     
     public static void saveProjects(ArrayList<Project> projects) {
-        JSONArray jsonProjects = new JSONArray();
+        JSONObject jsonProjects = new JSONObject();
         
         //Creating JSON objects for each user
+        //projects by userID
         for (Project project : projects) {
-            jsonProjects.add(getProjectJSON(project));
+            for(User member : project.getMembers()){
+                Object userProjectsObj = jsonProjects.get(member.getUserID().toString());
+                JSONArray userProjects = null;;
+
+                if(userProjectsObj instanceof JSONArray){
+                    userProjects = (JSONArray) userProjectsObj;
+                }
+                else{
+                    userProjects= new JSONArray();
+                    jsonProjects.put(member.getUserID().toString(), userProjects);
+                }
+                userProjects.add(getProjectJSON(project));
+            }
         }
 
         // Write JSON file

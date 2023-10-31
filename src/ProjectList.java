@@ -36,12 +36,12 @@ public class ProjectList {
         return projects;
     }
 
-    public void addProject(String name, String description){
+    public void addProject(Project project){
         //add to list
-        Project newProject = new Project(name, description);
-        projects.add(newProject);
+        projects.add(project);
 
     }
+
 
     public boolean removeProject(String name, String description) {
         Project projectToRemove = null;

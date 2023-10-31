@@ -18,6 +18,9 @@ public class Application {
     public static User getUsers(){
         return users;
     }
+    public User getCurrentUser(){
+        return currentUser;
+    }
 
     public UserList getUserList(){
         return userList;
@@ -56,9 +59,9 @@ public class Application {
     }
 
     //add project
-    public void addProject(String name, String description){
+    public void addProject(Project project){
         //call projectList
-        ProjectList.getInstance().addProject(name, description);
+        ProjectList.getInstance().addProject(project);
     }
 
     public boolean removeProject(String name, String description) {
