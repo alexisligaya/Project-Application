@@ -7,6 +7,7 @@ public class Tasks {
     private int priority;
     private double hours;
     private User assignedUser;
+    private String user;
     private ArrayList<Change> changes;
     private ArrayList<Comments> comments;
 
@@ -58,7 +59,7 @@ public class Tasks {
         return comments;
     }
 
-    public void assignUser(User user){
+    public void assignUser(User member){
         String description = "Task assigned from "; 
         if(this.assignedUser == null){
             description += "null";
@@ -66,11 +67,12 @@ public class Tasks {
         else{
             description += this.assignedUser.getUserName();
         }
-        description += " to " + user.getUserName();
+        description += " to " + member.getUserName();
 
-        this.assignedUser = user;
+        this.assignedUser = member;
         addChanges(description);
     }
+
 
     public void addComment(Comments comment){
         String description = "Comment by " + comment.getCommentBy() + ": " + comment.getText();

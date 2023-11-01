@@ -11,6 +11,7 @@ public class Project {
     private ArrayList<User> members;
     private ArrayList<Columns> columns; // make these empty for now
     private ArrayList<Comments> comments;
+    private ArrayList<Tasks> tasks;
     private static Project instance;
 
     /**
@@ -117,6 +118,12 @@ public class Project {
      */
     public ArrayList<Columns> getColumns() {
         return columns;
+    }
+
+    public ArrayList<Tasks> getTasks(){
+        if(this.tasks == null)
+            this.tasks = new ArrayList<>();
+        return tasks;
     }
 
     /**
