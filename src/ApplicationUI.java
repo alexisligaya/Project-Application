@@ -15,7 +15,7 @@ public class ApplicationUI {
         application = new Application();
         
     }
-    
+
 
     public void run() {
         hardcore();
