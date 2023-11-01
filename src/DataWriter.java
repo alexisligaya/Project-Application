@@ -39,12 +39,12 @@ public class DataWriter extends DataConstants {
         }
 
         //Write users to text file
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/ScrumBoard.txt"))){
+        /*try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/ScrumBoard.txt"))){
             writer.write(userString.toString());
         }
         catch (IOException e){
             e.printStackTrace();
-        }
+        }*/
     }
 
     /**
@@ -74,6 +74,8 @@ public class DataWriter extends DataConstants {
         
          StringBuilder projString = new StringBuilder();
 
+         projString.append("\nScrumBoard\n*********************\n");
+
          for (Project project : projects) {
              projString.append("Project ID: ").append(project.getProjectID()).append("\n");
              projString.append("Name: ").append(project.getName()).append("\n");
@@ -100,11 +102,17 @@ public class DataWriter extends DataConstants {
          }
      
          // Write formatted project information to the ScrumBoard.txt file
-         try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/ScrumBoard.txt"))) {
+         /*try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/ScrumBoard.txt"))) {
              writer.write(projString.toString());
          } catch (IOException e) {
              e.printStackTrace();
-         }
+         }*/
+
+         try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/ScrumBoard.txt", true))) {
+            writer.write(projString.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -217,8 +225,23 @@ public class DataWriter extends DataConstants {
         return projectObject;
     }
 
+    public static void writeChanges(String changelog) {
+        /*try (FileWriter file = new FileWriter("src/ScrumBoard.txt")) {
+            file.write(changelog);
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+        try (FileWriter file = new FileWriter("src/ScrumBoard.txt", true)) {
+            file.write(changelog);
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
 
-         
     }
 }

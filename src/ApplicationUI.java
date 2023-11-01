@@ -210,6 +210,7 @@ public class ApplicationUI {
        proj1.addColumns("Done");
 
        Tasks currTask = proj1.addTasks("Initialize super algorithm to detonate at warp speed");
+    
        currTask.assignUser(user2);
        currTask.addComment(new Comments("Avoid civilians Jeff!", user1));
 
@@ -227,6 +228,16 @@ public class ApplicationUI {
         projects.add(proj1);
         projects.add(proj2);
         projects.add(proj3);
+        //DataWriter.writeChanges("ScrumBoard");
+        DataWriter.writeChanges("Added task\n");
+        DataWriter.writeChanges("Assigned Jeff Goldblum to task\n");
+        DataWriter.writeChanges("Added comment to task\n");
+        DataWriter.writeChanges("Moved task\n");
+        DataWriter.writeChanges("Replied to comment\n");
+        DataWriter.writeChanges("Reassigned task\n");
+        DataWriter.writeChanges("Added column\n");
+        DataWriter.writeChanges("Moved task\n");
+        DataWriter.writeChanges("Printing ScrumBoard.txt...\n");
         DataWriter.saveProjects(projects);
     }
 
