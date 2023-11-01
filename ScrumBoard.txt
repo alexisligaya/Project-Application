@@ -1,0 +1,24 @@
+User ID: b25e56ec-c831-48eb-9422-51e4e42b856c
+First name: Atticus
+Last name: Madden
+Username: AMadden
+Email: AMadden12@gmail.com
+Password: 123
+Company: Code Mission Possible
+Date of Birth: Tue Oct 31 22:44:20 EDT 2023
+User ID: a327c4bf-3615-4cb5-91b1-ab5f03cdf45b
+First name: Jeff
+Last name: Goldblum
+Username: JGold
+Email: JGold12@gmail.com
+Password: 123
+Company: None
+Date of Birth: Tue Oct 31 22:44:20 EDT 2023
+User ID: 5cadc114-45c2-4a57-81d0-e3fcb4dfb7ad
+First name: Atticus
+Last name: Finch
+Username: AFinch
+Email: AF12@gmail.com
+Password: 123
+Company: Code Mission Possible
+Date of Birth: Tue Oct 31 22:44:20 EDT 2023

@@ -76,26 +76,27 @@ public class User {
     public String getEmail() {
         return email;
     }
-    /** Gets the user's passwrod.
+    /** Gets the user's password.
     * @return The password of the user
      */
     public String getPassword() {
         return password;
     }
 
-
+    /** Gets the user's company.
+    * @return The company of the user
+     */
     public String getCompany(){
         return company;
     }
 
-
     /** Gets the user's date of birth.
     * @return The date of birth of the user
      */
-
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
+
     /** Gets an instance of the User class.
     * @return The User instance.
      */
@@ -104,8 +105,7 @@ public class User {
             instance = new User(UUID.randomUUID(), "John", "Doe", "JohnDoe","", "", "", new Date());
         return instance;
     }
-
-
+    
     /**
      * Joins a Scrum Team
      * @param team The team to be joined.

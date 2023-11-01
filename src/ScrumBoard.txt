@@ -1,0 +1,56 @@
+Project ID: 78aaa247-c8f9-4fec-bc5a-2a277ea4d4cd
+Name: Electric Missiles
+Description: boom
+Rating: 0.0
+Is Finished: false
+Is Public: false
+Columns: [Title: Backlog
+Tasks: [Deadline: null
+Task Description: Initialize super algorithm to detonate at warp speed
+Priority: 0
+Hours: 0.0
+Assigned User: User ID: 2827feaf-4ca7-498e-91bc-239223a03521
+First name: Jeff
+Last name: Goldblum
+Username: JGold
+Email: JGold12@gmail.com
+Password: 123
+Company: None
+Date of Birth: Tue Oct 31 22:48:41 EDT 2023], Title: Doing
+Tasks: [Deadline: null
+Task Description: Curve the metal to make a cylindrical shape
+Priority: 0
+Hours: 0.0
+Assigned User: User ID: 2827feaf-4ca7-498e-91bc-239223a03521
+First name: Jeff
+Last name: Goldblum
+Username: JGold
+Email: JGold12@gmail.com
+Password: 123
+Company: None
+Date of Birth: Tue Oct 31 22:48:41 EDT 2023], Title: Abandoned
+Tasks: [Deadline: null
+Task Description: Make impossible burger possible
+Priority: 0
+Hours: 0.0
+Assigned User: null], Title: Done
+Tasks: []]
+Members: []
+Project ID: 6e50611b-d590-4fbc-a603-cf6df22fbdc2
+Name: Soap Free Washers
+Description: soapy
+Rating: 0.0
+Is Finished: false
+Is Public: false
+Columns: [Title: Backlog
+Tasks: []]
+Members: []
+Project ID: 14a3dc61-5d15-4383-b50f-47b961acf397
+Name: Air Computers
+Description: airy
+Rating: 0.0
+Is Finished: false
+Is Public: false
+Columns: [Title: Backlog
+Tasks: []]
+Members: []

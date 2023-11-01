@@ -1,4 +1,5 @@
 import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +31,20 @@ public class DataWriter extends DataConstants {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //Create strings for each user
+        StringBuilder userString = new StringBuilder();
+        for(User user : users){
+            userString.append(user.toString()).append("\n");
+        }
+
+        //Write users to text file
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/ScrumBoard.txt"))){
+            writer.write(userString.toString());
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -55,6 +70,20 @@ public class DataWriter extends DataConstants {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+         //Create strings for each project
+         StringBuilder projString = new StringBuilder();
+         for(Project project : projects){
+             projString.append(project.toString()).append("\n");
+         }
+ 
+         //Write users to text file
+         try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/ScrumBoard.txt"))){
+             writer.write(projString.toString());
+         }
+         catch (IOException e){
+             e.printStackTrace();
+         }
     }
 
     /**
