@@ -71,19 +71,41 @@ public class DataWriter extends DataConstants {
             e.printStackTrace();
         }
 
-         //Create strings for each project
+        
          StringBuilder projString = new StringBuilder();
-         for(Project project : projects){
-             projString.append(project.toString()).append("\n");
+
+         for (Project project : projects) {
+             projString.append("Project ID: ").append(project.getProjectID()).append("\n");
+             projString.append("Name: ").append(project.getName()).append("\n");
+             projString.append("Description: ").append(project.getDescription()).append("\n");
+             projString.append("Rating: ").append(project.getRating()).append("\n");
+             projString.append("Is Finished: ").append(project.getIsFinished()).append("\n");
+             projString.append("Is Public: ").append(project.getIsPublic()).append("\n");
+     
+             for (Columns column : project.getColumns()) {
+                 projString.append("Columns: ").append(column.getTitle()).append("\n");
+     
+                 for (Tasks task : column.getTasks()) {
+                     projString.append("  Task Description: ").append(task.getTaskDescription()).append("\n");
+                     projString.append("  Priority: ").append(task.getPriority()).append("\n");
+                     projString.append("  Hours: ").append(task.getHours()).append("\n");
+                     projString.append("  Assigned User: ").append(task.getAssignedUser() != null ? task.getAssignedUser().getUserName() : "Unassigned").append("\n");
+     
+                     for (Comments comment : task.getComments()) {
+                         projString.append("    Comment By: ").append(comment.getCommentBy().getUserName()).append(": ").append(comment.getText()).append("\n");
+                     }
+                 }
+             }
+             projString.append("*********************\n");
          }
- 
-         //Write users to text file
-         try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/ScrumBoard.txt"))){
+     
+         // Write formatted project information to the ScrumBoard.txt file
+         try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/ScrumBoard.txt"))) {
              writer.write(projString.toString());
-         }
-         catch (IOException e){
+         } catch (IOException e) {
              e.printStackTrace();
          }
+
     }
 
     /**
@@ -105,9 +127,7 @@ public class DataWriter extends DataConstants {
 
         userObject.put(USER_COMPANY, user.getCompany());
         //userObject.put(USER_DOB, user.getDateOfBirth().toString());
-        
-
-        // userObject.put(USER_DOB, user.getDateOfBirth().toString());
+        //userObject.put(USER_DOB, user.getDateOfBirth().toString());
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
         String formattedDate = dateFormat.format(user.getDateOfBirth());
@@ -149,7 +169,7 @@ public class DataWriter extends DataConstants {
             JSONArray tasksArray = new JSONArray();
             for (Tasks task : column.getTasks()) {
                 JSONObject taskObject = new JSONObject();
-                // taskObject.put("deadline", task.getDeadline().toString());
+                //taskObject.put("deadline", task.getDeadline().toString());
 
               
 

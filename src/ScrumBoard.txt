@@ -1,56 +1,43 @@
-Project ID: 78aaa247-c8f9-4fec-bc5a-2a277ea4d4cd
+Project ID: a566812b-2aec-4615-bc6e-76689fe5c0f0
 Name: Electric Missiles
 Description: boom
 Rating: 0.0
 Is Finished: false
 Is Public: false
-Columns: [Title: Backlog
-Tasks: [Deadline: null
-Task Description: Initialize super algorithm to detonate at warp speed
-Priority: 0
-Hours: 0.0
-Assigned User: User ID: 2827feaf-4ca7-498e-91bc-239223a03521
-First name: Jeff
-Last name: Goldblum
-Username: JGold
-Email: JGold12@gmail.com
-Password: 123
-Company: None
-Date of Birth: Tue Oct 31 22:48:41 EDT 2023], Title: Doing
-Tasks: [Deadline: null
-Task Description: Curve the metal to make a cylindrical shape
-Priority: 0
-Hours: 0.0
-Assigned User: User ID: 2827feaf-4ca7-498e-91bc-239223a03521
-First name: Jeff
-Last name: Goldblum
-Username: JGold
-Email: JGold12@gmail.com
-Password: 123
-Company: None
-Date of Birth: Tue Oct 31 22:48:41 EDT 2023], Title: Abandoned
-Tasks: [Deadline: null
-Task Description: Make impossible burger possible
-Priority: 0
-Hours: 0.0
-Assigned User: null], Title: Done
-Tasks: []]
-Members: []
-Project ID: 6e50611b-d590-4fbc-a603-cf6df22fbdc2
+Columns: Backlog
+  Task Description: Initialize super algorithm to detonate at warp speed
+  Priority: 0
+  Hours: 0.0
+  Assigned User: JGold
+    Comment By: AMadden: Avoid civilians Jeff!
+Columns: Doing
+  Task Description: Curve the metal to make a cylindrical shape
+  Priority: 0
+  Hours: 0.0
+  Assigned User: JGold
+    Comment By: JGold: Not cylindrical enough
+    Comment By: AFinch: What's a cylinder
+    Comment By: AMadden: How about you do it jeff
+Columns: Abandoned
+  Task Description: Make impossible burger possible
+  Priority: 0
+  Hours: 0.0
+  Assigned User: Unassigned
+Columns: Done
+*********************
+Project ID: 67adda87-2f2e-4083-b9fe-3ef0fc7f00e0
 Name: Soap Free Washers
 Description: soapy
 Rating: 0.0
 Is Finished: false
 Is Public: false
-Columns: [Title: Backlog
-Tasks: []]
-Members: []
-Project ID: 14a3dc61-5d15-4383-b50f-47b961acf397
+Columns: Backlog
+*********************
+Project ID: 3b6f17a7-2ca4-4fd7-afbd-ceb5fac31d49
 Name: Air Computers
 Description: airy
 Rating: 0.0
 Is Finished: false
 Is Public: false
-Columns: [Title: Backlog
-Tasks: []]
-Members: []
+Columns: Backlog
+*********************
