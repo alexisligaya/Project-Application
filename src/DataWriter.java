@@ -146,10 +146,9 @@ public class DataWriter extends DataConstants {
 
     /**
      * COME BACK TO JAVADOC THE REST
-     * Parsing JSON files. Converts a Project object to a JSONObject representing
-     * the project's information.
+     * Parsing JSON files. Converts a Project object to a JSONObject representing the project's information.
      * 
-     * @param project the Project object to parse.
+     * @param project - the Project object to parse
      * @return a JSONObject representing the Project object parsed
      */
     public static JSONObject getProjectJSON(Project project) {
