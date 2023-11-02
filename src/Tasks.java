@@ -7,7 +7,6 @@ public class Tasks {
     private int priority;
     private double hours;
     private User assignedUser;
-    private String user;
     private ArrayList<Change> changes;
     private ArrayList<Comments> comments;
 
