@@ -179,7 +179,7 @@ public class ApplicationUI {
             "Code Mission Possible",
             new Date());
 
-
+            
         users.add(user1);
         users.add(user2);
         users.add(user3);
