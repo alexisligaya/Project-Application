@@ -165,7 +165,7 @@ public class ApplicationUI {
             "Goldblum", 
             "JGold", 
             "JGold12@gmail.com",
-            "123", 
+            "123",
             "None",
             new Date());
 
@@ -230,7 +230,7 @@ public class ApplicationUI {
         projects.add(proj3);
         //DataWriter.writeChanges("ScrumBoard");
         DataWriter.writeChanges("Added task\n");
-        DataWriter.writeChanges("Assigned user to task\n");
+        DataWriter.writeChanges("Assigned Jeff Goldblum to task\n");
         DataWriter.writeChanges("Added comment to task\n");
         DataWriter.writeChanges("Moved task\n");
         DataWriter.writeChanges("Replied to comment\n");
