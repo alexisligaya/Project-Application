@@ -1,5 +1,2 @@
-<<<<<<< HEAD
+
 [{"firstName":"Atticus","lastName":"Madden","password":"123","dateofBirth":"08\/02\/2023","company":"Code Mission Possible","id":"efab0770-bad5-485b-b6ce-019c1492a49c","userName":"AMadden","email":"AMadden12@gmail.com"},{"firstName":"Jeff","lastName":"Goldblum","password":"123","dateofBirth":"08\/02\/2023","company":"None","id":"737da573-e82b-44f5-a965-7d43ca862e33","userName":"JGold","email":"JGold12@gmail.com"},{"firstName":"Atticus","lastName":"Finch","password":"123","dateofBirth":"08\/02\/2023","company":"Code Mission Possible","id":"3b725240-905c-4e49-850c-6981cd65cabb","userName":"AFinch","email":"AF12@gmail.com"}]
-=======
-[{"firstName":"Atticus","lastName":"Madden","password":"123","dateofBirth":"49\/01\/2023","company":"Code Mission Possible","id":"5cb55603-1c6e-487f-aebf-da9e939e71eb","userName":"AMadden","email":"AMadden12@gmail.com"},{"firstName":"Jeff","lastName":"Goldblum","password":"123","dateofBirth":"49\/01\/2023","company":"None","id":"225b20b8-7a45-4edd-ab09-a03e093a4556","userName":"JGold","email":"JGold12@gmail.com"},{"firstName":"Atticus","lastName":"Finch","password":"123","dateofBirth":"49\/01\/2023","company":"Code Mission Possible","id":"32ab6527-8712-4f70-bb86-651b511f7f44","userName":"AFinch","email":"AF12@gmail.com"}]
->>>>>>> a58ad8066fdbb41f756b9cc9bd5455589627a1b6
