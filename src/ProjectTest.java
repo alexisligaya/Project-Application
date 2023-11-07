@@ -327,4 +327,38 @@ public void testRemoveScrumTeamMember(){
         assertEquals(user, change.getUser());
     }
 
+
+    @Test
+    public void testGetProject() {
+     
+        Change change = new Change("Sample change description");
+        Project project = new Project("Project1", "Description1");
+
+    
+        change.setProject(project);
+
+     
+        assertEquals(project, change.getProject());
+    }
+
+    @Test
+    public void testToString() {
+       
+        Change change = new Change("Sample change description");
+        User user = new User("User1");
+        Project project = new Project("Project1", "Description1");
+
+       
+        change.setUser(user);
+        change.setProject(project);
+
+       
+        String expected = "Description: " + change.getDescription() +
+                "\nDate: " + change.getDate() +
+                "\nUser: " + change.getUser() +
+                "\nProject: " + change.getProject();
+
+   
+        assertEquals(expected, change.toString());
+    }
 }
