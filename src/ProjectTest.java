@@ -63,6 +63,25 @@ public class ProjectTest{
 
 
 //Casey- Project, ProjectHistory, ProjectList, Comments, 
+public void testAddTasks() {
+    // Create a sample task data
+    Date deadline = new Date();
+    String taskDescription = "Sample Task";
+    int priority = 1;
+    double hours = 2.5;
+    User assignedUser = new User("Casey", "Vu", "CaseyVu", "cv10@email.sc.edu", "cv10", "Microsoft", new Date());
+    ArrayList<Change> changes = new ArrayList<>();
+    ArrayList<Comments> comments = new ArrayList<>();
+
+    Project.addTasks(deadline, taskDescription, priority, hours, assignedUser, changes, comments);
+
+    ArrayList<Tasks> firstColumnTasks = Project.getColumns().get(0).getTasks();
+    Tasks addedTask = firstColumnTasks.get(0);
+
+    assertEquals(taskDescription, addedTask.getTaskDescription());
+    assertEquals(assignedUser, addedTask.getAssignedUser());
+}
+
 public void testAddProject() {
     
     ProjectList projectList = ProjectList.getInstance();
