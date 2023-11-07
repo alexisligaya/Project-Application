@@ -64,7 +64,9 @@ public class ProjectTest{
 
 //Casey- Project, ProjectHistory, ProjectList, Comments, 
 public void testAddTasks() {
-    // Create a sample task data
+
+    ProjectList projectList = ProjectList.getInstance();
+
     Date deadline = new Date();
     String taskDescription = "Sample Task";
     int priority = 1;
@@ -73,9 +75,14 @@ public void testAddTasks() {
     ArrayList<Change> changes = new ArrayList<>();
     ArrayList<Comments> comments = new ArrayList<>();
 
-    Project.addTasks(deadline, taskDescription, priority, hours, assignedUser, changes, comments);
+    Project newProject = new Project("Flappy Bird", "Make the bird go through pipes for as long as possible");
+    projectList.addProject(newProject);
+    
+    ArrayList<Project> projects = projectList.getProjects();
 
-    ArrayList<Tasks> firstColumnTasks = Project.getColumns().get(0).getTasks();
+    newProject.addTasks(deadline, taskDescription, priority, hours, assignedUser, changes, comments);
+
+    ArrayList<Tasks> firstColumnTasks = newProject.getColumns().get(0).getTasks();
     Tasks addedTask = firstColumnTasks.get(0);
 
     assertEquals(taskDescription, addedTask.getTaskDescription());
