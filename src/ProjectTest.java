@@ -130,4 +130,21 @@ public void testRemoveScrumTeamMember(){
     assertFalse(team.getScrumTeammembers().contains(existingScrumMember));
 
     }
+
+     @Test
+    public void testAddScrumTeamMember() {
+       
+        ArrayList<User> members = new ArrayList<>();
+        User productOwner = new User("ProductOwner");
+        User scrumMaster = new User("ScrumMaster");
+        ArrayList<User> scrumTeamMembers = new ArrayList<>();
+        ArrayList<Project> projects = new ArrayList<>();
+        Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+        
+        User newUser = new User("NewScrumMember");
+
+        team.addScrumTeamMember(newUser);
+
+        assertTrue(team.getScrumTeamMembers().contains(newUser));
+    }
 }
