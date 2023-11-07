@@ -133,7 +133,6 @@ public void testRemoveScrumTeamMember(){
 
      @Test
     public void testAddScrumTeamMember() {
-       
         ArrayList<User> members = new ArrayList<>();
         User productOwner = new User("ProductOwner");
         User scrumMaster = new User("ScrumMaster");
@@ -147,4 +146,48 @@ public void testRemoveScrumTeamMember(){
 
         assertTrue(team.getScrumTeamMembers().contains(newUser));
     }
+
+     @Test
+    public void testToString() {
+        ArrayList<User> members = new ArrayList<>();
+        User productOwner = new User("ProductOwner");
+        User scrumMaster = new User("ScrumMaster");
+        ArrayList<User> scrumTeamMembers = new ArrayList<>();
+        ArrayList<Project> projects = new ArrayList<>();
+        Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+
+        
+        String expected = "Members: " + members + "\nProduct Owner: " + productOwner
+                + "\nScrum Master: " + scrumMaster + "\nScrum Team Members: " + scrumTeamMembers + "\nProjects: " + projects;
+
+        assertEquals(expected, team.toString());
+    }
+
+    @Test
+    public void testGetMembers() {
+        ArrayList<User> members = new ArrayList<>();
+        members.add(new User("Member1"));
+        members.add(new User("Member2"));
+        User productOwner = new User("ProductOwner");
+        User scrumMaster = new User("ScrumMaster");
+        ArrayList<User> scrumTeamMembers = new ArrayList<>();
+        ArrayList<Project> projects = new ArrayList<>();
+        Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+
+     
+        assertEquals(members, team.getMembers());
+    }
+
+     @Test
+    public void testGetProductOwner() {
+        ArrayList<User> members = new ArrayList<>();
+        User productOwner = new User("ProductOwner");
+        User scrumMaster = new User("ScrumMaster");
+        ArrayList<User> scrumTeamMembers = new ArrayList<>();
+        ArrayList<Project> projects = new ArrayList<>();
+        Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+
+        assertEquals(productOwner, team.getProductOwner());
+    }
+
 }
