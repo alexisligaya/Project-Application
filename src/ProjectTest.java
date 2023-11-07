@@ -68,7 +68,7 @@ public void testAddTasks() {
     ProjectList projectList = ProjectList.getInstance();
 
     Date deadline = new Date();
-    String taskDescription = "Sample Task";
+    String taskDescription = "Test Task";
     int priority = 1;
     double hours = 2.5;
     User assignedUser = new User("Casey", "Vu", "CaseyVu", "cv10@email.sc.edu", "cv10", "Microsoft", new Date());
@@ -105,7 +105,7 @@ public void testAddMember() {
 public void testAddColumns() {
 
     Project newProject = new Project("Flappy Bird", "Make the bird go through pipes for as long as possible");
-    String title = "Sample Column";
+    String title = "Test Column";
 
     newProject.addColumns(title);
     ArrayList<Columns> columns = newProject.getColumns();
@@ -120,7 +120,7 @@ public void testAddComments() {
     Project newProject = new Project("Flappy Bird", "Make the bird go through pipes for as long as possible");
 
     Date date = new Date();
-    String text = "Sample Comment";
+    String text = "Test Comment";
     User commentBy = new User("Casey", "Vu", "CaseyVu", "cv10@email.sc.edu", "cv10", "Microsoft", new Date());
 
     newProject.addComments(date, text, commentBy);
@@ -138,7 +138,7 @@ public void testMoveTasks() {
     ProjectList projectList = ProjectList.getInstance();
 
     Date deadline = new Date();
-    String taskDescription = "Sample Task";
+    String taskDescription = "Test Task";
     int priority = 1;
     double hours = 2.5;
     User assignedUser = new User("Casey", "Vu", "CaseyVu", "cv10@email.sc.edu", "cv10", "Microsoft", new Date());
@@ -179,7 +179,7 @@ public void testAddChange() {
 public void testRemoveChange() {
 
     User user = new User("Casey", "Vu", "CaseyVu", "cv10@email.sc.edu", "cv10", "Microsoft", new Date());
-    String description = "Sample change description";
+    String description = "Test change description";
     Change change = new Change("Changed the font of the headers");
 
     projectHistory.getAllChanges().add(change);
