@@ -8,9 +8,13 @@ import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.SetUp;
 
 public class ProjectTest{
+
+    private static User user;
+    private static Team team;
+    private static Date dateOfBirth;
+    private static UUID userID;
 
 
     @Test
@@ -20,7 +24,7 @@ public class ProjectTest{
 
     @BeforeClass
 	public static void oneTimeSetup() {
-		
+       
 	}
 	
 	@AfterClass
@@ -42,20 +46,21 @@ public class ProjectTest{
 //Alexis- DataWriter, User, UserList, Application
     
     //User
-    @SetUp
-    public static void setUp() {
-        User user;
-        Team team;
-        Date dateOfBirth;
-        UUID userID;
+    public void testJoinTeam(){
 
-        dateOfBirth = new Date();
-        userID = UUID.randomUUID();
-        user = new User(userID, "Test", "user", "testuser", "test@email.com", "password", "company", dateOfBirth);
-
-        team = new Team();
     }
     
+    public void testLeaveTeam(){
+
+    }
+
+    public void testViewProjects(){
+
+    }
+
+    public void testIsOnline(){
+        
+    }
 
 
 //Marietou- DataLoader, DataConstants, Columns, Tasks
