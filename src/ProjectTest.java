@@ -63,27 +63,43 @@ public class ProjectTest{
 
 
 //Casey- Project, ProjectHistory, ProjectList, Comments, 
+public void testAddTasks() {
+    // Create a sample task data
+    Date deadline = new Date();
+    String taskDescription = "Sample Task";
+    int priority = 1;
+    double hours = 2.5;
+    User assignedUser = new User("Casey", "Vu", "CaseyVu", "cv10@email.sc.edu", "cv10", "Microsoft", new Date());
+    ArrayList<Change> changes = new ArrayList<>();
+    ArrayList<Comments> comments = new ArrayList<>();
+
+    Project.addTasks(deadline, taskDescription, priority, hours, assignedUser, changes, comments);
+
+    ArrayList<Tasks> firstColumnTasks = Project.getColumns().get(0).getTasks();
+    Tasks addedTask = firstColumnTasks.get(0);
+
+    assertEquals(taskDescription, addedTask.getTaskDescription());
+    assertEquals(assignedUser, addedTask.getAssignedUser());
+}
+
 public void testAddProject() {
+    
     ProjectList projectList = ProjectList.getInstance();
 
-    // Testing information
     UUID projectID = UUID.randomUUID();
     String name = "Test Project";
     String description = "This is a test project";
     double rating = 0.0;
     boolean isFinished = false;
     boolean isPublic = true;
-    ArrayList<Columns> columns = new ArrayList<>(); // Empty
+    ArrayList<Columns> columns = new ArrayList<>();
     ArrayList<User> members = new ArrayList<>();
 
-    // Create a new project
     Project newProject = new Project(projectID, name, description, rating, isFinished, isPublic, columns, members);
     projectList.addProject(newProject);
 
-    // Retrieve the list of projects
     ArrayList<Project> projects = projectList.getProjects();
 
-    // Assertions
     assertEquals(1, projects.size());
 }
 
