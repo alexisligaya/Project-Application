@@ -8,54 +8,53 @@ import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.SetUp;
 
 public class ProjectTest{
 
+    private User testUser;
+    private Team testTeam;
+    private Project testProject;
+    private Date testDateOfBirth;
+    private UUID userID;
 
     @Test
-    public void testing(){
+    public static void testing(){
 
     }
-
-    @BeforeClass
-	public static void oneTimeSetup() {
-		
-	}
-	
-	@AfterClass
-	public static void oneTimeTearDown() {
-		
-	}
 	
 	@BeforeEach
-	public static void setup() {
+	public void setup() {
 		//runs before each test
+        userID = UUID.randomUUID();
+        testUser = new User(userID, "test", "user", "testUser","user@gmail.com", "password", "company", new Date());
+
+        testTeam = new Team();
+        testProject = new Project("name", "description");
 	}
 	
-	@AfterEach
-	public static void tearDown() {
-		//runs after each test
-	}
-
-
-//Alexis- DataWriter, User, UserList, Application
+    //Alexis- DataWriter, User, UserList, Application
     
-    //User
-    @SetUp
-    public static void setUp() {
-        User user;
-        Team team;
-        Date dateOfBirth;
-        UUID userID;
-
-        dateOfBirth = new Date();
-        userID = UUID.randomUUID();
-        user = new User(userID, "Test", "user", "testuser", "test@email.com", "password", "company", dateOfBirth);
-
-        team = new Team();
+   public void testJoinTeam() {
+        testUser.joinTeam(testTeam);
+        assertTrue(testTeam.contains(testUser));
+   }
+    
+    public void testLeaveTeam() {
+        testUser.joinTeam(testTeam);
+        testUser.leaveTeam(testTeam);
     }
-    
+
+    public void testViewProjects(){
+        testTeam.addProject(testProject);
+        testProject.addMember(testUser);
+        testUser.joinTeam(testTeam);
+
+        ArrayList<Project> projects = testUser.viewProjects();
+    }
+
+    public void testIsOnline(){
+
+    }
 
 
 //Marietou- DataLoader, DataConstants, Columns, Tasks
@@ -229,4 +228,82 @@ public void testRemoveProject() {
 
 
 //Laura- Team, Change, Dashboard 
+//Team class
+@Test
+public void testRemoveScrumTeamMember(){
+    ArrayList<User> members = new ArrayList<>();
+    User productOwner = new User("ProductOwner");
+    User scrumMaster = new User("ScrumMaster");
+    User existingScrumMember = new User ("ExistingScrumMember");
+    ArrayList<User> scrumTeamMembers = new ArrayList<>();
+    scrumTeamMembers.add(existingScrumMember);
+    ArrayList<Project> projects = new ArrayList<>();
+    Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+
+    boolean isRemoved = team.removeScrumTeamMember(existingScrumMember);
+
+    assertTrue(isRemoved);
+    assertFalse(team.getScrumTeammembers().contains(existingScrumMember));
+
+    }
+
+     @Test
+    public void testAddScrumTeamMember() {
+        ArrayList<User> members = new ArrayList<>();
+        User productOwner = new User("ProductOwner");
+        User scrumMaster = new User("ScrumMaster");
+        ArrayList<User> scrumTeamMembers = new ArrayList<>();
+        ArrayList<Project> projects = new ArrayList<>();
+        Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+        
+        User newUser = new User("NewScrumMember");
+
+        team.addScrumTeamMember(newUser);
+
+        assertTrue(team.getScrumTeamMembers().contains(newUser));
+    }
+
+     @Test
+    public void testToString() {
+        ArrayList<User> members = new ArrayList<>();
+        User productOwner = new User("ProductOwner");
+        User scrumMaster = new User("ScrumMaster");
+        ArrayList<User> scrumTeamMembers = new ArrayList<>();
+        ArrayList<Project> projects = new ArrayList<>();
+        Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+
+        
+        String expected = "Members: " + members + "\nProduct Owner: " + productOwner
+                + "\nScrum Master: " + scrumMaster + "\nScrum Team Members: " + scrumTeamMembers + "\nProjects: " + projects;
+
+        assertEquals(expected, team.toString());
+    }
+
+    @Test
+    public void testGetMembers() {
+        ArrayList<User> members = new ArrayList<>();
+        members.add(new User("Member1"));
+        members.add(new User("Member2"));
+        User productOwner = new User("ProductOwner");
+        User scrumMaster = new User("ScrumMaster");
+        ArrayList<User> scrumTeamMembers = new ArrayList<>();
+        ArrayList<Project> projects = new ArrayList<>();
+        Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+
+     
+        assertEquals(members, team.getMembers());
+    }
+
+     @Test
+    public void testGetProductOwner() {
+        ArrayList<User> members = new ArrayList<>();
+        User productOwner = new User("ProductOwner");
+        User scrumMaster = new User("ScrumMaster");
+        ArrayList<User> scrumTeamMembers = new ArrayList<>();
+        ArrayList<Project> projects = new ArrayList<>();
+        Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+
+        assertEquals(productOwner, team.getProductOwner());
+    }
+
 }
