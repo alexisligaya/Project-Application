@@ -8,6 +8,7 @@ import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.SetUp;
 
 public class ProjectTest{
 
@@ -38,24 +39,23 @@ public class ProjectTest{
 	}
 
 
-
 //Alexis- DataWriter, User, UserList, Application
-    class UserTest{
+    
+    //User
+    @SetUp
+    public static void setUp() {
         User user;
         Team team;
         Date dateOfBirth;
         UUID userID;
 
-
-    @Test
-    void setUp(){
         dateOfBirth = new Date();
         userID = UUID.randomUUID();
         user = new User(userID, "Test", "user", "testuser", "test@email.com", "password", "company", dateOfBirth);
 
         team = new Team();
     }
-    }
+    
 
 
 //Marietou- DataLoader, DataConstants, Columns, Tasks
