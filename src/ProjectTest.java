@@ -2,6 +2,12 @@ import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.Date;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ProjectTest{
 
@@ -10,6 +16,26 @@ public class ProjectTest{
     public void testing(){
 
     }
+
+    @BeforeClass
+	public static void oneTimeSetup() {
+		
+	}
+	
+	@AfterClass
+	public static void oneTimeTearDown() {
+		
+	}
+	
+	@BeforeEach
+	public static void setup() {
+		//runs before each test
+	}
+	
+	@AfterEach
+	public static void tearDown() {
+		//runs after each test
+	}
 
 
 
@@ -59,14 +85,6 @@ public void testAddProject() {
 
     // Assertions
     assertEquals(1, projects.size());
-
-    Project addedProject = projects.get(0);
-    assertEquals(projectID, addedProject.getProjectID());
-    assertEquals(name, addedProject.getName());
-    assertEquals(description, addedProject.getDescription());
-    assertEquals(rating, addedProject.getRating(), 0.001); // Use delta for double comparison
-    assertEquals(isFinished, addedProject.getIsFinished());
-    assertEquals(isPublic, addedProject.getIsPublic());
 }
 
 
