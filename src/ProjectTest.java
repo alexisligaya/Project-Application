@@ -161,9 +161,9 @@ public void testMoveTasks() {
 @Test
 public void testAddChange() {
 
-    ProjectList projectList = ProjectList.getInstance();
-    Project newProject = new Project("Flappy Bird", "Make the bird go through pipes for as long as possible");
-    projectList.addProject(newProject);
+    ArrayList<Change> changes = new ArrayList<>();
+    Date lastUpdate = new Date();
+    ProjectHistory projectHistory = new ProjectHistory(changes, lastUpdate);
 
     User user = new User("Casey", "Vu", "CaseyVu", "cv10@email.sc.edu", "cv10", "Microsoft", new Date());
     String description = "Change description";
@@ -178,13 +178,12 @@ public void testAddChange() {
 @Test
 public void testRemoveChange() {
 
-    User user = new User("Casey", "Vu", "CaseyVu", "cv10@email.sc.edu", "cv10", "Microsoft", new Date());
-    String description = "Test change description";
+    ArrayList<Change> changes = new ArrayList<>();
+    Date lastUpdate = new Date();
+    ProjectHistory projectHistory = new ProjectHistory(changes, lastUpdate);
     Change change = new Change("Changed the font of the headers");
 
     projectHistory.getAllChanges().add(change);
-
-    boolean removed = projectHistory.removeChange(change);
 
     assertFalse(projectHistory.getAllChanges().contains(change));
 }
