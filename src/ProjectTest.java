@@ -112,4 +112,22 @@ public void testAddProject() {
 
 
 //Laura- Team, Change, Dashboard 
+//Team class
+@Test
+public void testRemoveScrumTeamMember(){
+    ArrayList<User> members = new ArrayList<>();
+    User productOwner = new User("ProductOwner");
+    User scrumMaster = new User("ScrumMaster");
+    User existingScrumMember = new User ("ExistingScrumMember");
+    ArrayList<User> scrumTeamMembers = new ArrayList<>();
+    scrumTeamMembers.add(existingScrumMember);
+    ArrayList<Project> projects = new ArrayList<>();
+    Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+
+    boolean isRemoved = team.removeScrumTeamMember(existingScrumMember);
+
+    assertTrue(isRemoved);
+    assertFalse(team.getScrumTeammembers().contains(existingScrumMember));
+
+    }
 }
