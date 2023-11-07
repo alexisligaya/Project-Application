@@ -305,4 +305,26 @@ public void testRemoveScrumTeamMember(){
         assertEquals(productOwner, team.getProductOwner());
     }
 
+ //Change class
+  @Test
+    public void testGetDescription() {
+        String description = "Sample change description";
+        Change change = new Change(description);
+        assertEquals(description, change.getDescription());
+    }
+
+      @Test
+    public void testGetDate() {
+        Change change = new Change("Sample change description");
+        assertEquals(LocalDate.now(), change.getDate());
+    }
+
+    @Test
+    public void testGetUser() {
+        Change change = new Change("Sample change description");
+        User user = new User("User1");
+        change.setUser(user);
+        assertEquals(user, change.getUser());
+    }
+
 }
