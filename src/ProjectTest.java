@@ -11,55 +11,49 @@ import org.junit.jupiter.api.Test;
 
 public class ProjectTest{
 
-    private static User user;
-    private static Team team;
-    private static Date dateOfBirth;
-    private static UUID userID;
-
+    private User testUser;
+    private Team testTeam;
+    private Project testProject;
+    private Date testDateOfBirth;
+    private UUID userID;
 
     @Test
-    public void testing(){
+    public static void testing(){
 
     }
-
-    @BeforeClass
-	public static void oneTimeSetup() {
-       
-	}
-	
-	@AfterClass
-	public static void oneTimeTearDown() {
-		
-	}
 	
 	@BeforeEach
-	public static void setup() {
+	public void setup() {
 		//runs before each test
+        userID = UUID.randomUUID();
+        testUser = new User(userID, "test", "user", "testUser","user@gmail.com", "password", "company", new Date());
+
+        testTeam = new Team();
+        testProject = new Project("name", "description");
 	}
 	
-	@AfterEach
-	public static void tearDown() {
-		//runs after each test
-	}
-
-
-//Alexis- DataWriter, User, UserList, Application
+    //Alexis- DataWriter, User, UserList, Application
     
-    //User
-    public void testJoinTeam(){
-
-    }
+   public void testJoinTeam() {
+        testUser.joinTeam(testTeam);
+        assertTrue(testTeam.contains(testUser));
+   }
     
-    public void testLeaveTeam(){
-
+    public void testLeaveTeam() {
+        testUser.joinTeam(testTeam);
+        testUser.leaveTeam(testTeam);
     }
 
     public void testViewProjects(){
+        testTeam.addProject(testProject);
+        testProject.addMember(testUser);
+        testUser.joinTeam(testTeam);
 
+        ArrayList<Project> projects = testUser.viewProjects();
     }
 
     public void testIsOnline(){
-        
+
     }
 
 
