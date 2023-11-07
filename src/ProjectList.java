@@ -67,7 +67,6 @@ public class ProjectList {
     public void addProject(Project project){
         //add to list
         projects.add(project);
-
     }
 
 

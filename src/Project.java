@@ -113,13 +113,17 @@ public class Project {
     }
 
     /**
-     * 
+     * Gets the columns
      * @return
      */
     public ArrayList<Columns> getColumns() {
         return columns;
     }
 
+    /**
+     * Gets the tasks
+     * @return
+     */
     public ArrayList<Tasks> getTasks(){
         if(this.tasks == null)
             this.tasks = new ArrayList<>();

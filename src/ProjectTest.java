@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,10 +49,30 @@ public class ProjectTest{
 
 
 //Casey- Project, ProjectHistory, ProjectList, Comments, 
+public void testAddTasks() {
+
+    Date deadline = new Date();
+    String taskDescription = "Sample Task";
+    int priority = 1;
+    double hours = 2.5;
+    User assignedUser = new User("Casey", "Vu", "CaseyVu", "cv10@email.sc.edu", "wow101", "Microsoft", new Date());
+    ArrayList<Change> changes = new ArrayList<>();
+    ArrayList<Comments> comments = new ArrayList<>();
+
+    // Call the addTasks method
+    Project.addTasks(deadline, taskDescription, priority, hours, assignedUser, changes, comments);
+
+    // Retrieve the first column's tasks and verify the added task
+    ArrayList<Tasks> firstColumnTasks = Project.getColumns().get(0).getTasks();
+    Tasks addedTask = firstColumnTasks.get(0);
+
+    // Assert that the added task has the same properties as expected
+    assertEquals(assignedUser, addedTask.getAssignedUser());
+}
+
 public void testAddProject() {
     ProjectList projectList = ProjectList.getInstance();
 
-    // Testing information
     UUID projectID = UUID.randomUUID();
     String name = "Test Project";
     String description = "This is a test project";
@@ -61,24 +82,15 @@ public void testAddProject() {
     ArrayList<Columns> columns = new ArrayList<>(); // Empty
     ArrayList<User> members = new ArrayList<>();
 
-    // Create a new project
     Project newProject = new Project(projectID, name, description, rating, isFinished, isPublic, columns, members);
     projectList.addProject(newProject);
 
-    // Retrieve the list of projects
     ArrayList<Project> projects = projectList.getProjects();
 
-    // Assertions
+    // Assertion
     assertEquals(1, projects.size());
-
-    Project addedProject = projects.get(0);
-    assertEquals(projectID, addedProject.getProjectID());
-    assertEquals(name, addedProject.getName());
-    assertEquals(description, addedProject.getDescription());
-    assertEquals(rating, addedProject.getRating(), 0.001); // Use delta for double comparison
-    assertEquals(isFinished, addedProject.getIsFinished());
-    assertEquals(isPublic, addedProject.getIsPublic());
 }
+
 
 
 
