@@ -18,7 +18,6 @@ public class ProjectTest{
     private User testUser;
     private Team testTeam;
     private Project testProject;
-    private Date testDateOfBirth;
     private UUID userID;
 
     @Test
@@ -87,6 +86,13 @@ public class ProjectTest{
     }
 
     //UserList tests
+    public void addUser(){
+
+    }
+
+    public void testIsUserOnline(){
+
+    }
 
     //Applciation tests
 
@@ -255,8 +261,6 @@ public void testRemoveProject() {
 
     assertTrue(removed);
 }
-
-
 
 
 
