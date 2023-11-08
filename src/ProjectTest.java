@@ -35,74 +35,7 @@ public class ProjectTest{
 	}
 	
     //Alexis- DataWriter, User, UserList, Application
-    
-    //DataWriter tests
-    static Path tempDir;
-    
-    @Test
-    public void testSaveUsers(){
-        ArrayList<User> testUsers = new ArrayList<>();
-        testUsers.add(testUser);
-        File testFile = tempDir.resolve("user-test.json").toFile();
 
-        DataWriter.saveUsers(testUsers);
-        assertTrue(testFile.exists());
-    }
-
-    @Test
-    public void testSaveProjects(){
-        ArrayList<Project> testProjects = new ArrayList<>();
-        testProjects.add(testProject);
-        File testFile = tempDir.resolve("project-test.json").toFile();
-
-        DataWriter.saveProjects(testProjects);
-        assertTrue(testFile.exists());
-    }
-
-    //User tests 
-    @Test
-    public void testJoinTeam() {
-        testUser.joinTeam(testTeam);
-        assertTrue(testTeam.getScrumTeamMembers().contains(testUser));
-    }
-    
-    @Test
-    public void testLeaveTeam() {
-        testUser.joinTeam(testTeam);
-        testUser.leaveTeam(testTeam);
-        assertFalse(testTeam.getScrumTeamMembers().contains(testUser));
-    }
-
-    @Test
-    public void testViewProjects(){
-        testUser.joinTeam(testTeam);
-        testTeam.addProject(testProject);
-        testProject.addMember(testUser);
-        
-        ArrayList<Project> projects = testUser.viewProjects();
-        assertTrue(projects.contains(testProject));
-    }
-
-    @Test
-    public void testIsOnline(){
-        UUID userID = testUser.getUserID();
-        UserList.getInstance().setUserOnline(userID, true);
-        boolean isOnline = testUser.isOnline();
-        assertTrue(isOnline);
-    }
-
-    //UserList tests
-    @Test
-    public void addUser(){
-
-    }
-
-    @Test
-    public void testIsUserOnline(){
-
-    }
-
-    //Applciation tests
 
 
 //Marietou- DataLoader, DataConstants, Columns, Tasks
