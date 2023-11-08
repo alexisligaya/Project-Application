@@ -18,6 +18,7 @@ public class AlexisTest {
     private Project testProject;
     private UUID userID;
     private UserList userList;
+    private Application application;
 
     @Test
     public static void testing(){
@@ -97,6 +98,7 @@ public class AlexisTest {
         assertTrue(userList.isUserOnline(userList.getUsers().get(0).getUserID()));
     }
 
+    @Test
     public void testSetUserOnline(){
         assertTrue(userList.addUser("Alexis", "Peters", "APeters", "ap@gmail.com", "12345", "UofSC", new Date()));
         UUID userID = userList.getUsers().get(0).getUserID();
@@ -105,6 +107,66 @@ public class AlexisTest {
     }
 
     //Applciation tests
-    
+    @Test
+    public void testSignUp(){
+        String firstName = "Alexis";
+        String lastName = "Peters";
+        String userName = "APeters";
+        String email = "apeters@gmail.com";
+        String password = "12345";
+        String company = "UofSC";
+        Date dateOfBirth = new Date();
 
+        boolean signUp = application.signUp(firstName, lastName, userName, email, password, company, dateOfBirth);
+        assertTrue(signUp);
+    }
+
+    @Test
+    public void testLogin(){
+        String userName = "APeters";
+        String password = "12345";
+
+        boolean login = application.login(userName, password);
+        assertTrue(login);
+    }
+
+    @Test
+    public void testLogout(){
+        ArrayList<User> currUsers = application.getUserList().getUsers();
+        ArrayList<Project> currProjects = application.getProjectList().getProjects();
+        ArrayList<User> savedUsers = application.getUserList().getUsers();
+        ArrayList<Project> savedProjects = application.getProjectList().getProjects();
+
+
+        application.logout();
+
+        application.getUserList().loadUsers();
+        application.getProjectList().loadProjects();
+        assertEquals(currUsers, savedUsers);
+        assertEquals(currProjects, savedProjects);
+    }
+
+    @Test
+    public void testAddProject(){
+        Project newProject = new Project("project", "description");
+
+        application.addProject(newProject);
+
+        ArrayList<Project> projects = application.getProjectList().getProjects();
+        assertTrue(projects.contains(newProject));
+    }
+
+    @Test
+    public void testRemoveProject(){
+        Project newProject = new Project("project", "description");
+
+        application.addProject(newProject);
+
+        boolean removed = application.removeProject("project", "description");
+
+        assertTrue(removed);
+
+        ArrayList<Project> projects = application.getProjectList().getProjects();
+        assertFalse(projects.contains(newProject));
+    }
 }

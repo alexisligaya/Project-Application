@@ -16,7 +16,7 @@ public void testRemoveScrumTeamMember(){
     assertTrue(isRemoved);
     assertFalse(team.getScrumTeammembers().contains(existingScrumMember));
 
-    }
+}
 
      @Test
     public void testAddScrumTeamMember() {
