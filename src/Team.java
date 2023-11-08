@@ -27,7 +27,9 @@ public class Team {
     }
     
     private Team(){
-
+        this.members = new ArrayList<>();
+        this.scrumTeamMembers = new ArrayList<>();
+        this.projects = new ArrayList<>();
     }
 
     /**

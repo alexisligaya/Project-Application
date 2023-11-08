@@ -7,7 +7,11 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import java.io.File;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Path;
+
 
 public class ProjectTest{
 
@@ -27,34 +31,64 @@ public class ProjectTest{
 		//runs before each test
         userID = UUID.randomUUID();
         testUser = new User(userID, "test", "user", "testUser","user@gmail.com", "password", "company", new Date());
-
-        testTeam = new Team();
+        testTeam = Team.getInstance();
         testProject = new Project("name", "description");
 	}
 	
     //Alexis- DataWriter, User, UserList, Application
     
+    //DataWriter tests
+    static Path tempDir;
+    
+    public void testSaveUsers(){
+        ArrayList<User> testUsers = new ArrayList<>();
+        testUsers.add(testUser);
+        File testFile = tempDir.resolve("user-test.json").toFile();
+
+        DataWriter.saveUsers(testUsers);
+        assertTrue(testFile.exists());
+    }
+
+    public void testSaveProjects(){
+        ArrayList<Project> testProjects = new ArrayList<>();
+        testProjects.add(testProject);
+        File testFile = tempDir.resolve("project-test.json").toFile();
+
+        DataWriter.saveProjects(testProjects);
+        assertTrue(testFile.exists());
+    }
+
+    //User tests 
    public void testJoinTeam() {
         testUser.joinTeam(testTeam);
-        assertTrue(testTeam.contains(testUser));
+        assertTrue(testTeam.getScrumTeamMembers().contains(testUser));
    }
     
     public void testLeaveTeam() {
         testUser.joinTeam(testTeam);
         testUser.leaveTeam(testTeam);
+        assertFalse(testTeam.getScrumTeamMembers().contains(testUser));
     }
 
     public void testViewProjects(){
+        testUser.joinTeam(testTeam);
         testTeam.addProject(testProject);
         testProject.addMember(testUser);
-        testUser.joinTeam(testTeam);
-
+        
         ArrayList<Project> projects = testUser.viewProjects();
+        assertTrue(projects.contains(testProject));
     }
 
     public void testIsOnline(){
-
+        UUID userID = testUser.getUserID();
+        UserList.getInstance().setUserOnline(userID, true);
+        boolean isOnline = testUser.isOnline();
+        assertTrue(isOnline);
     }
+
+    //UserList tests
+
+    //Applciation tests
 
 
 //Marietou- DataLoader, DataConstants, Columns, Tasks

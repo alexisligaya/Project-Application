@@ -141,12 +141,9 @@ public class User {
      * @param userID The user ID of the person being checked for online status.
      * @return True if the user is online, false if not online.
      */
-    public boolean isOnline(UUID userID) {
+    public boolean isOnline() {
         // Use the UserList to check if the user with the given userID is online.
-        User user = UserList.getInstance().getUser(userID);
-    
-        // Check if the user is not null (exists) and is online.
-        return user != null && user.isOnline(userID);
+       return UserList.getInstance().isUserOnline(this.getUserID());
     }
     
     /**
