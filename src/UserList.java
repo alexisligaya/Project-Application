@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
+import java.util.Set;
+import java.util.HashSet;
 
 public class UserList {
     private static UserList instance;
     private ArrayList<User> users;
+    private Set<UUID> onlineUsers = new HashSet<>();
 
     private UserList() {
         this.users = new ArrayList<User>();
@@ -61,16 +64,19 @@ public class UserList {
         users.add(newUser);
         saveUsers();
 
-        //return null if not successful
-
         //create newUser if successful
         return true;
     }
 
+    public void setUserOnline(UUID userID, boolean isOnline){
+        if(isOnline)
+            onlineUsers.add(userID);
+        else    
+            onlineUsers.remove(userID);
+    }
 
-    public String toString(){
-        String result= "Users: " + this.users;
-        return result;
+    public boolean isUserOnline(UUID userID){
+        return onlineUsers.contains(userID);
     }
 
     public void saveUsers(){

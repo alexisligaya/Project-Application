@@ -67,9 +67,14 @@ public class ProjectList {
     public void addProject(Project project){
         //add to list
         projects.add(project);
-
     }
 
+    public void loadProjects(){
+        this.projects = DataLoader.loadProjects();
+        if(this.projects == null){
+            this.projects = new ArrayList<Project>();
+        }
+    }
 
     /**
      * Removes a project with the same name and description given 

@@ -27,7 +27,9 @@ public class Team {
     }
     
     private Team(){
-
+        this.members = new ArrayList<>();
+        this.scrumTeamMembers = new ArrayList<>();
+        this.projects = new ArrayList<>();
     }
 
     /**
@@ -101,11 +103,20 @@ public boolean removeScrumTeamMember(User user){
      * @param user The user to be added to the scrum team
      */
     public void addScrumTeamMember(User user){
-        members.add(user);
+        scrumTeamMembers.add(user);
     }
     /** Prints the team object as a string.
      * @return a string containing Team information.
      */
+
+    public void addProject(Project project){
+        projects.add(project);
+        for(User member : members){
+            project.addMember(member);
+        }
+    }
+
+
     public String toString(){
         String result = "Members: " + this.members;
         result += "\nProduct Owner: "+this.productOwner;
