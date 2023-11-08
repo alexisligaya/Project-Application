@@ -1,5 +1,13 @@
 //Laura- Team, Change, Dashboard 
 //Team class
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.LocalDate;
+
+public class LauraTest{
 @Test
 public void testRemoveScrumTeamMember(){
     ArrayList<User> members = new ArrayList<>();
@@ -132,4 +140,116 @@ public void testRemoveScrumTeamMember(){
 
    
         assertEquals(expected, change.toString());
+    @Test
+    public void testGetListOfProjects() {
+        
+     ArrayList<Project> projects = new ArrayList<>();
+     projects.add(new Project("Project1", "Description1"));
+     projects.add(new Project("Project2", "Description2"));
+     Dashboard dashboard = new Dashboard(projects);
+
+        
+     assertEquals(projects, dashboard.getListOfProjects());
     }
+
+     @Test
+    public void testViewProjects() {
+        
+        ArrayList<Project> projects = new ArrayList<>();
+        projects.add(new Project("Project1", "Description1"));
+        projects.add(new Project("Project2", "Description2"));
+        Dashboard dashboard = new Dashboard(projects);
+
+        
+        assertEquals(projects, dashboard.viewProjects());
+    }
+
+    @Test
+    public void testSearchProject() {
+     
+        ArrayList<Project> projects = new ArrayList<>();
+        UUID project1ID = UUID.randomUUID();
+        UUID project2ID = UUID.randomUUID();
+        projects.add(new Project("Project1", "Description1", project1ID));
+        projects.add(new Project("Project2", "Description2", project2ID));
+        Dashboard dashboard = new Dashboard(projects);
+
+        
+        Project foundProject = dashboard.searchProject(project1ID);
+
+        
+        assertEquals("Project1", foundProject.getName()); 
+        assertEquals("Description1", foundProject.getDescription()); 
+    }
+
+    @Test
+public void testToString() {
+   
+    ArrayList<Project> projects = new ArrayList<>();
+    projects.add(new Project("Project1", "Description1"));
+    projects.add(new Project("Project2", "Description2"));
+    Dashboard dashboard = new Dashboard(projects);
+
+   
+    String expected = "List of Projects: " + projects;
+
+    
+    assertEquals(expected, dashboard.toString());
+}
+
+
+    @Test
+public void testToString() {
+    ArrayList<User> members = new ArrayList<>();
+    User productOwner = new User("John Doe");
+    User scrumMaster = new User("Jane Smith");
+    ArrayList<User> scrumTeamMembers = new ArrayList<>();
+    ArrayList<Project> projects = new ArrayList<>();
+    Team team = new Team(members, productOwner, scrumMaster, scrumTeamMembers, projects);
+
+    members.add(new User("Alice Johnson"));
+    members.add(new User("Bob Smith"));
+    members.add(new User("Laura Nolan"));
+
+  
+    projects.add(new Project("Project A", "Description A"));
+
+    String expected = "Members: " + members + "\nProduct Owner: " + productOwner
+            + "\nScrum Master: " + scrumMaster + "\nScrum Team Members: " + scrumTeamMembers + "\nProjects: " + projects;
+
+    assertEquals(expected, team.toString());
+}
+
+    
+  @Test
+public void testSortProjectsByDate() {
+   
+    ArrayList<Project> projects = new ArrayList<>();
+
+   
+    String date1 = "2023-02-15";
+    String date2 = "2023-01-10";
+    String date3 = "2023-03-20";
+
+    Project project1 = new Project("Project 1", "Description 1", date1);
+    Project project2 = new Project("Project 2", "Description 2", date2);
+    Project project3 = new Project("Project 3", "Description 3", date3);
+
+    projects.add(project3);
+    projects.add(project1);
+    projects.add(project2);
+
+    Dashboard dashboard = new Dashboard(projects);
+
+   
+    ArrayList<Project> sortedProjects = dashboard.sortProjectsByDate();
+
+    
+    assertEquals(project2, sortedProjects.get(0)); 
+    assertEquals(project1, sortedProjects.get(1)); 
+    assertEquals(project3, sortedProjects.get(2)); 
+}
+
+
+    }
+}
