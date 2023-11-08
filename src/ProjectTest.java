@@ -1,4 +1,6 @@
 //Alexis- DataWriter, User, UserList, Application
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 
 
@@ -11,3 +13,9 @@
 
 
 //Laura- Team, Change, Dashboard 
+public class ProjectTest {
+    @Test
+    public void tester() {
+        assertTrue(true);
+    }
+}
