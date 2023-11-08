@@ -17,6 +17,7 @@ public class AlexisTest {
     private Team testTeam;
     private Project testProject;
     private UUID userID;
+    private UserList userList;
 
     @Test
     public static void testing(){
@@ -91,15 +92,19 @@ public class AlexisTest {
 
     //UserList tests
     @Test
-    public void addUser(){
-
+    public void testAddUser(){
+        assertTrue(userList.addUser("Alexis", "Peters", "APeters", "ap@gmail.com", "12345", "UofSC", new Date()));
+        assertTrue(userList.isUserOnline(userList.getUsers().get(0).getUserID()));
     }
 
-    @Test
-    public void testIsUserOnline(){
-
+    public void testSetUserOnline(){
+        assertTrue(userList.addUser("Alexis", "Peters", "APeters", "ap@gmail.com", "12345", "UofSC", new Date()));
+        UUID userID = userList.getUsers().get(0).getUserID();
+        userList.setUserOnline(userID, true);
+        assertTrue(userList.isUserOnline(userID));
     }
 
     //Applciation tests
+    
 
 }

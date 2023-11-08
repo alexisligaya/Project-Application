@@ -64,8 +64,6 @@ public class UserList {
         users.add(newUser);
         saveUsers();
 
-        //return null if not successful
-
         //create newUser if successful
         return true;
     }
@@ -79,12 +77,6 @@ public class UserList {
 
     public boolean isUserOnline(UUID userID){
         return onlineUsers.contains(userID);
-    }
-
-
-    public String toString(){
-        String result= "Users: " + this.users;
-        return result;
     }
 
     public void saveUsers(){
