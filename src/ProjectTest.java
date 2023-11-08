@@ -39,6 +39,7 @@ public class ProjectTest{
     //DataWriter tests
     static Path tempDir;
     
+    @Test
     public void testSaveUsers(){
         ArrayList<User> testUsers = new ArrayList<>();
         testUsers.add(testUser);
@@ -48,6 +49,7 @@ public class ProjectTest{
         assertTrue(testFile.exists());
     }
 
+    @Test
     public void testSaveProjects(){
         ArrayList<Project> testProjects = new ArrayList<>();
         testProjects.add(testProject);
@@ -58,17 +60,20 @@ public class ProjectTest{
     }
 
     //User tests 
-   public void testJoinTeam() {
+    @Test
+    public void testJoinTeam() {
         testUser.joinTeam(testTeam);
         assertTrue(testTeam.getScrumTeamMembers().contains(testUser));
-   }
+    }
     
+    @Test
     public void testLeaveTeam() {
         testUser.joinTeam(testTeam);
         testUser.leaveTeam(testTeam);
         assertFalse(testTeam.getScrumTeamMembers().contains(testUser));
     }
 
+    @Test
     public void testViewProjects(){
         testUser.joinTeam(testTeam);
         testTeam.addProject(testProject);
@@ -78,6 +83,7 @@ public class ProjectTest{
         assertTrue(projects.contains(testProject));
     }
 
+    @Test
     public void testIsOnline(){
         UUID userID = testUser.getUserID();
         UserList.getInstance().setUserOnline(userID, true);
@@ -86,10 +92,12 @@ public class ProjectTest{
     }
 
     //UserList tests
+    @Test
     public void addUser(){
 
     }
 
+    @Test
     public void testIsUserOnline(){
 
     }
