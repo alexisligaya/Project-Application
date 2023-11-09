@@ -10,8 +10,8 @@ public class Tasks {
     private ArrayList<Change> changes;
     private ArrayList<Comments> comments;
 
-    public Tasks(Date deadline, String taskDescription, int priority, double hours, User assignedUser, ArrayList<Change> changes, ArrayList<Comments> comments) {
-        this.deadline = deadline;
+    public Tasks(Date string, String taskDescription, int priority, double hours, User assignedUser, ArrayList<Change> changes, ArrayList<Comments> comments) {
+        this.deadline = string;
         this.taskDescription = taskDescription;
         this.priority = priority;
         this.hours = hours;
