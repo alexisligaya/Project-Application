@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-//Alexis- DataWriter, User, UserList, Application
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-=======
 import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -39,8 +37,7 @@ public class ProjectTest{
         testProject = new Project("name", "description");
 	}
 	
-    //Alexis- DataWriter, User, UserList, Application
->>>>>>> 066c212b2b6f8c5a3c68305ebdfcd81e10955ce0
+//Alexis- DataWriter, User, UserList, Application
 
 
 
@@ -212,12 +209,10 @@ public void testRemoveProject() {
 
 
 //Laura- Team, Change, Dashboard 
-<<<<<<< HEAD
 public class ProjectTest {
     @Test
     public void tester() {
         assertTrue(true);
-=======
 //Team class
 @Test
 public void testRemoveScrumTeamMember(){
@@ -351,6 +346,5 @@ public void testRemoveScrumTeamMember(){
 
    
         assertEquals(expected, change.toString());
->>>>>>> 066c212b2b6f8c5a3c68305ebdfcd81e10955ce0
     }
 }

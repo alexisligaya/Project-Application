@@ -1,11 +1,6 @@
 import java.util.ArrayList;
 
 
-import org.junit.BeforeClass;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 public class Columns {
     private String title;
     private ArrayList<Tasks> tasks;
