@@ -120,7 +120,6 @@ public class MarietouTest {
     public void testAddChanges(){
         Tasks taskChange = new Tasks(new Date(), "Initialize super algorithm to detonate at warp speed", 0, 0, testUser, new ArrayList<Change>(), new ArrayList<Comments>());
         String description = "This is a change description";
-
         taskChange.addChanges(description);
         assertEquals(1, taskChange.getChanges().size());
         assertEquals(description, taskChange.getChanges().get(0).getDescription());
