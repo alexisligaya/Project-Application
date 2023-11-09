@@ -166,6 +166,19 @@ public class AlexisTest {
     }
 
     @Test
+    public void testIncorrectPasswrord(){
+        //user login info
+        String userName = "APeters";
+        String password = "incorrect";
+
+        //incorrect password
+        boolean login = application.login(userName, password);
+
+        //login fails
+        assertFalse(login);
+    }
+
+    @Test
     public void testLogout(){
         ArrayList<User> currUsers = application.getUserList().getUsers();
         ArrayList<Project> currProjects = application.getProjectList().getProjects();
@@ -221,3 +234,4 @@ public class AlexisTest {
         assertFalse(projects.contains(newProject));
     }
 }
+
