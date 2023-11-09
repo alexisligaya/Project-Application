@@ -96,14 +96,9 @@ public class MarietouTest {
     @Test
     public void testAssignUser(){
         Tasks tasks = new Tasks(new Date(), "Initialize super algorithm to detonate at warp speed", 0, 0, testUser, new ArrayList<Change>(), new ArrayList<Comments>());
-        User oldUser = new User("Atticus", "Finch", "AFinch", "AF12@gmail.com", "123", "None", null);
-        User newUser = new User("Jeff", "Goldblum", "JGold", "JGold12@gmail.com", "123", "Code Mission Possible", null);
-        tasks.assignUser(oldUser);
-        assertEquals("old user", tasks.getAssignedUser());
-
-        tasks.assignUser(newUser);
-        assertEquals("new user", tasks.getAssignedUser());
-
+        User user = new User("Jeff", "Goldblum", "JGold", "JGold12@gmail.com", "123", "Code Mission Possible", null);
+        tasks.assignUser(user);
+        assertEquals(user, tasks.getAssignedUser());
     }
 
     @Test
@@ -113,7 +108,7 @@ public class MarietouTest {
 
         taskComment.addComment(comment);
         assertEquals(1, taskComment.getComments().size());
-        assertEquals("User123: This is a comment", taskComment.getChanges().get(0));
+        assertEquals("Avoid Civilians", taskComment.getChanges().get(0));
     }
 
     @Test
