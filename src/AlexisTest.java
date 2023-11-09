@@ -19,11 +19,7 @@ public class AlexisTest {
     private UUID userID;
     private UserList userList;
     private Application application;
-
-    @Test
-    public static void testing(){
-
-    }
+    static Path tempDir;
 	
 	@BeforeEach
 	public void setup() {
@@ -32,12 +28,13 @@ public class AlexisTest {
         testUser = new User(userID, "test", "user", "testUser","user@gmail.com", "password", "company", new Date());
         testTeam = Team.getInstance();
         testProject = new Project("name", "description");
+        userList = UserList.getInstance();
+        application = new Application();
 	}
 	
     //Alexis- DataWriter, User, UserList, Application
     
     //DataWriter tests
-    static Path tempDir;
     
     @Test
     public void testSaveUsers(){

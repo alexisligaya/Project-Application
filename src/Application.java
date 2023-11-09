@@ -11,6 +11,7 @@ public class Application {
 
     public Application() {
         userList = UserList.getInstance();
+        projectList = new ProjectList();
         users = User.getInstance();
         project = Project.getInstance();
         team = Team.getInstance();
