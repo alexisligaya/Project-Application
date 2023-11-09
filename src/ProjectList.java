@@ -69,6 +69,12 @@ public class ProjectList {
         projects.add(project);
     }
 
+    public void loadProjects(){
+        this.projects = DataLoader.loadProjects();
+        if(this.projects == null){
+            this.projects = new ArrayList<Project>();
+        }
+    }
 
     /**
      * Removes a project with the same name and description given 
