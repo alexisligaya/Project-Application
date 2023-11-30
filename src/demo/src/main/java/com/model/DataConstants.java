@@ -1,3 +1,4 @@
+package com.model;
 public abstract class DataConstants {
     
     protected static final String USER_ID = "id";

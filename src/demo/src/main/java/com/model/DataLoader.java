@@ -1,4 +1,4 @@
-import static org.junit.jupiter.api.Assertions. *;
+package com.model;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,11 +11,6 @@ import java.text.ParseException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
-import org.junit.BeforeClass;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 public class DataLoader extends DataConstants {
 
