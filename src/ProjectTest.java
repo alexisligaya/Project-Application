@@ -16,7 +16,7 @@ import org.junit.jupiter.api.io.TempDir;
 import java.nio.file.Path;
 
 
-public class ProjectTest{
+public class ProjectTest {
 
     private User testUser;
     private Team testTeam;
@@ -182,4 +182,5 @@ public void testRemoveScrumTeamMember(){
    
         assertEquals(expected, change.toString());
     }
+}
 }
