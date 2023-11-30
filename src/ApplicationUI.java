@@ -97,7 +97,7 @@ public class ApplicationUI {
                             ProjectList.getInstance().addProject(newProject);
 
                             System.out.println("Project '" + name + "' created");
-                            DataWriter.saveProjects(ProjectList.getInstance().getProjects());
+                            DataWriter.saveProjects(ProjectList.getInstance().getProjects(), description);
                         }
                         //logout
                         else if(count ==3){
@@ -135,7 +135,7 @@ public class ApplicationUI {
                 application.signUp(firstName, lastName, userName, email, password, company, date);
                 System.out.println("You signed up");
 
-                DataWriter.saveUsers(UserList.getInstance().getUsers());
+                DataWriter.saveUsers(UserList.getInstance().getUsers(), dateOfBirth);
             } 
             
             //exit system
@@ -183,7 +183,7 @@ public class ApplicationUI {
         users.add(user1);
         users.add(user2);
         users.add(user3);
-        DataWriter.saveUsers(users);
+        DataWriter.saveUsers(users, "json/project.json");
 
         //hardcode projects
         ArrayList<Project> projects = ProjectList.getInstance().getProjects();
@@ -238,7 +238,7 @@ public class ApplicationUI {
         DataWriter.writeChanges("Added column\n");
         DataWriter.writeChanges("Moved task\n");
         DataWriter.writeChanges("Printing ScrumBoard.txt...\n");
-        DataWriter.saveProjects(projects);
+        DataWriter.saveProjects(projects, "json/project.json");
     }
 
 
