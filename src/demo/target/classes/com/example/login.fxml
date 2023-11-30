@@ -11,11 +11,19 @@
 <HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoginController">
     <StackPane HBox.hgrow="ALWAYS">
          <Pane style="-fx-background-color: #58355E;"/>
+<<<<<<< HEAD
+
          <Label text="Project Manager" StackPane.alignment="TOP_CENTER" 
                style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0;"/>
+
+=======
+         <Label text="Project Manager" StackPane.alignment="TOP_CENTER" 
+               style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0;"/>
+>>>>>>> 93f32d9ed82b1b08765f05bcec72072e1bf829f0
          <Pane style="-fx-background-color: #58355E;" />
          
          <Label style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0;" text="Project Manager" StackPane.alignment="TOP_CENTER" />
+
     </StackPane>
 
     <VBox alignment="CENTER" spacing="20.0" HBox.hgrow="ALWAYS">
