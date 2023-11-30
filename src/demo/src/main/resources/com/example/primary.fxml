@@ -11,12 +11,6 @@
     <StackPane HBox.hgrow="ALWAYS">
          <Pane style="-fx-background-color: #58355E;"/>
 
-         <ImageView fx:id="leftSideImage" fitWidth="200" fitHeight="200" preserveRatio="true">
-            <image>
-                  <Image url="@path/to/your/image.png" /> 
-            </image>
-         </ImageView>
-
          <Label text="Project Manager" StackPane.alignment="TOP_CENTER" 
                style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0;"/>
     </StackPane>

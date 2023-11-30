@@ -1,3 +1,4 @@
+package com.model;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,12 +9,6 @@ import java.util.UUID;
 import java.util.Date;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
- 
-import org.junit.BeforeClass;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 public class DataWriter extends DataConstants {
 
