@@ -10,14 +10,12 @@
 
 <HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoginController">
     <StackPane HBox.hgrow="ALWAYS">
-         <Pane style="-fx-background-color: #58355E;"/>
+         <Pane style="-fx-background-color: #58355E;" />
 
 
-         <Label text="Project Manager" StackPane.alignment="TOP_CENTER" 
-               style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0;"/>
+         <Label style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0;" text="Project Manager" StackPane.alignment="TOP_CENTER" />
 
-         <Label text="Project Manager" StackPane.alignment="TOP_CENTER" 
-               style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0;"/>
+         <Label style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0;" text="Project Manager" StackPane.alignment="TOP_CENTER" />
 
          <Pane style="-fx-background-color: #58355E;" />
          
@@ -34,8 +32,7 @@
 
             <Button fx:id="primaryButton" onAction="#switchToSecondary" prefHeight="0.0" prefWidth="141.0" style="-fx-background-color: #D7C7D9; -fx-text-fill: white; -fx-font-size: 20px;" text="Log In" />
 
-            <Button fx:id="primaryButton" onAction="#switchToSecondary" style="-fx-text-fill: black;" text="Sign Up" />
-            <Button onAction="#switchToDashboard" text="Switch to Dashboard" />
+            <Button fx:id="primaryButton" onAction="#switchToSecondary" style="-fx-text-fill: black;" text="Sign Up" textFill="#45471c" />
 
         </children>
         <padding>
