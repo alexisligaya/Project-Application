@@ -61,11 +61,12 @@ public class UserList {
 
         //add to list
         User newUser = new User(firstName, lastName, userName, email, password, company, dateOfBirth);
-        users.add(newUser);
+
+        boolean addedUsers = users.add(newUser);
+        System.out.println("Users added: " + addedUsers);
         saveUsers();
 
-        //create newUser if successful
-        return true;
+        return addedUsers;
     }
 
     public void setUserOnline(UUID userID, boolean isOnline){
@@ -73,6 +74,7 @@ public class UserList {
             onlineUsers.add(userID);
         else    
             onlineUsers.remove(userID);
+        System.out.println("Users online: " + onlineUsers);
     }
 
     public boolean isUserOnline(UUID userID){
@@ -80,7 +82,7 @@ public class UserList {
     }
 
     public void saveUsers(){
-        DataWriter.saveUsers(users);
+        DataWriter.saveUsers(users, "json/user-test");
     }
 
     public void loadUsers(){

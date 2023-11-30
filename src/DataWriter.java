@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class DataWriter extends DataConstants {
      * 
      * @param users - the ArrayList of User objects to be saved as JSON.
      */
-    public static void saveUsers(ArrayList<User> users) {
+    public static void saveUsers(ArrayList<User> users, String filePath) {
         JSONArray jsonUsers = new JSONArray();
 
         // Creating JSON objects for each user
@@ -29,6 +30,14 @@ public class DataWriter extends DataConstants {
             jsonUsers.add(getUserJSON(user));
         }
 
+        try(FileWriter file = new FileWriter(filePath)){
+            file.write(jsonUsers.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        /*
         // Write JSON file
         try (FileWriter file = new FileWriter("json/user-test.json")) {
             file.write(jsonUsers.toJSONString());
@@ -37,6 +46,7 @@ public class DataWriter extends DataConstants {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
 
         //Create strings for each user
         StringBuilder userString = new StringBuilder();
@@ -58,7 +68,7 @@ public class DataWriter extends DataConstants {
      * 
      * @param projects - the ArrayList of Project objects to be saved as JSON.
      */
-    public static void saveProjects(ArrayList<Project> projects) {
+    public static void saveProjects(ArrayList<Project> projects, String filePath) {
         JSONArray jsonProjects = new JSONArray();
 
         // Creating JSON objects for each user
@@ -66,10 +76,9 @@ public class DataWriter extends DataConstants {
         for (Project project : projects) {
             jsonProjects.add(getProjectJSON(project));
         }
-        
 
         // Write JSON file
-        try (FileWriter file = new FileWriter("json/project.json")) {
+        try (FileWriter file = new FileWriter(filePath)) {
 
             file.write(jsonProjects.toJSONString());
             file.flush();

@@ -19,11 +19,6 @@ import org.junit.jupiter.api.Test;
 
 public class DataLoader extends DataConstants {
 
-	@Test
-	public void testing(){
-		assertTrue(true);
-	}
-
 	/**
 	 * Loads a list of User objects from a JSON file
 	 * 
@@ -31,12 +26,11 @@ public class DataLoader extends DataConstants {
 	 */
 	public static ArrayList<User> loadUsers() {
 
-		ArrayList<User> user = new ArrayList<User>();
+		ArrayList<User> users = new ArrayList<User>();
 
-		try {
-			FileReader reader = new FileReader("json/user-test.json");
+		try (FileReader reader = new FileReader("json/user-test.json")) {
 			JSONParser parser = new JSONParser();
-			JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
+			JSONArray usersJSON = (JSONArray) parser.parse(reader);
 
 			for (int i = 0; i < usersJSON.size(); i++) {
 				JSONObject personJSON = (JSONObject) usersJSON.get(i);
@@ -49,13 +43,14 @@ public class DataLoader extends DataConstants {
 				String company = (String) personJSON.get(USER_COMPANY);
 				Date dob = stringToDate((String) personJSON.get(USER_DOB));
 
-				user.add(new User(userID, firstName, lastName, username, email, password, company, dob));
+				users.add(new User(userID, firstName, lastName, username, email, password, company, dob));
 			}
-			return user;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return new ArrayList<>();
 		}
-		return null;
+		return users;
 	}
 
 	/**
@@ -65,7 +60,7 @@ public class DataLoader extends DataConstants {
 	 * @return a Date object representing the parsed date, or null if parsing fails
 	 */
 	public static Date stringToDate(String dateText) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy"); // Corrected the date format pattern
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy"); // Corrected the date format pattern
 		try {
 			Date date = dateFormat.parse(dateText);
 			return date;

@@ -8,9 +8,14 @@ import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import java.io.File;
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class AlexisTest {
     private User testUser;
@@ -19,7 +24,8 @@ public class AlexisTest {
     private UUID userID;
     private UserList userList;
     private Application application;
-    static Path tempDir;
+    @TempDir
+    Path tempDir;
 	
 	@BeforeEach
 	public void setup() {
@@ -43,10 +49,11 @@ public class AlexisTest {
         File testFile = tempDir.resolve("user-test.json").toFile();
 
         //saves users to file
-        DataWriter.saveUsers(testUsers);
+        DataWriter.saveUsers(testUsers, testFile.getAbsolutePath());
 
         //checks if file exists
         assertTrue(testFile.exists());
+
     }
 
     @Test
@@ -57,7 +64,7 @@ public class AlexisTest {
         File testFile = tempDir.resolve("project-test.json").toFile();
        
         //saves projects to file
-        DataWriter.saveProjects(testProjects);
+        DataWriter.saveProjects(testProjects, testFile.getAbsolutePath());
 
         //checks if file exists
         assertTrue(testFile.exists());
@@ -113,17 +120,22 @@ public class AlexisTest {
         assertTrue(userList.addUser("Alexis", "Peters", "APeters", "ap@gmail.com", "12345", "UofSC", new Date()));
        
        //checks that the added user is online
-        assertTrue(userList.isUserOnline(userList.getUsers().get(0).getUserID()));
+        UUID newUserId = userList.getUsers().get(userList.getUsers().size() - 1).getUserID();
+
+        userList.setUserOnline(newUserId, true);
+        assertTrue(userList.isUserOnline(newUserId));
     }
 
     @Test
     public void testSetUserOnline(){
         //sets user an online
-        assertTrue(userList.addUser("Alexis", "Peters", "APeters", "ap@gmail.com", "12345", "UofSC", new Date()));
-        UUID userID = userList.getUsers().get(0).getUserID();
+        boolean addedUsers = userList.addUser("Alexis", "Peters", "APeters", "ap@gmail.com", "12345", "UofSC", new Date());
+        assertTrue(addedUsers, "Users added");
+
+        UUID userID = userList.getUsers().get(userList.getUsers().size()-1).getUserID();
         userList.setUserOnline(userID, true);
 
-        //chekcs that the user is online
+        //checks that the user is online
         assertTrue(userList.isUserOnline(userID));
     }
 

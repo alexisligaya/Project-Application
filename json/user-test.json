@@ -1,12 +1,1 @@
-<<<<<<< HEAD
-[{"firstName":"Alexis","lastName":"Peters","password":"12345","dateofBirth":"41\/08\/2023","company":"UofSC","id":"44702b55-d23e-409c-a0c7-e0ee8728daae","userName":"APeters","email":"ap@gmail.com"}]
-=======
-<<<<<<< HEAD
-
-[{"firstName":"Atticus","lastName":"Madden","password":"123","dateofBirth":"08\/02\/2023","company":"Code Mission Possible","id":"efab0770-bad5-485b-b6ce-019c1492a49c","userName":"AMadden","email":"AMadden12@gmail.com"}
-,{"firstName":"Jeff","lastName":"Goldblum","password":"123","dateofBirth":"08\/02\/2023","company":"None","id":"737da573-e82b-44f5-a965-7d43ca862e33","userName":"JGold","email":"JGold12@gmail.com"}
-,{"firstName":"Atticus","lastName":"Finch","password":"123","dateofBirth":"08\/02\/2023","company":"Code Mission Possible","id":"3b725240-905c-4e49-850c-6981cd65cabb","userName":"AFinch","email":"AF12@gmail.com"}]
-=======
-[{"firstName":"Alexis","lastName":"Peters","password":"12345","dateofBirth":"24\/08\/2023","company":"UofSC","id":"f53b4d3d-fffe-42a6-bd13-6a5652db88b7","userName":"APeters","email":"APeters@gmail.com"}]
->>>>>>> ae9321b6722b7d185fa3b87838e1527d2371a8a0
->>>>>>> 0cc8dd46cc880f960015a46ab987e19ae55032d6
+[{"firstName":"test","lastName":"user","password":"password","dateofBirth":"52\/29\/2023","company":"company","id":"9e4fbe86-d775-4957-abcb-ec124b2ae688","userName":"testUser","email":"user@gmail.com"}]
