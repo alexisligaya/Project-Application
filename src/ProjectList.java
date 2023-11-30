@@ -111,7 +111,7 @@ public class ProjectList {
      * Saves the projects
      */
     public void saveProjects(){
-        DataWriter.saveProjects(projects);
+        DataWriter.saveProjects(projects, "json/project.json");
     }
 }
 

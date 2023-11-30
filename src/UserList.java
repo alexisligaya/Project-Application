@@ -53,9 +53,12 @@ public class UserList {
         if(firstName == null || lastName == null || userName == null || email == null || password == null || company == null || dateOfBirth == null)
             return false;
 
+        String lowercaseUserName = userName.toLowerCase();
+        String lowercaseEmail = email.toLowerCase();
+
         //make a user
         for(User user : users){
-            if(user.getUserName().equals(userName) || user.getEmail().equals(email))
+            if(user.getUserName().toLowerCase().equals(lowercaseUserName) || user.getEmail().toLowerCase().equals(lowercaseEmail))
                 return false;
         }
 
@@ -76,6 +79,11 @@ public class UserList {
             onlineUsers.remove(userID);
         System.out.println("Users online: " + onlineUsers);
     }
+
+    public Set<UUID> getUserOnline(){
+        return onlineUsers;
+    }
+
 
     public boolean isUserOnline(UUID userID){
         return onlineUsers.contains(userID);

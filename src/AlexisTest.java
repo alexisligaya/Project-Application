@@ -128,20 +128,26 @@ public class AlexisTest {
 
     @Test
     public void testSetUserOnline(){
-        //sets user an online
-        boolean addedUsers = userList.addUser("Alexis", "Peters", "APeters", "ap@gmail.com", "12345", "UofSC", new Date());
-        assertTrue(addedUsers, "Users added");
-
+       
         UUID userID = userList.getUsers().get(userList.getUsers().size()-1).getUserID();
+        System.out.println("userID not online: " + userID);
+        
         userList.setUserOnline(userID, true);
+        System.out.println("userID online: " + userID);
 
-        //checks that the user is online
+        // print onlineUsers 
+        System.out.println("Online Users: " + userList.getUserOnline());
+
+        //checks that user is online
         assertTrue(userList.isUserOnline(userID));
     }
 
     //Applciation tests
     @Test
     public void testSignUp(){
+
+        Application application = new Application();
+
         //test user info
         String firstName = "Alexis";
         String lastName = "Peters";

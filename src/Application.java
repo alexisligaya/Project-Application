@@ -2,7 +2,7 @@ import java.util.Date;
 
 public class Application {
 
-    private static User users;
+    private UserList users;
     private User currentUser;
     private Project project;
     private Team team;
@@ -12,7 +12,7 @@ public class Application {
     public Application() {
         userList = UserList.getInstance();
         projectList = new ProjectList();
-        users = User.getInstance();
+        users = UserList.getInstance();
         project = Project.getInstance();
         team = Team.getInstance();
     }
@@ -22,8 +22,8 @@ public class Application {
      * 
      * @return an ArrayList of User objects
      */
-    public static User getUsers() {
-        return users;
+    public UserList getUsers() {
+        return userList;
     }
 
     /**
