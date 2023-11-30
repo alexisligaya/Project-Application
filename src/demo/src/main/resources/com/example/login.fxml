@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PrimaryController">
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoginController">
     <StackPane HBox.hgrow="ALWAYS">
          <Pane style="-fx-background-color: #58355E;"/>
 
@@ -35,6 +35,8 @@
             <Button fx:id="primaryButton" onAction="#switchToSecondary" prefHeight="0.0" prefWidth="141.0" style="-fx-background-color: #D7C7D9; -fx-text-fill: white; -fx-font-size: 20px;" text="Log In" />
 
             <Button fx:id="primaryButton" onAction="#switchToSecondary" style="-fx-text-fill: black;" text="Sign Up" />
+            <Button onAction="#switchToDashboard" text="Switch to Dashboard" />
+
         </children>
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
