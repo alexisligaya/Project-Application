@@ -1,12 +1,13 @@
 //Laura- Team, Change, Dashboard 
 //Team class
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import java.util.ArrayList;
-import java.util.UUID;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
+
+import org.junit.Test;
 
 public class LauraTest{
 @Test
@@ -122,6 +123,9 @@ public void testRemoveScrumTeamMember(){
         assertEquals(project, change.getProject());
     }
 
+    /**
+     * 
+     */
     @Test
     public void testToString() {
        
