@@ -32,7 +32,7 @@
 
             <Button fx:id="primaryButton" onAction="#switchToSecondary" prefHeight="0.0" prefWidth="141.0" style="-fx-background-color: #D7C7D9; -fx-text-fill: white; -fx-font-size: 20px;" text="Log In" />
 
-            <Button fx:id="primaryButton" onAction="#switchToSecondary" style="-fx-text-fill: black;" text="Sign Up" textFill="#45471c" />
+            <Button fx:id="primaryButton" onAction="#switchToSecondary" style="-fx-text-fill: blue;" text="Sign Up" textFill="#45471c" />
 
         </children>
         <padding>

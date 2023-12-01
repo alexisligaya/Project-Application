@@ -36,7 +36,8 @@ public class App extends Application {
     }
 
    
-    public static void switchToDashboard() throws IOException {
+    /*public static void switchToDashboard() throws IOException {
         setRoot("dashboard");
     }
+    */
 }
