@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 public class OpenProjectController {
 
     @FXML
-    private void switchToOpenProject() throws IOException {
-        App.setRoot("openProject");
+    private void switchToInviteCollaborator() throws IOException {
+        App.setRoot("invite");
     }
 }
