@@ -34,10 +34,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
-   
-    /*public static void switchToDashboard() throws IOException {
-        setRoot("dashboard");
-    }
-    */
 }
