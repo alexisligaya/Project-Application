@@ -45,6 +45,8 @@
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="469.0" layoutY="123.0" prefHeight="28.0" prefWidth="30.0" style="-fx-font-size: 15; -fx-border-color: BBBBBB; -fx-text-fill: black; -fx-border-radius: 20;" text="+" />
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="432.0" layoutY="147.0" prefHeight="28.0" prefWidth="105.0" style="-fx-font-size: 10; -fx-text-fill: black;" text="Add Column" />
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="447.0" layoutY="303.0" prefHeight="28.0" prefWidth="105.0" style="-fx-font-size: 10; -fx-border-color: BBBBBB; -fx-text-fill: black; -fx-border-radius: 20;" text="Project History" />
+         
+
                </children>
             </AnchorPane>
          </children>
