@@ -20,20 +20,29 @@
               <items>
                   <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="336.0" prefWidth="213.0">
                      <children>
-                        <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="46.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="223.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 5px; -fx-text-fill: black; -fx-font-size: 15px;" text="Front End" textFill="#fffafa">
+                        <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="46.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="223.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 5px; -fx-text-fill: black; -fx-font-size: 15px; -fx-border-color: BBBBBB; -fx-border-radius: 10;" textFill="#fffafa">
                            <font>
                               <Font name="Monaco" size="13.0" />
                            </font>
                         </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" layoutY="80.0" prefHeight="26.0" prefWidth="95.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 10;" text="Color Scheme" />
+                        <Label layoutX="77.0" layoutY="121.0" prefHeight="26.0" prefWidth="84.0" />
+                        <Label alignment="CENTER" layoutX="47.0" layoutY="42.0" prefHeight="26.0" prefWidth="143.0" style="-fx-font-size: 15; -fx-background-color: D7C7D9; -fx-border-color: BBBBBB;" text="Front End" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="119.0" prefHeight="26.0" prefWidth="97.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 10;" text="Align Items" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="155.0" prefHeight="26.0" prefWidth="95.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 15;" text="+" />
                      </children>
                   </AnchorPane>
                 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="336.0" prefWidth="215.0">
                      <children>
-                              <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="17.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="223.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 5px; -fx-text-fill: black; -fx-font-size: 15px;" text="Back End" textFill="#fffafa">
-                                  <font>
-                                      <Font name="Monaco" size="13.0" />
-                                  </font>
-                              </Label>
+                        <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="18.0" layoutY="34.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="223.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 5px; -fx-text-fill: black; -fx-font-size: 15px; -fx-border-color: BBBBBB; -fx-border-radius: 10;" textFill="#fffafa">
+                           <font>
+                              <Font name="Monaco" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="19.0" layoutY="42.0" prefHeight="26.0" prefWidth="143.0" style="-fx-font-size: 15; -fx-background-color: D7C7D9; -fx-border-color: BBBBBB;" text="Back End" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="81.0" prefHeight="26.0" prefWidth="89.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 10;" text="Create DataWriter" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="116.0" prefHeight="26.0" prefWidth="89.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 10;" text="Edit DataLoader" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="153.0" prefHeight="26.0" prefWidth="89.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 15;" text="+" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="336.0" prefWidth="225.0">
@@ -43,7 +52,8 @@
                               <Font name="Monaco" size="13.0" />
                            </font>
                         </Label>
-                        <Button layoutX="74.0" layoutY="120.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-background-color: white;" text="+" />
+                        <Button layoutX="74.0" layoutY="120.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-radius: 50; -fx-border-color: BBBBBB;" text="+" />
+                        <Label layoutX="60.0" layoutY="149.0" style="-fx-font-size: 10;" text="Add Column " />
                      </children>
                   </AnchorPane>
               </items>
