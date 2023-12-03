@@ -1,69 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="126.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: EFEFEF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="126.0" layoutY="90.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: EFEFEF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="64.0" prefWidth="600.0" style="-fx-background-color: #48214F;">
+            <AnchorPane prefHeight="63.0" prefWidth="600.0" style="-fx-background-color: #48214F;">
                <children>
-                  <Label layoutX="34.0" prefHeight="60.0" prefWidth="205.0" style="-fx-font-size: 40px; -fx-text-fill: white;" text="Project 1" textFill="WHITE" />
+                  <Label layoutX="35.0" layoutY="2.0" prefHeight="60.0" prefWidth="205.0" style="-fx-font-size: 40px; -fx-text-fill: white;" text="Project 1" textFill="WHITE" />
+                  <MenuButton layoutX="525.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #48214F;" text="User" textFill="WHITE">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Settings" />
+                      <MenuItem mnemonicParsing="false" text="Logout" />
+                    </items>
+                  </MenuButton>
                </children>
             </AnchorPane>
-            <SplitPane dividerPositions="0.3486622073578595, 0.6546822742474916" prefHeight="339.0" prefWidth="600.0">
-              <items>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="336.0" prefWidth="213.0">
-                     <children>
-                        <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="46.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="223.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 5px; -fx-text-fill: black; -fx-font-size: 15px; -fx-border-color: BBBBBB; -fx-border-radius: 10;" textFill="#fffafa">
-                           <font>
-                              <Font name="Monaco" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" layoutY="80.0" prefHeight="26.0" prefWidth="95.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 10;" text="Color Scheme" />
-                        <Label layoutX="77.0" layoutY="121.0" prefHeight="26.0" prefWidth="84.0" />
-                        <Label alignment="CENTER" layoutX="47.0" layoutY="42.0" prefHeight="26.0" prefWidth="143.0" style="-fx-font-size: 15; -fx-background-color: D7C7D9; -fx-border-color: BBBBBB;" text="Front End" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="119.0" prefHeight="26.0" prefWidth="97.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 10;" text="Align Items" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="155.0" prefHeight="26.0" prefWidth="95.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 15;" text="+" />
-                     </children>
-                  </AnchorPane>
-                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="336.0" prefWidth="215.0">
-                     <children>
-                        <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="18.0" layoutY="34.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="223.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 5px; -fx-text-fill: black; -fx-font-size: 15px; -fx-border-color: BBBBBB; -fx-border-radius: 10;" textFill="#fffafa">
-                           <font>
-                              <Font name="Monaco" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="19.0" layoutY="42.0" prefHeight="26.0" prefWidth="143.0" style="-fx-font-size: 15; -fx-background-color: D7C7D9; -fx-border-color: BBBBBB;" text="Back End" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="81.0" prefHeight="26.0" prefWidth="89.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 10;" text="Create DataWriter" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="116.0" prefHeight="26.0" prefWidth="89.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 10;" text="Edit DataLoader" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="153.0" prefHeight="26.0" prefWidth="89.0" style="-fx-border-color: BBBBBB; -fx-border-radius: 20; -fx-font-size: 15;" text="+" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="336.0" prefWidth="225.0">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="TOP" layoutX="14.0" layoutY="34.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="223.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 5px; -fx-text-fill: black; -fx-font-size: 15px;" textFill="#fffafa">
-                           <font>
-                              <Font name="Monaco" size="13.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="74.0" layoutY="120.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-radius: 50; -fx-border-color: BBBBBB;" text="+" />
-                        <Label layoutX="60.0" layoutY="149.0" style="-fx-font-size: 10;" text="Add Column " />
-                     </children>
-                  </AnchorPane>
-              </items>
-      
-                  <stylesheets>
-                     <URL value="@style.css" />
-                  </stylesheets>
-            </SplitPane>
-
+            <AnchorPane prefHeight="321.0" prefWidth="600.0">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="58.0" layoutY="22.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="272.0" prefWidth="140.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 5px; -fx-text-fill: black; -fx-font-size: 15px; -fx-border-color: BBBBBB; -fx-border-radius: 10;" textFill="#fffafa">
+                     <font>
+                        <Font name="Monaco" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="33.0" prefHeight="30.0" prefWidth="140.0" style="-fx-font-size: 20; -fx-background-color: D7C7D9;" text="Front End" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="87.0" prefHeight="28.0" prefWidth="105.0" style="-fx-font-size: 10; -fx-border-color: BBBBBB; -fx-text-fill: black; -fx-border-radius: 20;" text="Color Scheme" />
+                  <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="244.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="272.0" prefWidth="140.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 5px; -fx-text-fill: black; -fx-font-size: 15px; -fx-border-color: BBBBBB; -fx-border-radius: 10;" textFill="#fffafa">
+                     <font>
+                        <Font name="Monaco" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="123.0" prefHeight="28.0" prefWidth="105.0" style="-fx-font-size: 10; -fx-border-color: BBBBBB; -fx-text-fill: black; -fx-border-radius: 20;" text="Align Items" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="158.0" prefHeight="28.0" prefWidth="105.0" style="-fx-font-size: 15; -fx-border-color: BBBBBB; -fx-text-fill: black; -fx-border-radius: 20;" text="+" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="244.0" layoutY="33.0" prefHeight="30.0" prefWidth="140.0" style="-fx-font-size: 20; -fx-background-color: D7C7D9;" text="Back End" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="262.0" layoutY="87.0" prefHeight="28.0" prefWidth="105.0" style="-fx-font-size: 10; -fx-border-color: BBBBBB; -fx-text-fill: black; -fx-border-radius: 20;" text="Refactor DataWriter" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="262.0" layoutY="123.0" prefHeight="28.0" prefWidth="105.0" style="-fx-font-size: 10; -fx-border-color: BBBBBB; -fx-text-fill: black; -fx-border-radius: 20;" text="Edit DataLoader" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="262.0" layoutY="158.0" prefHeight="28.0" prefWidth="105.0" style="-fx-font-size: 15; -fx-border-color: BBBBBB; -fx-text-fill: black; -fx-border-radius: 20;" text="+" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="469.0" layoutY="123.0" prefHeight="28.0" prefWidth="30.0" style="-fx-font-size: 15; -fx-border-color: BBBBBB; -fx-text-fill: black; -fx-border-radius: 20;" text="+" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="432.0" layoutY="147.0" prefHeight="28.0" prefWidth="105.0" style="-fx-font-size: 10; -fx-text-fill: black;" text="Add Column" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="447.0" layoutY="303.0" prefHeight="28.0" prefWidth="105.0" style="-fx-font-size: 10; -fx-border-color: BBBBBB; -fx-text-fill: black; -fx-border-radius: 20;" text="Project History" />
+               </children>
+            </AnchorPane>
          </children>
+         
       </VBox>
    </children>
 </AnchorPane>
