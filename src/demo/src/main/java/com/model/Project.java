@@ -199,6 +199,15 @@ public class Project {
         this.columns.get(toColumnPos).addTask(task);
     }
 
+    // setters
+    public void setPublic(boolean value) {
+        this.isPublic = value;
+    }
+
+    public void setFinished(boolean value) {
+        this.isFinished = value;
+    }
+
     /**
      * Formats the string of all the information for the project
      * 

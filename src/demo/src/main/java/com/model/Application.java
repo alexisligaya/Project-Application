@@ -1,5 +1,6 @@
 package com.model;
 import java.util.Date;
+import java.util.ArrayList;
 
 public class Application {
 
@@ -10,12 +11,22 @@ public class Application {
     private UserList userList;
     private ProjectList projectList;
 
+    private static Application instance;
+
     public Application() {
         userList = UserList.getInstance();
         projectList = new ProjectList();
         users = UserList.getInstance();
         project = Project.getInstance();
         team = Team.getInstance();
+    }
+
+
+    public static Application getInstance(){
+        if(instance == null){
+            instance = new Application();
+        }
+        return instance;
     }
 
     /**
@@ -96,7 +107,6 @@ public class Application {
      * @return true if the user is successfully logged in, false if not
      */
     public boolean login(String userName, String password) {
-        // calls userList
         currentUser = UserList.getInstance().getUser(userName, password);
 
         return currentUser != null;

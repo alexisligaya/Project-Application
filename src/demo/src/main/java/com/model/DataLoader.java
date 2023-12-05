@@ -23,7 +23,7 @@ public class DataLoader extends DataConstants {
 
 		ArrayList<User> users = new ArrayList<User>();
 
-		try (FileReader reader = new FileReader("json/user-test.json")) {
+		try (FileReader reader = new FileReader("src/demo/src/main/java/data/json/user-test.json")) {
 			JSONParser parser = new JSONParser();
 			JSONArray usersJSON = (JSONArray) parser.parse(reader);
 

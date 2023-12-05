@@ -136,7 +136,8 @@ public class ApplicationUI {
                 application.signUp(firstName, lastName, userName, email, password, company, date);
                 System.out.println("You signed up");
 
-                DataWriter.saveUsers(UserList.getInstance().getUsers(), dateOfBirth);
+                //DataWriter.saveUsers(UserList.getInstance().getUsers(), dateOfBirth);
+                DataWriter.saveUsers(UserList.getInstance().getUsers(), "src/demo/src/main/java/data/json/user-test.json");
             } 
             
             //exit system
