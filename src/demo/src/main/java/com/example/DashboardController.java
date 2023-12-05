@@ -7,8 +7,8 @@ import javafx.fxml.FXML;
 public class DashboardController {
 
     @FXML
-    private void switchToOpenProject() throws IOException {
-        App.setRoot("openProject");
+    private void newProject() throws IOException {
+        App.setRoot("newProject");
     }
 
 }

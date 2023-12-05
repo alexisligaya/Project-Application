@@ -11,7 +11,7 @@ public class UserList {
     private Set<UUID> onlineUsers = new HashSet<>();
 
     private UserList() {
-        this.users = new ArrayList<User>();
+        this.users = DataLoader.loadUsers();
     }
 
     public static UserList getInstance(){
@@ -69,6 +69,8 @@ public class UserList {
         boolean addedUsers = users.add(newUser);
         System.out.println("Users added: " + addedUsers);
         saveUsers();
+
+        DataWriter.saveUsers(users, "src/demo/src/main/java/data/json/user-test.json");
 
         return addedUsers;
     }

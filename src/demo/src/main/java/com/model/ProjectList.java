@@ -68,6 +68,7 @@ public class ProjectList {
     public void addProject(Project project){
         //add to list
         projects.add(project);
+        DataWriter.saveProjects(projects, "src/demo/src/main/java/data/json/project.json");
     }
 
     public void loadProjects(){
