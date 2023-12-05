@@ -18,6 +18,15 @@ public class Columns {
     }
 
     /**
+     * Constructor of just title
+     * 
+     * @param title - title of column
+     */
+    public Columns(String title) {
+        this.title = title;
+    }
+
+    /**
      * One with an empty ArrayList of tasks
      */
     public Columns() {
