@@ -23,6 +23,7 @@ public class NewProjectController {
     @FXML
     private ChoiceBox<String> addCollaborator;
 
+
     @FXML
     private void initialize() {
         populateUserChoiceBox();
@@ -46,6 +47,8 @@ public class NewProjectController {
         project.setPublic(isPublic.isSelected()); 
         project.setFinished(isFinished.isSelected());
         application.addProject(project);
+
+        App.setRoot("dashboard");
     }
 
 

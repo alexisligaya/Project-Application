@@ -1,1 +1,121 @@
-[{"public":false,"name":"Electric Missiles","rating":0.0,"description":"boom","columnList":[{"title":"Backlog","tasks":[{"hours":0.0,"comments":[{"date":"2023-12-05","commentBy":"AMadden","text":"Avoid civilians Jeff!"}],"taskDescription":"Initialize super algorithm to detonate at warp speed","changes":[{"date":"2023-12-05","description":"Task assigned from null to JGold"},{"date":"2023-12-05","description":"Comment by User ID: 358393e6-e1de-4e91-b905-301f7e747627\nFirst name: Atticus\nLast name: Madden\nUsername: AMadden\nEmail: AMadden12@gmail.com\nPassword: 123\nCompany: Code Mission Possible\nDate of Birth: Tue Dec 05 12:41:04 EST 2023: Avoid civilians Jeff!"}],"priority":0}]},{"title":"Doing","tasks":[{"hours":0.0,"comments":[{"date":"2023-12-05","commentBy":"JGold","text":"Not cylindrical enough"},{"date":"2023-12-05","commentBy":"AFinch","text":"What's a cylinder"},{"date":"2023-12-05","commentBy":"AMadden","text":"How about you do it jeff"}],"taskDescription":"Curve the metal to make a cylindrical shape","changes":[{"date":"2023-12-05","description":"Task assigned from null to AMadden"},{"date":"2023-12-05","description":"Comment by User ID: 3999385b-2422-4258-9e27-4be563b73ed3\nFirst name: Jeff\nLast name: Goldblum\nUsername: JGold\nEmail: JGold12@gmail.com\nPassword: 123\nCompany: None\nDate of Birth: Tue Dec 05 12:41:04 EST 2023: Not cylindrical enough"},{"date":"2023-12-05","description":"Comment by User ID: 2dcdc2b2-3f02-46ea-9a57-065fe2b04f76\nFirst name: Atticus\nLast name: Finch\nUsername: AFinch\nEmail: AF12@gmail.com\nPassword: 123\nCompany: Code Mission Possible\nDate of Birth: Tue Dec 05 12:41:04 EST 2023: What's a cylinder"},{"date":"2023-12-05","description":"Comment by User ID: 358393e6-e1de-4e91-b905-301f7e747627\nFirst name: Atticus\nLast name: Madden\nUsername: AMadden\nEmail: AMadden12@gmail.com\nPassword: 123\nCompany: Code Mission Possible\nDate of Birth: Tue Dec 05 12:41:04 EST 2023: How about you do it jeff"},{"date":"2023-12-05","description":"Task assigned from AMadden to JGold"}],"priority":0}]},{"title":"Abandoned","tasks":[{"hours":0.0,"comments":[],"taskDescription":"Make impossible burger possible","changes":[],"priority":0}]},{"title":"Done","tasks":[]}],"isFinished":false,"projectID":"5375c4dc-3b58-4558-8b4c-a48b711974d3"},{"public":false,"name":"Soap Free Washers","rating":0.0,"description":"soapy","columnList":[{"title":"Backlog","tasks":[]}],"isFinished":false,"projectID":"451d29c2-fd1f-492a-8621-733d644d34fe"},{"public":false,"name":"Air Computers","rating":0.0,"description":"airy","columnList":[{"title":"Backlog","tasks":[]}],"isFinished":false,"projectID":"b5d77c5b-cd4b-42bd-8d50-aa1c1880c671"},{"public":false,"name":"TestProj","rating":0.0,"description":"testing desc","columnList":[{"title":"Backlog","tasks":[]}],"isFinished":false,"projectID":"dce20cc8-e23e-49c4-9f52-8532c071f4e9"}]
+[
+    {
+        "public": true,
+        "name": "Artwork",
+        "rating": 0.0,
+        "description": "This is my first project",
+        "columnList": [
+            {
+                "title": "Backlog",
+                "tasks": [
+                    {
+                        "hours": 0.0,
+                        "comments": [],
+                        "taskDescription": "Methods",
+                        "changes": [],
+                        "priority": 0
+                    },
+                    {
+                        "hours": 0.0,
+                        "comments": [],
+                        "taskDescription": "Comments",
+                        "changes": [],
+                        "priority": 0
+                    },
+                    {
+                        "hours": 0.0,
+                        "comments": [],
+                        "taskDescription": "Issues",
+                        "changes": [],
+                        "priority": 0
+                    }
+                ]
+            },
+            {
+                "title": "FrontEnd",
+                "tasks": [
+                    {
+                        "hours": 0.0,
+                        "comments": [],
+                        "taskDescription": "To do",
+                        "changes": [],
+                        "priority": 0
+                    },
+                    {
+                        "hours": 0.0,
+                        "comments": [],
+                        "taskDescription": "Deadlines",
+                        "changes": [],
+                        "priority": 0
+                    }
+                ]
+            },
+            {
+                "title": "In Progress",
+                "tasks": [
+                    {
+                        "hours": 0.0,
+                        "comments": [],
+                        "taskDescription": "Tasks",
+                        "changes": [],
+                        "priority": 0
+                    }
+                ]
+            },
+            {
+                "title": "Finished",
+                "tasks": []
+            }
+        ],
+        "isFinished": true,
+        "projectID": "36568b7b-897e-4774-b2a4-2a2e03ba7d74"
+    },
+    {
+        "public": true,
+        "name": "Game Development",
+        "rating": 0.0,
+        "description": "This is my second project",
+        "columnList": [
+            {
+                "title": "Backlog",
+                "tasks": []
+            },
+            {
+                "title": "Refactoring",
+                "tasks": [
+                    {
+                        "hours": 0.0,
+                        "comments": [],
+                        "taskDescription": "code to fix",
+                        "changes": [],
+                        "priority": 0
+                    }
+                ]
+            }
+        ],
+        "isFinished": false,
+        "projectID": "eb1c10b5-b141-4fdd-a31f-d98662955086"
+    },
+    {
+        "public": true,
+        "name": "Website Redesign",
+        "rating": 0.0,
+        "description": "this is my third project",
+        "columnList": [
+            {
+                "title": "Bugs to Fix",
+                "tasks": [
+                    {
+                        "hours": 0.0,
+                        "comments": [],
+                        "taskDescription": "hi",
+                        "changes": [],
+                        "priority": 0
+                    }
+                ]
+            }
+        ],
+        "isFinished": true,
+        "projectID": "b787bf4f-9634-4551-854a-dc8c4ee334a6"
+    }
+]

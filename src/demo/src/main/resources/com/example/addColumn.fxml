@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.AddColumnController">
+   <children>
+      <VBox layoutX="126.0" layoutY="90.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: EFEFEF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="62.0" prefWidth="600.0" style="-fx-background-color: #48214F;">
+               <children>
+                  <Label layoutX="32.0" layoutY="-3.0" prefHeight="60.0" prefWidth="231.0" style="-fx-font-size: 40px; -fx-text-fill: white;" text="New Column" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="314.0" prefWidth="600.0" style="-fx-background-color: EFEFEF;">
+               <children>
+                  <Label layoutX="215.0" layoutY="12.0" prefHeight="290.0" prefWidth="170.0" style="-fx-font-size: 15; -fx-border-color: BBBBBB; -fx-text-fill: grey; -fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20;" />
+                  <Label alignment="TOP_CENTER" layoutX="275.0" layoutY="43.0" style="-fx-font-size: 25;" />
+                  <TextField fx:id="colTitle" layoutX="240.0" layoutY="37.0" prefHeight="27.0" prefWidth="116.0" promptText="Title" />
+                  <Button fx:id="columnBack" layoutX="233.0" layoutY="246.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="59.0" style="-fx-text-fill: white; -fx-font-size: 10; -fx-background-color: A4ADB3; -fx-background-radius: 20; -fx-border-color: A4ADB3; -fx-border-radius: 20;" text="Cancel" />
+                  <Button fx:id="saveColumn" layoutX="308.0" layoutY="245.0" mnemonicParsing="false" onMouseClicked="#saveNewColumn" prefHeight="22.0" prefWidth="59.0" style="-fx-text-fill: white; -fx-font-size: 10; -fx-background-color: A4ADB3; -fx-background-radius: 20; -fx-border-color: A4ADB3; -fx-border-radius: 20;" text="Done" />
+               </children>
+            </AnchorPane>
+         </children>
+         
+      </VBox>
+   </children>
+</AnchorPane>

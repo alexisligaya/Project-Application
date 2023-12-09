@@ -14,7 +14,7 @@ public class Columns {
      */
     public Columns(String title, ArrayList<Tasks> tasks) {
         this.title = title;
-        this.tasks = tasks;
+        this.tasks = tasks != null ? tasks : new ArrayList<>(); // Ensures tasks is not null
     }
 
     /**
@@ -24,6 +24,7 @@ public class Columns {
      */
     public Columns(String title) {
         this.title = title;
+        this.tasks = new ArrayList<>(); // Initializes tasks to an empty ArrayList
     }
 
     /**

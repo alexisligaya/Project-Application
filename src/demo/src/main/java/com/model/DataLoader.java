@@ -74,7 +74,7 @@ public class DataLoader extends DataConstants {
 		ArrayList<Project> projects = new ArrayList<Project>();
 
 		try {
-			FileReader reader = new FileReader("json/project.json");
+			FileReader reader = new FileReader("src/demo/src/main/java/data/json/project.json");
 			JSONParser parser = new JSONParser();
 			JSONArray projectJSON = (JSONArray) new JSONParser().parse(reader);
 
@@ -87,13 +87,38 @@ public class DataLoader extends DataConstants {
 				double rating = (double) projectDataa.get(PROJECT_RATING);
 				boolean isFinished = (boolean) projectDataa.get(PROJECT_IS_FINISHED);
 				boolean isPublic = (boolean) projectDataa.get(PROJECT_IS_PUBLIC);
-				// JSONArray columns= (JSONArray)projectDataa.get(PROJECT_COLUMNS);
+				
+				JSONArray columnsJSON = (JSONArray)projectDataa.get(PROJECT_COLUMNS);
 				ArrayList<Columns> columns = new ArrayList<>();
-				ArrayList<User> members = new ArrayList<>();
+				if (columnsJSON != null) {
+					for (Object columnObj : columnsJSON) {
+						JSONObject columnJSON = (JSONObject) columnObj;
+						String title = (String) columnJSON.get("title"); // Assuming "title" is the key in your JSON
+						// Assuming no tasks for now or tasks can be handled similarly
+						//columns.add(new Columns(title));
 
-				projects.add(new Project(projectID, name, description, rating, isFinished, isPublic, columns, members));
+						JSONArray tasksJSON = (JSONArray) columnJSON.get("tasks");
+						ArrayList<Tasks> tasks = new ArrayList<>();
+						if (tasksJSON != null) {
+                        for (Object taskObj : tasksJSON) {
+                            JSONObject taskJSON = (JSONObject) taskObj;
+                            String taskDescription = (String) taskJSON.get("taskDescription"); // Assuming the key in your JSON
+                            tasks.add(new Tasks(taskDescription)); // Create and add tasks to the column
+                        	}
+                    	}
+
+						columns.add(new Columns(title, tasks)); 
+					}
+				}
+
+				ArrayList<User> members = new ArrayList<>();
+				Project testProj = new Project(projectID, name, description, rating, isFinished, isPublic, columns, members);
+				projects.add(testProj);
+				
 			}
+
 			return projects;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

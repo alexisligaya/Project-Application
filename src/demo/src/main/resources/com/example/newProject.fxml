@@ -21,7 +21,7 @@
                <children>
                   <Label layoutX="79.0" layoutY="12.0" prefHeight="321.0" prefWidth="457.0" style="-fx-font-size: 15; -fx-border-color: BBBBBB; -fx-text-fill: grey; -fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20;" />
                   <Label alignment="TOP_CENTER" layoutX="275.0" layoutY="43.0" style="-fx-font-size: 25;" />
-                  <Button fx:id="saveNewProject" layoutX="258.0" layoutY="297.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="84.0" style="-fx-text-fill: white; -fx-font-size: 10; -fx-background-color: A4ADB3; -fx-background-radius: 20; -fx-border-color: A4ADB3; -fx-border-radius: 20;" text="Done" />
+                  <Button fx:id="saveNewProject" layoutX="258.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#saveNewProject" prefHeight="15.0" prefWidth="84.0" style="-fx-text-fill: white; -fx-font-size: 10; -fx-background-color: A4ADB3; -fx-background-radius: 20; -fx-border-color: A4ADB3; -fx-border-radius: 20;" text="Done" />
                   <TextField fx:id="projTitle" layoutX="116.0" layoutY="31.0" prefHeight="50.0" prefWidth="384.0" promptText="Project Title" />
                   <TextField fx:id="projDesc" layoutX="116.0" layoutY="96.0" prefHeight="50.0" prefWidth="384.0" promptText="Project Description" />
                   <ChoiceBox fx:id="addCollaborator" layoutX="308.0" layoutY="169.0" prefHeight="26.0" prefWidth="195.0" />

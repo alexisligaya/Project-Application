@@ -184,6 +184,7 @@ public class DataWriter extends DataConstants {
 
             // Create an array for tasks
             JSONArray tasksArray = new JSONArray();
+            
             for (Tasks task : column.getTasks()) {
                 JSONObject taskObject = new JSONObject();
                 //taskObject.put("deadline", task.getDeadline().toString());

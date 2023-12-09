@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class ProjectList {
     private static ProjectList instance;
     private ArrayList<Project> projects;
+    private int currProj;
 
     /**
      * Creates a ProjectList object an initializes the list of projects.
@@ -58,6 +59,7 @@ public class ProjectList {
      * @return The list of all projects
      */
     public ArrayList<Project> getProjects(){
+        projects = DataLoader.loadProjects();
         return projects;
     }
 

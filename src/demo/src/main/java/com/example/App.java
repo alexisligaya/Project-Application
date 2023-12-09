@@ -1,6 +1,10 @@
 package com.example;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import com.model.DataLoader;
+import com.model.Project;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,12 +18,22 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     private static Scene scene;
+    private static ArrayList<Project> projects;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("login"), 640, 480);
+        projects = DataLoader.loadProjects();
+        scene = new Scene(loadFXML("login"), 960, 540);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static ArrayList<Project> getProjects(){
+        return projects;
+    }
+
+    public static void setProjects(ArrayList<Project> projects) {
+        App.projects = projects;
     }
 
     static void setRoot(String fxml) throws IOException {

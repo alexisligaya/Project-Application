@@ -188,6 +188,7 @@ public class ApplicationUI {
         DataWriter.saveUsers(users, "json/project.json");
 
         //hardcode projects
+        System.out.println("####do not see");
         ArrayList<Project> projects = ProjectList.getInstance().getProjects();
         ArrayList<User> projectUsers = new ArrayList<>();
         projectUsers.add(user1);

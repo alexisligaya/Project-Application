@@ -13,15 +13,10 @@
     <StackPane HBox.hgrow="ALWAYS">
          <Pane style="-fx-background-color: #58355E;" />
 
-
-         <Label style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0;" text="Project Manager" StackPane.alignment="TOP_CENTER" />
-
-         <Label style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0;" text="Project Manager" StackPane.alignment="TOP_CENTER" />
-
+         <Label style="-fx-text-fill: white; -fx-font-size: 80px; -fx-padding: 20 0 0 0 20;" text="Project Manager" StackPane.alignment="TOP_CENTER" /> 
          <Pane prefHeight="413.0" prefWidth="550.0" style="-fx-background-color: #58355E;">
          <children>
-               
-               <Label alignment="CENTER" layoutX="31.0" layoutY="23.0" prefHeight="119.0" prefWidth="489.0" style="-fx-text-fill: white; -fx-font-size: 70px; -fx-padding: 20 0 0 0;" text="Project Manager" />
+               <Label alignment="CENTER" layoutX="31.0" layoutY="23.0" prefHeight="119.0" prefWidth="489.0" style="-fx-text-fill: white; -fx-font-size: 70px; -fx-padding: 20 0 0 0;" text="Project Manager" /> 
          </children></Pane>
 
     </StackPane>
@@ -29,8 +24,8 @@
     <VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: EFEFEF;" HBox.hgrow="ALWAYS">
         <children>
             <Label style="-fx-text-fill: black; -fx-font-size: 50px;" text="Welcome" />
-         <TextField fx:id="txt_username" promptText="username" />
-         <TextField fx:id="txt_password" promptText="password" />
+         <TextField fx:id="txt_username" promptText="Username" prefWidth="300.0"/>
+         <TextField fx:id="txt_password" promptText="Password" prefWidth="300.0"/>
 
             <Button fx:id="loginButton" onMouseClicked="#login" prefHeight="0.0" prefWidth="141.0" style="-fx-background-color: #D7C7D9; -fx-text-fill: white; -fx-font-size: 20px;" text="Log In" />
 

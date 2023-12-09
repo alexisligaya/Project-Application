@@ -39,6 +39,19 @@ public class UserList {
         return null;
     }
 
+    public User getUser(String userName){
+        for(User user : users){
+            if(user.getUserName().equals(userName)){
+                return user;
+            }
+            else {
+                return null; //null means incorrect password
+            }
+        }
+        //null means user doesn't exist
+        return null;
+    }
+
     public User getUser(UUID userID) {
         for (User user : users) {
             if (user.getUserID().equals(userID)) {
