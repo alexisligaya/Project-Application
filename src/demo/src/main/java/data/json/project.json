@@ -11,21 +11,21 @@
                     {
                         "hours": 0.0,
                         "comments": [],
-                        "taskDescription": "Methods",
+                        "taskDescription": "Methods to write",
                         "changes": [],
                         "priority": 0
                     },
                     {
                         "hours": 0.0,
                         "comments": [],
-                        "taskDescription": "Comments",
+                        "taskDescription": "Comments and Javadoc",
                         "changes": [],
                         "priority": 0
                     },
                     {
                         "hours": 0.0,
                         "comments": [],
-                        "taskDescription": "Issues",
+                        "taskDescription": "Issues to fix",
                         "changes": [],
                         "priority": 0
                     }
@@ -37,7 +37,7 @@
                     {
                         "hours": 0.0,
                         "comments": [],
-                        "taskDescription": "To do",
+                        "taskDescription": "Create Mockit",
                         "changes": [],
                         "priority": 0
                     },
@@ -56,15 +56,18 @@
                     {
                         "hours": 0.0,
                         "comments": [],
-                        "taskDescription": "Tasks",
+                        "taskDescription": "DataLoader and DataWriter",
+                        "changes": [],
+                        "priority": 0
+                    },
+                    {
+                        "hours": 0.0,
+                        "comments": [],
+                        "taskDescription": "Debugging",
                         "changes": [],
                         "priority": 0
                     }
                 ]
-            },
-            {
-                "title": "Finished",
-                "tasks": []
             }
         ],
         "isFinished": true,
@@ -103,12 +106,12 @@
         "description": "this is my third project",
         "columnList": [
             {
-                "title": "Bugs to Fix",
+                "title": "Debugging",
                 "tasks": [
                     {
                         "hours": 0.0,
                         "comments": [],
-                        "taskDescription": "hi",
+                        "taskDescription": "bugs to fix",
                         "changes": [],
                         "priority": 0
                     }
